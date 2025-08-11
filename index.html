@@ -6,40 +6,105 @@
     <title>Miguel Aimeur | DJ & Visual Artist</title>
     <meta name="description" content="Miguel Aimeur | DJ, VJ, Productor y Artista Visual. Música electrónica, visuales en directo, sets exclusivos y biografía." />
     <link rel="icon" href="favicon.ico" />
-    <!-- Aquí puedes poner tus estilos CSS -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 2em;
-            background: #121212;
-            color: #fff;
+            background: #0a0a14;
+            color: #00e0ff;
             text-align: center;
+            overflow-x: hidden;
         }
+
+        h1 {
+            font-weight: 900;
+            font-size: 5em;
+            color: #00e0ff;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 0.1em;
+            text-shadow:
+                0 0 12px #00e0ff,
+                0 0 30px #00bcd4,
+                0 0 40px #00bcd4,
+                0 0 60px #00f7ff;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 1.3em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 2.5em;
+            color: #a0f0ffcc;
+            text-shadow: 0 0 5px #00e0ff33;
+        }
+
         .link-btn {
             display: block;
-            background: linear-gradient(145deg, #ff4c00, #e04300);
-            color: #fff;
-            padding: 15px 0;
-            margin: 10px auto;
-            max-width: 300px;
+            max-width: 280px;
+            margin: 0.8em auto;
+            padding: 14px 0;
+            background: transparent;
+            border: 2px solid #00e0ff;
             border-radius: 12px;
+            color: #00e0ff;
             font-weight: 700;
+            font-size: 1.1em;
             text-decoration: none;
-            box-shadow: 0 4px 8px rgba(255, 76, 0, 0.3);
-            transition: background 0.3s ease;
+            box-shadow:
+                0 0 8px #00e0ff,
+                inset 0 0 8px #00e0ff;
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+            letter-spacing: 1px;
         }
-        .link-btn:hover {
-            background: linear-gradient(145deg, #e04300, #ff6c1f);
+
+        .link-btn:hover,
+        .link-btn:focus {
+            background-color: #00e0ff22;
+            color: #ffffff;
+            box-shadow:
+                0 0 12px #00f7ff,
+                inset 0 0 12px #00f7ff;
+            outline: none;
+        }
+
+        div[style*="position:absolute"] {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 3em;
+                letter-spacing: 4px;
+            }
+            p {
+                font-size: 1em;
+                padding: 0 1em;
+            }
+            .link-btn {
+                max-width: 90%;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>MiguelAimeur</h1>
+    <h1>Miguel Aimeur</h1>
     <p>Miguel Aimeur es DJ, VJ y productor de música electrónica con años de experiencia creando visuales en directo y sets exclusivos.</p>
 
     <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
-      Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas reconocidas de Valencia como La3, MiniClub y LaMattina. Su estilo combina creatividad, técnica y pasión por la innovación audiovisual.
+        Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas reconocidas de Valencia como La3, MiniClub y LaMattina. Su estilo combina creatividad, técnica y pasión por la innovación audiovisual.
     </div>
 
     <section class="links">
