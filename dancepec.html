@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DANCE PEC - Programa de Música Electrónica | Miguel Aimeur</title>
+<title>DANCE PEC - Próximamente | Miguel Aimeur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
 
@@ -21,32 +21,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
     }
-    h1 {
+    /* Solo mostramos este texto grande */
+    #main-text {
         font-weight: 800;
-        font-size: 3em;
-        margin-bottom: 0.5em;
-    }
-    h2 {
-        font-weight: 800;
-        font-size: 3em;
-        margin-bottom: 2em;
+        font-size: 4em;
         color: #ff4c00;
+        margin-bottom: 2em;
     }
     iframe {
-        border: none;
-        width: 100%;
-        max-width: 1000px;
-        height: 562px; /* relación 16:9 */
-        border-radius: 12px;
-        box-shadow: 0 0 20px #ff4c00aa;
-        margin-bottom: 1.5em;
+        display: none; /* Oculto el vídeo */
     }
+    /* Botones visibles y centrados */
     .stream-buttons {
         display: flex;
         gap: 1em;
-        margin-bottom: 2em;
+        margin-top: 1em;
     }
     .stream-buttons a {
         background-color: #ff4c00;
@@ -69,9 +61,6 @@
         outline: none;
         box-shadow: 0 0 8px #e04300;
     }
-    .info {
-        display: none; /* Oculto el texto debajo del vídeo */
-    }
     /* SEO oculto */
     .seo-hidden {
         position: absolute;
@@ -85,10 +74,9 @@
 </head>
 <body>
 
-<h1>DANCE PEC</h1>
-<h2>PROXIMAMENTE</h2>
+<div id="main-text">DANCE PEC PROXIMAMENTE</div>
 
-<!-- Reproductor del vídeo -->
+<!-- Reproductor oculto pero presente en el DOM -->
 <iframe 
     id="video-frame"
     src="https://www.youtube.com/embed/-_nnfnTFg_k?start=1426" 
@@ -104,16 +92,9 @@
     <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
 </div>
 
-<!-- Texto informativo visible oculto -->
-<div class="info">
-    DANCE PEC PROXIMAMENTE
-</div>
-
 <!-- SEO oculto -->
 <div class="seo-hidden">
-    Claro, vamos al detalle con Miguel Aimeur.
-
-    Perfil Profesional
+   
     Miguel Aimeur es un DJ y productor valenciano especializado en música electrónica, principalmente en estilos como el house, deep house y tech house. Tiene un pie firme en la escena underground española y europea, manteniendo un sonido que mezcla la tradición clásica del house con toques modernos.
 
     Discografía y Sello Discográfico
