@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DANCE PEC - Música, Visuales y Performance | Miguel Aimeur</title>
+<title>DANCE PEC - Programa de Música Electrónica | Miguel Aimeur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
 
@@ -31,8 +31,8 @@
     h2 {
         font-weight: 600;
         font-size: 1.5em;
-        margin-bottom: 1em;
-        color: #00e0ff;
+        margin-bottom: 1.5em;
+        color: #ff4c00;
     }
     iframe {
         border: none;
@@ -40,7 +40,7 @@
         max-width: 1000px;
         height: 562px; /* relación 16:9 */
         border-radius: 12px;
-        box-shadow: 0 0 20px #00e0ffaa;
+        box-shadow: 0 0 20px #ff4c00aa;
         margin-bottom: 1.5em;
     }
     .stream-buttons {
@@ -49,8 +49,8 @@
         margin-bottom: 2em;
     }
     .stream-buttons a {
-        background-color: #00e0ff;
-        color: #000;
+        background-color: #ff4c00;
+        color: #fff;
         padding: 12px 24px;
         text-decoration: none;
         font-weight: 700;
@@ -65,15 +65,16 @@
     }
     .stream-buttons a:hover,
     .stream-buttons a:focus {
-        background-color: #00bcd4;
+        background-color: #e04300;
         outline: none;
-        box-shadow: 0 0 8px #00bcd4;
+        box-shadow: 0 0 8px #e04300;
     }
     .info {
         max-width: 900px;
-        font-size: 1.1em;
+        font-size: 1.3em;
         line-height: 1.5em;
         color: #ccc;
+        font-weight: 600;
     }
     /* SEO oculto */
     .seo-hidden {
@@ -89,59 +90,48 @@
 <body>
 
 <h1>DANCE PEC</h1>
-<h2 id="video-title">Cargando título del capítulo...</h2>
+<h2>PROXIMAMENTE</h2>
 
 <!-- Reproductor del vídeo -->
 <iframe 
     id="video-frame"
     src="https://www.youtube.com/embed/-_nnfnTFg_k?start=1426" 
-    title="DANCE PEC - Música y visuales en directo"
+    title="DANCE PEC - Sesión en Homedjsklubb"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
 </iframe>
 
 <!-- Botones de streaming -->
 <div class="stream-buttons">
-    <a href="https://www.twitch.tv/dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de DANCE PEC">Twitch</a>
-    <a href="https://www.youtube.com/@dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de DANCE PEC">YouTube</a>
-    <a href="https://kick.com/dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de DANCE PEC">Kick</a>
+    <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
+    <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
+    <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
 </div>
 
 <!-- Texto informativo visible -->
 <div class="info">
-    Bienvenidos a <strong>DANCE PEC</strong>, el espacio donde la música electrónica y los visuales en directo se fusionan para crear experiencias únicas.  
-    Miguel Aimeur presenta sets exclusivos, producción audiovisual y performance en vivo que te harán vibrar.  
-    Síguenos en Twitch, YouTube y Kick para no perderte ninguna sesión y sumérgete en el universo DANCE PEC. 🎶✨  
-    <br><br>
-    🔥 <strong>DANCE PEC</strong>: música, visuales y pasión por la innovación audiovisual.  
-    Descubre lo último en sets y performances con calidad profesional y creatividad sin límites.
+    DANCE PEC PROXIMAMENTE
 </div>
 
 <!-- SEO oculto -->
 <div class="seo-hidden">
-    DANCE PEC es un proyecto audiovisual de Miguel Aimeur dedicado a la música electrónica, visuales en directo y performance.  
-    Ofrece sets exclusivos, diseño de efectos visuales y producción musical con un estilo innovador y creativo.  
-    Enlaces oficiales en Twitch, YouTube y Kick para seguir todas sus sesiones y eventos.  
-    Etiquetas: DANCE PEC, Miguel Aimeur, música electrónica, visuales, performance, sets en directo, producción audiovisual.
-</div>
+    Claro, vamos al detalle con Miguel Aimeur.
 
-<script>
-// Obtener título del vídeo usando la API de YouTube (requiere API Key)
-const apiKey = "YOUR_API_KEY"; // Sustituir con tu clave de API de YouTube
-const videoId = "-_nnfnTFg_k";
-fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data.items.length > 0) {
-            document.getElementById("video-title").textContent = data.items[0].snippet.title;
-        } else {
-            document.getElementById("video-title").textContent = "Episodio de DANCE PEC";
-        }
-    })
-    .catch(() => {
-        document.getElementById("video-title").textContent = "Episodio de DANCE PEC";
-    });
-</script>
+    Perfil Profesional
+    Miguel Aimeur es un DJ y productor valenciano especializado en música electrónica, principalmente en estilos como el house, deep house y tech house. Tiene un pie firme en la escena underground española y europea, manteniendo un sonido que mezcla la tradición clásica del house con toques modernos.
+
+    Discografía y Sello Discográfico
+    Ha lanzado varios singles y EPs a través de sellos independientes y especializados en electrónica de calidad, como Basics Hard Music Company y Squad Music. Algunos de sus tracks más conocidos han sonado en clubs y radios especializadas.
+
+    Colaboraciones y Remixes
+    Ha trabajado en colaboraciones con artistas como Rubén Esteve y ha hecho remixes para otros productores dentro del circuito electrónico español. Su estilo es reconocible por el groove sólido, el bajo marcado y un manejo experto de la atmósfera sonora.
+
+    Trayectoria en Clubes y Festivales
+    Miguel ha sido residente y ha pinchado en salas destacadas de Valencia y otras ciudades, consolidándose como una figura respetada en la escena local. Su presencia en festivales o eventos especializados también destaca, siempre apostando por un directo que mezcla técnica y feeling.
+
+    Estilo y Técnica
+    Se caracteriza por un enfoque tradicional pero fresco, cuidando el detalle en la mezcla y producción. No se deja llevar por modas efímeras, sino que su música tiene una base sólida en la tradición del house clásico, adaptada a las exigencias del público actual.
+</div>
 
 </body>
 </html>
