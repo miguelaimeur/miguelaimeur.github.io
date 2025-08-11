@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A PURO REEL - Playlist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: #0e0e0e;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    h1 {
+        font-weight: 800;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    iframe {
+        border: none;
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #ff4c00aa;
+    }
+    a.back-btn {
+        margin-top: 30px;
+        background: #ff4c00;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        user-select: none;
+    }
+    a.back-btn:hover {
+        background-color: #e04300;
+    }
+</style>
+</head>
+<body>
+
+<h1>A PURO REEL - Playlist Oficial</h1>
+
+<!-- Cambia el valor de playlist ID por la de tu canal -->
+<iframe 
+    src="https://www.youtube.com/playlist?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen 
+    loading="lazy"
+></iframe>
+
+<a class="back-btn" href="index.html">← Volver al inicio</a>
+
+</body>
+</html>
