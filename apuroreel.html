@@ -25,16 +25,29 @@
     }
     h1 {
         font-weight: 800;
-        font-size: 2.5em;
-        margin-bottom: 1.25em;
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    h2 {
+        font-weight: 600;
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+        color: #ff4c00;
     }
     iframe {
         border: none;
         width: 100%;
-        max-width: 800px;
-        height: 450px;
+        max-width: 1000px;
+        height: 562px; /* relación 16:9 */
         border-radius: 12px;
         box-shadow: 0 0 20px #ff4c00aa;
+    }
+    .info {
+        max-width: 900px;
+        margin-top: 2em;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        color: #ccc;
     }
     /* SEO oculto */
     .seo-hidden {
@@ -50,45 +63,55 @@
 <body>
 
 <h1>A PURO REEL</h1>
+<h2 id="video-title">Cargando título del capítulo...</h2>
 
 <!-- Reproductor del vídeo -->
 <iframe 
+    id="video-frame"
     src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
     title="A PURO REEL - Programa de comedia y sátira"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
 </iframe>
 
+<!-- Texto informativo visible -->
+<div class="info">
+    ¡Bienvenidos a <strong>A Puro Reel</strong>, el videopodcast que nadie pidió, pero que todos terminan viendo! 😂  
+    Únete a Buba y el Presi en un caos de humor sin filtro, críticas políticas afiladas y comentarios sobre los reels más absurdos de internet.  
+    Desde secciones como <em>"Puro Cine"</em> hasta juegos para distinguir IA de realidad, este es el show para quienes aman lo auténtico y desordenado. 🎥  
+    Suscríbete y no te pierdas el desmadre en <strong>@APUROREEL</strong>. #HumorSinFiltro #APuroReel  
+    <br><br>
+    🔥 <strong>A Puro Reel</strong>: el videopodcast más caótico y real.  
+    Buba y el Presi traen risas, críticas y virales absurdos sin guion.  
+    ¡Échale un ojo en YouTube (<strong>@APUROREEL</strong>) e Instagram (<strong>@apuroreel</strong>)! 🗣️  
+    ¿Listo para el cachondeo? #APuroReel #HumorBruto
+</div>
+
 <!-- SEO oculto -->
 <div class="seo-hidden">
-    <h2>APUROREEL</h2>
-    <p>APUROREEL es un programa de comedia, sátira y monólogos presentado por Miguel Aimeur.  
-    En cada episodio de A PURO REEL, se combinan humor, crítica social y entretenimiento con un estilo único.</p>
-
-    <h2>A PURO REEL</h2>
-    <p>A PURO REEL es el espacio donde el humor y la sátira se encuentran con la actualidad.  
-    Miguel Aimeur presenta monólogos originales, entrevistas divertidas y comentarios irónicos sobre la vida cotidiana.</p>
-
-    <ul>
-        <li>APUROREEL programa de comedia</li>
-        <li>APUROREEL monólogos de humor</li>
-        <li>A PURO REEL sátira y actualidad</li>
-        <li>A PURO REEL presentado por Miguel Aimeur</li>
-        <li>APUROREEL crítica social divertida</li>
-        <li>A PURO REEL humor inteligente</li>
-    </ul>
-
-    <p>En APUROREEL y A PURO REEL el objetivo es hacer reír mientras se piensa.  
-    Es un programa de entretenimiento para amantes de la comedia y la sátira social.  
-    Los episodios incluyen monólogos, sketches y comentarios humorísticos.</p>
-
-    <p>
-        APUROREEL APUROREEL A PURO REEL A PURO REEL  
-        Programa de humor, monólogos y sátira con Miguel Aimeur.  
-        APUROREEL se transmite en YouTube y otras plataformas digitales.  
-        Descubre por qué A PURO REEL es el espacio de comedia más original de internet.
-    </p>
+    APUROREEL es un programa de comedia, sátira y humor presentado por Miguel Aimeur, junto a Buba y el Presi.  
+    Monólogos, crítica política, actualidad, humor sin filtro, y análisis de los reels más absurdos de internet.  
+    Incluye secciones como "Puro Cine", juegos para diferenciar IA de realidad, y debates con un tono irónico y divertido.  
+    Etiquetas: APUROREEL, A PURO REEL, videopodcast de comedia, sátira política, humor bruto, humor sin filtro, Miguel Aimeur, Buba, Presi, YouTube, Instagram.
 </div>
+
+<script>
+// Obtener título del vídeo usando la API de YouTube (requiere API Key)
+const apiKey = "YOUR_API_KEY"; // Sustituir con tu clave de API de YouTube
+const videoId = "pPFlLgdGOWQ";
+fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.items.length > 0) {
+            document.getElementById("video-title").textContent = data.items[0].snippet.title;
+        } else {
+            document.getElementById("video-title").textContent = "Episodio de A PURO REEL";
+        }
+    })
+    .catch(() => {
+        document.getElementById("video-title").textContent = "Episodio de A PURO REEL";
+    });
+</script>
 
 </body>
 </html>
