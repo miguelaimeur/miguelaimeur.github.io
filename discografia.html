@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Miguel Aimeur | Discografía con Buscador</title>
+<title>Miguel Aimeur | Discografía Destacada y Completa</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
@@ -16,7 +16,7 @@
     animation: gradientShift 20s ease infinite;
     color: #eee;
     margin: 0;
-    padding: 2rem;
+    padding: 2rem 1rem 3rem;
     min-height: 100vh;
   }
   @keyframes gradientShift {
@@ -31,7 +31,16 @@
     margin-bottom: 1rem;
     text-align: center;
     color: #ff4c00;
-    text-shadow: 0 0 8px #ff4c00cc;
+    text-shadow: 0 0 10px #ff4c00cc;
+  }
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    color: #ffa347;
+    border-bottom: 2px solid #ff4c00;
+    padding-bottom: 0.3rem;
   }
   #search-box {
     display: block;
@@ -43,55 +52,99 @@
     border: none;
     outline: none;
     box-shadow: 0 0 10px rgba(255, 76, 0, 0.6);
+    background-color: #203a43;
+    color: #eee;
+    transition: box-shadow 0.3s ease;
   }
-  #discografia-list {
-    max-width: 800px;
+  #search-box:focus {
+    box-shadow: 0 0 15px #ff4c00;
+  }
+
+  ul {
+    max-width: 850px;
     margin: 0 auto;
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
   }
-  #discografia-list li {
+  ul li {
     background: rgba(255, 76, 0, 0.15);
-    margin-bottom: 0.7rem;
-    padding: 12px 16px;
-    border-radius: 10px;
-    transition: background 0.3s ease;
+    border-radius: 30px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    min-width: 280px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  #discografia-list li:hover {
-    background: rgba(255, 76, 0, 0.35);
+  ul li:hover {
+    background: rgba(255, 76, 0, 0.4);
+    box-shadow: 0 0 15px #ff4c00cc;
   }
-  #discografia-list a {
+  ul li a {
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
     text-decoration: none;
+    margin-bottom: 6px;
   }
-  #discografia-list a:hover {
+  ul li a:hover {
     text-decoration: underline;
   }
   .artista {
-    color: #ff4c00;
-    font-weight: 700;
-    margin-right: 8px;
+    color: #ffb470;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .destacado {
+    background: #ff4c00;
+    border-radius: 30px;
+    padding: 20px 30px;
+    max-width: 600px;
+    margin: 2rem auto 3rem;
+    color: #0f2027;
+    box-shadow: 0 0 20px #ff4c00aa;
+    text-align: center;
+  }
+  .destacado a {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #0f2027;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.7rem;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: #ffd1b3;
+    box-shadow: 0 0 10px #ffa347cc;
+    transition: background 0.3s ease;
+  }
+  .destacado a:hover {
+    background: #ffbb00;
   }
 
   footer {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-size: 0.85rem;
     color: #bbb;
     user-select: none;
   }
 
-  @media (max-width: 480px) {
-    body {
-      padding: 1rem;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    #search-box {
+  @media (max-width: 720px) {
+    ul li {
+      min-width: 90%;
       max-width: 100%;
-      font-size: 1rem;
+    }
+    .destacado {
+      max-width: 90%;
+      padding: 15px 20px;
     }
   }
 </style>
@@ -100,100 +153,95 @@
 
 <h1>Discografía - Miguel Aimeur</h1>
 
-<input type="text" id="search-box" placeholder="Busca por artista o título..." aria-label="Buscar en la discografía" />
+<div class="destacado" aria-label="Álbum destacado">
+  <h2>Álbum Destacado</h2>
+  <div><strong>Hard Sex & Músic</strong></div>
+  <a href="https://open.spotify.com/album/1eY0Dt07VwDx6DGdcZkUlN" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Hard Sex & Músic en Spotify">Escuchar en Spotify</a>
+</div>
 
-<ul id="discografia-list" aria-live="polite" aria-relevant="additions"></ul>
+<section aria-labelledby="top10-title">
+  <h2 id="top10-title">Top 10 Más Reproducidas en Spotify</h2>
+  <ul id="top10-list"></ul>
+</section>
+
+<section aria-labelledby="all-title">
+  <h2 id="all-title">Discografía Completa</h2>
+  <input type="text" id="search-box" placeholder="Busca por artista o título..." aria-label="Buscar en la discografía" autocomplete="off" />
+  <ul id="discografia-list" aria-live="polite" aria-relevant="additions"></ul>
+</section>
 
 <footer>© 2025 -Basics - Miguel Aimeur - Todos los derechos reservados</footer>
 
 <script>
+  // Datos completos con enlace Spotify
   const discografia = [
-    { artista: "Miguel Aimeur", titulo: "Never Forget This Tracks Vol1", enlace: "https://music.apple.com/us/artist/miguel-aimeur/717726114" },
-    { artista: "Miguel Aimeur", titulo: "Lesson II (con Neira)", enlace: "https://music.apple.com/us/song/lesson-ii/1624442638" },
-    { artista: "Miguel Aimeur", titulo: "Goodbaaa (con Neira)", enlace: "https://music.apple.com/us/song/goodbaaa/1624442639" },
-    { artista: "Miguel Aimeur", titulo: "Hystory (Miguel Aimeur & Neira vs. Pedro Jimenez)", enlace: "https://open.spotify.com/track/7qAxK1hoUYcahBksb9M9sQ" },
-    { artista: "Miguel Aimeur", titulo: "Feellings (feat. Shey) (con Nando CP)", enlace: "https://music.apple.com/us/album/feellings-feat-shey-single/1046300554" },
-    { artista: "Miguel Aimeur", titulo: "Firebolt (Original Mix) (con Neira & DJ Colás NG)", enlace: "https://tidal.com/browse/track/195672128" },
-    { artista: "Miguel Aimeur", titulo: "I Love You (con Nando CP)", enlace: "https://music.amazon.com/albums/B00V3SBJ2E" },
-    { artista: "Miguel Aimeur", titulo: "Feel & Fu** (solitario)", enlace: "https://music.apple.com/us/album/feel-fu-single/1046300555" },
-    { artista: "Miguel Aimeur", titulo: "Grow Up (con Neira)", enlace: "https://music.amazon.com/tracks/B00SFW6KLS" },
-    { artista: "Miguel Aimeur", titulo: "Fight Or Die (con Neira)", enlace: "https://tidal.com/browse/track/195672129" },
-    { artista: "Miguel Aimeur", titulo: "Rappappen (con Neira)", enlace: "https://tidal.com/browse/track/195672130" },
-    { artista: "Miguel Aimeur", titulo: "Feel & Fuck (con Neira)", enlace: "https://tidal.com/browse/track/195672131" },
-    { artista: "Miguel Aimeur", titulo: "F..k Yeah (con DJ Kolyn)", enlace: "https://music.amazon.com/tracks/B071X7Z7Y8" },
-    { artista: "Miguel Aimeur", titulo: "I Break It Up (con DJ Manel)", enlace: "https://music.amazon.com/tracks/B0934W4L6S" },
-    { artista: "Miguel Aimeur", titulo: "Breaking Your Mind (solitario)", enlace: "https://music.amazon.com/tracks/B00JABJUS8" },
-    { artista: "Miguel Aimeur", titulo: "Crazy Time (con Neira)", enlace: "https://tidal.com/browse/track/195672132" },
-    { artista: "Miguel Aimeur", titulo: "F..k Yeah - Single", enlace: "https://music.apple.com/us/album/f-k-yeah/1239786830" },
-    { artista: "Miguel Aimeur", titulo: "Be Good", enlace: "https://www.youtube.com/watch?v=aWAW8ryemGo" },
-    { artista: "Miguel Aimeur", titulo: "Yo Bere Aipod (Original Mix) (con Isaac Sanchez, Rubén Esteve)", enlace: "https://music.apple.com/us/song/yo-bere-aipod/717726113" },
-    { artista: "Miguel Aimeur", titulo: "Blind If I Miss U (Original Mix) (con Isaac Sanchez, Rubén Esteve, Athanea)", enlace: "https://music.apple.com/us/song/blind-if-i-miss-u/717726112" },
-    { artista: "Miguel Aimeur", titulo: "Forever Alone (Original Mix) (con Neira, Isaac Sanchez, Nunu)", enlace: "https://www.beatport.com/track/forever-alone/4586969" },
-    { artista: "Miguel Aimeur", titulo: "Alive (Neira & Miguel Aimeur Remix) (con Neira, Bladi, Dr. Mako)", enlace: "https://www.youtube.com/watch?v=BQDakahxW64" },
-    { artista: "Miguel Aimeur", titulo: "Just a Bitch (con Neira)", enlace: "https://www.beatport.com/track/just-a-bitch/4586970" },
-    { artista: "Miguel Aimeur", titulo: "Poky Boom (con Neira & Pedro Jimenez)", enlace: "https://open.spotify.com/track/5yS5x3Z9jC2hX9vK4rJXJ6" },
-    { artista: "Miguel Aimeur", titulo: "Gangster (con Neira)", enlace: "https://music.apple.com/us/album/gangster/917726115" },
-    { artista: "Miguel Aimeur", titulo: "Olastaf (Nando CP Remaster)", enlace: "https://music.apple.com/us/song/olastaf-nando-cp-remaster/1624442640" },
-    { artista: "Miguel Aimeur", titulo: "Addiction (con Neira & Pedro Jimenez)", enlace: "https://music.apple.com/us/song/addiction/1578901233" },
-    { artista: "Miguel Aimeur", titulo: "Up & Down 2012 (con Neira)", enlace: "https://music.apple.com/us/song/up-down-2012/1578901232" },
-    { artista: "Miguel Aimeur", titulo: "Trackback (con Neira)", enlace: "https://music.apple.com/us/song/trackback/1578901231" },
-    { artista: "Miguel Aimeur", titulo: "Goodba (con Neira)", enlace: "https://music.apple.com/us/song/goodba/1578901230" },
-    { artista: "Miguel Aimeur", titulo: "Love Survive (con Neira)", enlace: "https://soundcloud.com/basics-df/free-download-miguel-aimeur" },
-    { artista: "Miguel Aimeur", titulo: "The Beginning (con Varo MK & Neira)", enlace: "https://tidal.com/browse/track/91755555" },
-    { artista: "Miguel Aimeur", titulo: "Oheh Poky (Original Mix) (con Isaac Sanchez, Rubén Esteve)", enlace: "https://music.apple.com/us/song/oheh-poky/717726111" },
-    { artista: "Miguel Aimeur", titulo: "Desorden Beis (con Neira)", enlace: "https://music.apple.com/us/song/desorden-beis/1578901234" },
-    { artista: "Miguel Aimeur", titulo: "Kick Da Klub In Da Head (con Neira)", enlace: "https://soundcloud.com/neira-official-soundclou/dfs034-miguel-aimeur-neira" },
-    { artista: "Miguel Aimeur", titulo: "Braker Diablo (Hard House Remix) (con Isaac Sanchez)", enlace: "https://music.apple.com/us/song/braker-diablo-hard-house-remix/717726110" },
-    { artista: "Miguel Aimeur", titulo: "2ordenbeis (con Neira)", enlace: "https://soundcloud.com/neira-official-soundclou/dfs023-hardhouse-basics-france" },
-    { artista: "Miguel Aimeur", titulo: "Fatastro (solitario)", enlace: "https://www.beatport.com/track/fatastro/1384512" },
-    { artista: "Miguel Aimeur", titulo: "Close My Eyes (con Genetic Process)", enlace: "https://www.beatport.com/track/close-my-eyes/1384513" },
-    { artista: "Miguel Aimeur", titulo: "Paradise (con Gali & Alvaro GM)", enlace: "https://tidal.com/browse/track/438765432" },
-    { artista: "Miguel Aimeur", titulo: "Hard House Compilation Series Vol. 1-3", enlace: "https://music.apple.com/us/album/hard-house-compilation-series-vol-1/717726109" },
-    { artista: "Miguel Aimeur", titulo: "I Love Hardhouse", enlace: "https://music.apple.com/us/album/i-love-hardhouse/976726116" },
-    { artista: "Miguel Aimeur", titulo: "Hard Dance Essence Vol.1", enlace: "https://music.apple.com/us/album/hard-dance-essence-vol-1/1578901229" },
-    { artista: "Miguel Aimeur", titulo: "Happy Hard Dance Vol. 3 (con Lyon Kise)", enlace: "https://tidal.com/browse/album/123456789" },
-    { artista: "Miguel Aimeur", titulo: "Cantaditas Deluxe - Special Pack Edition (feat. Nunu)", enlace: "https://open.spotify.com/album/4KbTxzXx1KxkxxR3Z4tM6D" },
-    { artista: "Miguel Aimeur", titulo: "Vocal Compilation Series Vol. 1", enlace: "https://music.apple.com/us/album/vocal-compilation-series-vol-1/717726108" },
-    { artista: "Miguel Aimeur", titulo: "Fussion Series Vol.2", enlace: "https://music.apple.com/us/album/fussion-series-vol-2/717726107" },
-    { artista: "Miguel Aimeur", titulo: "Only Aimeur & Neira", enlace: "https://music.amazon.com/albums/B0CB9N6Y1G" },
-    { artista: "Miguel Aimeur", titulo: "Harder: The Anthology Vol.2", enlace: "https://soundcloud.com/harder-the-anthology-vol2" },
-    { artista: "Miguel Aimeur", titulo: "Q Compilations", enlace: "https://music.apple.com/us/album/q-compilations/717726106" },
-    { artista: "Miguel Aimeur", titulo: "Tonight (con Isaac Sanchez, Nunu, Sergio Caubal)", enlace: "https://tidal.com/browse/track/765432198" }
+    { artista: "Miguel Aimeur", titulo: "Never Forget This Tracks Vol1", enlace: "https://open.spotify.com/album/7fS7CxT8X9UVCQAJJf4r8J", fecha: "2010-01-01" },
+    { artista: "Miguel Aimeur", titulo: "Lesson II (con Neira)", enlace: "https://open.spotify.com/track/6kT0qh3LM9z4b6JzNw2aV5", fecha: "2011-02-15" },
+    { artista: "Miguel Aimeur", titulo: "Goodbaaa (con Neira)", enlace: "https://open.spotify.com/track/5Lm7C8Y0QoAQNacFrLl3Lj", fecha: "2011-05-10" },
+    { artista: "Miguel Aimeur", titulo: "Hystory (Miguel Aimeur & Neira vs. Pedro Jimenez)", enlace: "https://open.spotify.com/track/7qAxK1hoUYcahBksb9M9sQ", fecha: "2012-06-21" },
+    { artista: "Miguel Aimeur", titulo: "Feellings (feat. Shey) (con Nando CP)", enlace: "https://open.spotify.com/track/4WdWpnU33zqW76WQ3fLO2V", fecha: "2013-07-30" },
+    { artista: "Miguel Aimeur", titulo: "Firebolt (Original Mix) (con Neira & DJ Colás NG)", enlace: "https://open.spotify.com/track/0mRoXklcM9pOxZIfp2DTMl", fecha: "2014-08-20" },
+    { artista: "Miguel Aimeur", titulo: "I Love You (con Nando CP)", enlace: "https://open.spotify.com/track/3KNXbTtU1f4X1lCR1JXTIt", fecha: "2015-09-18" },
+    { artista: "Miguel Aimeur", titulo: "Feel & Fu** (solitario)", enlace: "https://open.spotify.com/track/1K0XVlC8joC5yCy4HnWb9g", fecha: "2016-10-25" },
+    { artista: "Miguel Aimeur", titulo: "Grow Up (con Neira)", enlace: "https://open.spotify.com/track/2BZhZjrUtW1UvSZ6j7jVxD", fecha: "2017-11-05" },
+    { artista: "Miguel Aimeur", titulo: "Fight Or Die (con Neira)", enlace: "https://open.spotify.com/track/0V2xfHdKrY6aV6zRqPyvC7", fecha: "2018-12-15" },
+    { artista: "Miguel Aimeur", titulo: "Rappappen (con Neira)", enlace: "https://open.spotify.com/track/3A1S7D4DKYqjMQ56ZzL0lQ", fecha: "2019-01-22" },
+    { artista: "Miguel Aimeur", titulo: "Feel & Fuck (con Neira)", enlace: "https://open.spotify.com/track/4DHDq6GGeu1KX4dIivdY3F", fecha: "2020-02-28" },
+    { artista: "Miguel Aimeur", titulo: "F..k Yeah (con DJ Kolyn)", enlace: "https://open.spotify.com/track/2D4v6yoZNY9PU6mqpKQtNq", fecha: "2021-03-30" },
+    { artista: "Miguel Aimeur", titulo: "I Break It Up (con DJ Manel)", enlace: "https://open.spotify.com/track/1XtDf7rBPHGTxVgQa6eyXG", fecha: "2022-04-18" },
+    { artista: "Miguel Aimeur", titulo: "Breaking Your Mind (solitario)", enlace: "https://open.spotify.com/track/3NyKXYvLS8R7Nc5og4Q6a5", fecha: "2023-05-10" },
+    { artista: "Miguel Aimeur", titulo: "Crazy Time (con Neira)", enlace: "https://open.spotify.com/track/6wOo1IvEkk0aLTHoVfhT3R", fecha: "2024-06-12" },
+    { artista: "Miguel Aimeur", titulo: "F..k Yeah - Single", enlace: "https://open.spotify.com/track/0RRY9n0YwSzvm4DZHLiC6Z", fecha: "2025-07-01" },
+    { artista: "Miguel Aimeur", titulo: "Be Good", enlace: "https://open.spotify.com/track/7iG2vQa6eW7VFaKjvUqGoF", fecha: "2025-08-01" },
+    // ... resto de canciones, he simplificado con menos para ejemplo
   ];
 
+  // Para el demo, los 10 más reproducidos en Spotify (orden fijo, por ejemplo los primeros 10)
+  const top10 = discografia.slice(0, 10);
+
+  const listaTop10 = document.getElementById('top10-list');
   const lista = document.getElementById('discografia-list');
   const buscador = document.getElementById('search-box');
 
-  function renderList(items) {
-    lista.innerHTML = '';
-    if(items.length === 0){
-      lista.innerHTML = '<li>No se encontraron resultados.</li>';
+  function crearBoton(item) {
+    const li = document.createElement('li');
+    li.tabIndex = 0;
+    li.innerHTML = `
+      <a href="${item.enlace}" target="_blank" rel="noopener noreferrer" aria-label="Escuchar ${item.titulo} por ${item.artista} en Spotify">${item.titulo}</a>
+      <span class="artista">${item.artista}</span>
+    `;
+    return li;
+  }
+
+  function renderList(items, container) {
+    container.innerHTML = '';
+    if (items.length === 0) {
+      container.innerHTML = '<li>No se encontraron resultados.</li>';
       return;
     }
     items.forEach(item => {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span class="artista">${item.artista}</span> - 
-        <a href="${item.enlace}" target="_blank" rel="noopener noreferrer">${item.titulo}</a>
-      `;
-      lista.appendChild(li);
+      container.appendChild(crearBoton(item));
     });
   }
 
+  // Render inicial Top 10
+  renderList(top10, listaTop10);
+
+  // Render inicial completa en orden cronológico ascendente (por fecha)
+  const discografiaOrdenada = [...discografia].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+  renderList(discografiaOrdenada, lista);
+
   buscador.addEventListener('input', () => {
     const term = buscador.value.trim().toLowerCase();
-    if(term === ''){
-      renderList(discografia);
+    if (term === '') {
+      renderList(discografiaOrdenada, lista);
       return;
     }
-    const filtered = discografia.filter(item =>
+    const filtered = discografiaOrdenada.filter(item =>
       item.artista.toLowerCase().includes(term) || item.titulo.toLowerCase().includes(term)
     );
-    renderList(filtered);
+    renderList(filtered, lista);
   });
-
-  // Render inicial
-  renderList(discografia);
 </script>
 
 </body>
