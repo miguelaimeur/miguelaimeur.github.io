@@ -1,72 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Miguel Aimeur | DJ & Visual Artist</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Miguel Aimeur | DJ & Visual Artist</title>
 
-    <!-- Fuente Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
-    <style>
-        /* Fondo degradado optimizado, compatible y ligero */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0e0e0e 0%, #1f1f1f 100%);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
+<style>
+    /* Fondo animado y partículas */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #0f2027);
+        background-size: 800% 800%;
+        animation: gradientShift 20s ease infinite;
+        color: #fff;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        background-image:
+            radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+            radial-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px);
+        background-position: 0 0, 50px 50px;
+        background-size: 100px 100px;
+        animation: moveParticles 60s linear infinite;
+        z-index: 0;
+    }
+    @keyframes moveParticles {
+        0% { background-position: 0 0, 50px 50px; }
+        100% { background-position: 100px 100px, 150px 150px; }
+    }
+
+    /* Título principal */
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 4rem;
+        margin-bottom: 0.2em;
+        z-index: 1;
+        text-shadow: 0 0 10px #ff4c00cc;
+    }
+    /* Subtítulo */
+    p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 1.3rem;
+        color: #ccc;
+        margin-bottom: 3em;
+        z-index: 1;
+    }
+
+    /* Contenedor de botones */
+    .links {
+        width: 100%;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        z-index: 1;
+    }
+
+    /* Botones modernos */
+    .link-btn {
+        background: linear-gradient(145deg, #ff4c00, #e04300);
+        border: none;
+        padding: 18px 0;
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 700;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow:
+            0 4px 8px rgba(255, 76, 0, 0.3),
+            0 0 10px #ff4c00;
+        transition: 
+            background 0.4s ease,
+            box-shadow 0.4s ease,
+            transform 0.2s ease;
+        user-select: none;
+    }
+    .link-btn:hover, .link-btn:focus {
+        background: linear-gradient(145deg, #e04300, #ff6c1f);
+        box-shadow:
+            0 6px 15px rgba(255, 108, 31, 0.6),
+            0 0 25px #ff6c1f;
+        transform: translateY(-3px);
+        outline: none;
+    }
+    .link-btn:active {
+        transform: translateY(-1px);
+        box-shadow:
+            0 3px 6px rgba(255, 76, 0, 0.5),
+            0 0 15px #ff4c00;
+    }
+
+    /* Footer */
+    footer {
+        position: absolute;
+        bottom: 15px;
+        font-size: 0.9em;
+        color: #999;
+        z-index: 1;
+        user-select: none;
+    }
+
+    /* Responsive para texto y botones */
+    @media (max-width: 480px) {
         h1 {
-            font-size: 3em;
-            font-weight: 800;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
         }
         p {
-            font-size: 1.2em;
-            font-weight: 400;
-            color: #bbb;
-            margin-bottom: 40px;
-        }
-        .links {
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            font-size: 1.1rem;
         }
         .link-btn {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            padding: 15px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1em;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            user-select: none;
+            font-size: 1em;
+            padding: 14px 0;
         }
-        .link-btn:hover {
-            background: #ff4c00;
-            border-color: #ff4c00;
-            color: #fff;
-        }
-        footer {
-            position: absolute;
-            bottom: 15px;
-            font-size: 0.9em;
-            color: #777;
-            width: 100%;
-            text-align: center;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
@@ -78,16 +149,14 @@
         <a class="link-btn" href="apuroreel.html" target="_self">A PURO REEL</a>
         <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer">Twitch</a>
-        <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr?si=cwyluyy5TU6ABnQ61g-NNg&nd=1&dlsi=f333acc5a2e44ba2TU_ID" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank" rel="noopener noreferrer">Spotify</a>
         <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a class="link-btn" href="https://www.junodownload.com/artists/Miguel+Aimeur/" target="_blank" rel="noopener noreferrer">SHOP</a>
-        <!-- Nuevos botones -->
+        <a class="link-btn" href="discografia.html" target="_self">Discografía</a>
         <a class="link-btn" href="biografia.html" target="_self">Biografía</a>
-        <a class="link-btn" href="discografia.html" target="_self">Discografia</a>
     </section>
 
     <footer>
-        © 2025 Miguel Aimeur - Todos los derechos reservados
+        © 2025 -Basics - Miguel Aimeur - Todos los derechos reservados
     </footer>
 
 </body>
