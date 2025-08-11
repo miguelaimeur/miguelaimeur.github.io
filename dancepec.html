@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DANCE PEC - Música, Visuales y Performance | Miguel Aimeur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: #0e0e0e;
+        color: #fff;
+        margin: 0;
+        padding: 2em;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    h1 {
+        font-weight: 800;
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+    h2 {
+        font-weight: 600;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        color: #00e0ff;
+    }
+    iframe {
+        border: none;
+        width: 100%;
+        max-width: 1000px;
+        height: 562px; /* relación 16:9 */
+        border-radius: 12px;
+        box-shadow: 0 0 20px #00e0ffaa;
+        margin-bottom: 1.5em;
+    }
+    .stream-buttons {
+        display: flex;
+        gap: 1em;
+        margin-bottom: 2em;
+    }
+    .stream-buttons a {
+        background-color: #00e0ff;
+        color: #000;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        user-select: none;
+        cursor: pointer;
+        min-width: 120px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .stream-buttons a:hover,
+    .stream-buttons a:focus {
+        background-color: #00bcd4;
+        outline: none;
+        box-shadow: 0 0 8px #00bcd4;
+    }
+    .info {
+        max-width: 900px;
+        font-size: 1.1em;
+        line-height: 1.5em;
+        color: #ccc;
+    }
+    /* SEO oculto */
+    .seo-hidden {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+</style>
+</head>
+<body>
+
+<h1>DANCE PEC</h1>
+<h2 id="video-title">Cargando título del capítulo...</h2>
+
+<!-- Reproductor del vídeo -->
+<iframe 
+    id="video-frame"
+    src="https://www.youtube.com/embed/-_nnfnTFg_k?start=1426" 
+    title="DANCE PEC - Música y visuales en directo"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+<!-- Botones de streaming -->
+<div class="stream-buttons">
+    <a href="https://www.twitch.tv/dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de DANCE PEC">Twitch</a>
+    <a href="https://www.youtube.com/@dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de DANCE PEC">YouTube</a>
+    <a href="https://kick.com/dancepec" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de DANCE PEC">Kick</a>
+</div>
+
+<!-- Texto informativo visible -->
+<div class="info">
+    Bienvenidos a <strong>DANCE PEC</strong>, el espacio donde la música electrónica y los visuales en directo se fusionan para crear experiencias únicas.  
+    Miguel Aimeur presenta sets exclusivos, producción audiovisual y performance en vivo que te harán vibrar.  
+    Síguenos en Twitch, YouTube y Kick para no perderte ninguna sesión y sumérgete en el universo DANCE PEC. 🎶✨  
+    <br><br>
+    🔥 <strong>DANCE PEC</strong>: música, visuales y pasión por la innovación audiovisual.  
+    Descubre lo último en sets y performances con calidad profesional y creatividad sin límites.
+</div>
+
+<!-- SEO oculto -->
+<div class="seo-hidden">
+    DANCE PEC es un proyecto audiovisual de Miguel Aimeur dedicado a la música electrónica, visuales en directo y performance.  
+    Ofrece sets exclusivos, diseño de efectos visuales y producción musical con un estilo innovador y creativo.  
+    Enlaces oficiales en Twitch, YouTube y Kick para seguir todas sus sesiones y eventos.  
+    Etiquetas: DANCE PEC, Miguel Aimeur, música electrónica, visuales, performance, sets en directo, producción audiovisual.
+</div>
+
+<script>
+// Obtener título del vídeo usando la API de YouTube (requiere API Key)
+const apiKey = "YOUR_API_KEY"; // Sustituir con tu clave de API de YouTube
+const videoId = "-_nnfnTFg_k";
+fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.items.length > 0) {
+            document.getElementById("video-title").textContent = data.items[0].snippet.title;
+        } else {
+            document.getElementById("video-title").textContent = "Episodio de DANCE PEC";
+        }
+    })
+    .catch(() => {
+        document.getElementById("video-title").textContent = "Episodio de DANCE PEC";
+    });
+</script>
+
+</body>
+</html>
