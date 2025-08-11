@@ -31,7 +31,7 @@
     h2 {
         font-weight: 600;
         font-size: 1.5em;
-        margin-bottom: 1.5em;
+        margin-bottom: 1em;
         color: #ff4c00;
     }
     iframe {
@@ -41,10 +41,36 @@
         height: 562px; /* relación 16:9 */
         border-radius: 12px;
         box-shadow: 0 0 20px #ff4c00aa;
+        margin-bottom: 1.5em;
+    }
+    .stream-buttons {
+        display: flex;
+        gap: 1em;
+        margin-bottom: 2em;
+    }
+    .stream-buttons a {
+        background-color: #ff4c00;
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        user-select: none;
+        cursor: pointer;
+        min-width: 120px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .stream-buttons a:hover,
+    .stream-buttons a:focus {
+        background-color: #e04300;
+        outline: none;
+        box-shadow: 0 0 8px #e04300;
     }
     .info {
         max-width: 900px;
-        margin-top: 2em;
         font-size: 1.1em;
         line-height: 1.5em;
         color: #ccc;
@@ -73,6 +99,13 @@
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
 </iframe>
+
+<!-- Botones de streaming -->
+<div class="stream-buttons">
+    <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
+    <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
+    <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
+</div>
 
 <!-- Texto informativo visible -->
 <div class="info">
