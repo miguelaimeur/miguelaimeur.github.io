@@ -1,90 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miguel Aimeur | DJ & Visual Artist</title>
+  <meta name="description" content="Miguel Aimeur | DJ, VJ, Productor y Artista Visual. Música electrónica, visuales en directo, sets exclusivos y biografía." />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-    <title>Miguel Aimeur | DJ, VJ, Productor y Artista Visual</title>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
 
-    <!-- Descripción SEO -->
-    <meta name="description" content="Miguel Aimeur | DJ, VJ, Productor y Artista Visual. Música, visuales y experiencias únicas en escenarios de todo el mundo.">
+    body {
+      margin: 0;
+      padding: 2.5em 1.5em;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0a0a14 0%, #001f29 100%);
+      color: #00e0ff;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.8em;
+      overflow-x: hidden;
+    }
 
-    <!-- Palabras clave SEO -->
-    <meta name="keywords" content="Miguel Aimeur, DJ, VJ, artista visual, productor musical, música electrónica, visuales, iluminación, FX, Valencia, eventos, espectáculos, conciertos, escenarios, música en vivo, artistas internacionales, Tomorrowland, Dimitri Vegas, Nervo, Jeff Mills, Head Hunterz, Antonio Orozco, Manuel Carrasco, La3, MiniClub, LaMattina">
+    h1 {
+      font-weight: 900;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      color: #00e0ff;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      margin: 0;
+      text-shadow:
+        0 0 10px #00e0ff,
+        0 0 20px #00bcd4,
+        0 0 30px #00bcd4;
+    }
 
-    <!-- Autor -->
-    <meta name="author" content="Miguel Aimeur" />
+    p {
+      font-weight: 400;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 2em;
+      color: #a0f0ffcc;
+      text-shadow: 0 0 4px #00e0ff44;
+    }
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" />
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-    <!-- Fuente Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+    .link-btn {
+      flex: 1 1 140px;
+      max-width: 200px;
+      padding: 0.85em 0;
+      border: 2px solid #00e0ff;
+      border-radius: 12px;
+      color: #00e0ff;
+      font-weight: 700;
+      font-size: 1.1em;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      background: transparent;
+      box-shadow:
+        0 0 8px #00e0ff88;
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+      user-select: none;
+    }
 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #000; 
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            padding: 80px 20px 40px;
-        }
-        h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: #ccc;
-            margin-bottom: 50px;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-            text-align: left;
-        }
-        section h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        section p, section ul {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 8px;
-        }
-    </style>
+    .link-btn:hover,
+    .link-btn:focus {
+      background-color: #00e0ff22;
+      color: #ffffff;
+      box-shadow:
+        0 0 14px #00f7ffcc,
+        inset 0 0 14px #00f7ffcc;
+      outline: none;
+    }
+
+    /* Oculto para SEO, accesibilidad y bots */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      border: 0;
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 1.5em 1em;
+      }
+      .link-btn {
+        flex: 1 1 100%;
+        max-width: none;
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Miguel Aimeur</h1>
-        <h2>LJ - VJ - DJ</h2>
-    </header>
+  <h1>Miguel Aimeur</h1>
+  <p>Miguel Aimeur es DJ, VJ y productor de música electrónica con años de experiencia creando visuales en directo y sets exclusivos.</p>
 
-    <section id="biografia">
-        <h3>Biografía</h3>
-        <p>Miguel Aimeur es DJ, VJ, productor y artista visual con una trayectoria internacional, llevando su talento a escenarios de gran prestigio y festivales alrededor del mundo. Reconocido por su capacidad para fusionar música, visuales y efectos especiales, ha trabajado con artistas como Dimitri Vegas & Like Mike, Nervo, Jeff Mills, Head Hunterz, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas icónicas como La3, MiniClub y LaMattina en Valencia.</p>
-    </section>
+  <div class="visually-hidden" aria-hidden="false">
+    Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas reconocidas de Valencia como La3, MiniClub y LaMattina. Su estilo combina creatividad, técnica y pasión por la innovación audiovisual.
+  </div>
 
-    <section id="discografia">
-        <h3>Discografía</h3>
-        <ul>
-            <li><a href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank">Never Forget This Tracks Vol.1</a></li>
-            <li><a href="https://www.deezer.com/en/track/139466824" target="_blank">Lesson II (con Neira)</a></li>
-        </ul>
-    </section>
+  <section class="links" aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
+    <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
+    <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
+    <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
+    <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Canal de Twitch de Miguel Aimeur">Twitch</a>
+    <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Spotify de Miguel Aimeur">Spotify</a>
+    <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
+    <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
+    <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
+  </section>
 </body>
 </html>
