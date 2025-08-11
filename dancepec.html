@@ -21,10 +21,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         text-align: center;
     }
-    /* Solo mostramos este texto grande */
     #main-text {
         font-weight: 800;
         font-size: 4em;
@@ -32,13 +31,23 @@
         margin-bottom: 2em;
     }
     iframe {
-        display: none; /* Oculto el vídeo */
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #ff4c00aa;
+        margin-bottom: 0.4em;
+        max-width: 1000px;
+        width: 100%;
+        height: 562px; /* Para YouTube, 16:9 */
     }
-    /* Botones visibles y centrados */
+    iframe.soundcloud {
+        height: 166px; /* estándar SoundCloud embed height */
+        max-width: 1000px;
+        width: 100%;
+    }
     .stream-buttons {
         display: flex;
         gap: 1em;
-        margin-top: 1em;
+        margin-bottom: 2em;
     }
     .stream-buttons a {
         background-color: #ff4c00;
@@ -61,6 +70,14 @@
         outline: none;
         box-shadow: 0 0 8px #e04300;
     }
+    .video-title {
+        font-weight: 600;
+        font-size: 1.2em;
+        color: #ff4c00;
+        margin-bottom: 2em;
+        max-width: 1000px;
+        text-align: center;
+    }
     /* SEO oculto */
     .seo-hidden {
         position: absolute;
@@ -76,15 +93,6 @@
 
 <div id="main-text">DANCE PEC PROXIMAMENTE</div>
 
-<!-- Reproductor oculto pero presente en el DOM -->
-<iframe 
-    id="video-frame"
-    src="https://www.youtube.com/embed/-_nnfnTFg_k?start=1426" 
-    title="DANCE PEC - Sesión en Homedjsklubb"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
 <!-- Botones de streaming -->
 <div class="stream-buttons">
     <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
@@ -92,9 +100,50 @@
     <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
 </div>
 
+<!-- Reproductores con títulos -->
+
+<!-- 1) YouTube -->
+<iframe 
+    src="https://www.youtube.com/embed/-_nnfnTFg_k?start=2379" 
+    title="Homedjsklubb - DANCE PEC Session"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+<div class="video-title">Homedjsklubb - DANCE PEC Session (Start 39:39)</div>
+
+<!-- 2) YouTube -->
+<iframe 
+    src="https://www.youtube.com/embed/8yxRXecmb4U?start=3105" 
+    title="Miguel Aimeur Live Set"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+<div class="video-title">Miguel Aimeur Live Set (Start 51:45)</div>
+
+<!-- 3) SoundCloud track -->
+<iframe 
+    class="soundcloud"
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay" 
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/basics-df/neira-aimeur-presents-hardhouse-around-the-world-3-free-download&color=%23ff4c00&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+</iframe>
+<div class="video-title">Neira & Aimeur presents Hardhouse Around The World 3 (Free Download)</div>
+
+<!-- 4) SoundCloud playlist -->
+<iframe 
+    class="soundcloud"
+    scrolling="no" 
+    frameborder="no" 
+    allow="autoplay" 
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/basics-df/sets/sesiones-sessions-of-basics&color=%23ff4c00&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+</iframe>
+<div class="video-title">Sesiones / Sessions of Basics</div>
+
 <!-- SEO oculto -->
 <div class="seo-hidden">
-   
+
+    Perfil Profesional
     Miguel Aimeur es un DJ y productor valenciano especializado en música electrónica, principalmente en estilos como el house, deep house y tech house. Tiene un pie firme en la escena underground española y europea, manteniendo un sonido que mezcla la tradición clásica del house con toques modernos.
 
     Discografía y Sello Discográfico
