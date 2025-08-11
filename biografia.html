@@ -1,90 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Biografía - Miguel Aimeur</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Miguel Aimeur | Discografía con Buscador</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0e0e0e 0%, #1f1f1f 100%);
-            color: #fff;
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        h1 {
-            font-weight: 800;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            max-width: 700px;
-            font-weight: 400;
-            font-size: 1.2em;
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
-        a.back-btn {
-            background: #ff4c00;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            user-select: none;
-        }
-        a.back-btn:hover {
-            background-color: #e04300;
-        }
-    </style>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #0f2027;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #0f2027);
+    background-size: 800% 800%;
+    animation: gradientShift 20s ease infinite;
+    color: #eee;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  @keyframes gradientShift {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #ff4c00;
+    text-shadow: 0 0 8px #ff4c00cc;
+  }
+  #search-box {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 76, 0, 0.6);
+  }
+  #discografia-list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+  #discografia-list li {
+    background: rgba(255, 76, 0, 0.15);
+    margin-bottom: 0.7rem;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  #discografia-list li:hover {
+    background: rgba(255, 76, 0, 0.35);
+  }
+  #discografia-list a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  #discografia-list a:hover {
+    text-decoration: underline;
+  }
+  .artista {
+    color: #ff4c00;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: #bbb;
+    user-select: none;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    #search-box {
+      max-width: 100%;
+      font-size: 1rem;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <h1>Biografía</h1>
+<h1>Discografía - Miguel Aimeur</h1>
 
-    <p>
-       LJ- VJ- DJ y productor español especializado en hard dance y hard house, con una carrera que abarca más de 25 años en la escena electrónica nacional.  Trabaja como LJ y VJ, diseñando visuales, iluminación y efectos especiales (FX) de máximo nivel técnico y artístico para eventos y festivales en toda España. Su trabajo integra gráficos en tiempo real, luces y FX para crear ambientes inmersivos y sincronizados con la música.
+<input type="text" id="search-box" placeholder="Busca por artista o título..." aria-label="Buscar en la discografía" />
 
-Ha colaborado con artistas como Dmitri Vegas & Like Mike, Nervo, Head Hunterz, Jeff Miles, Antonio Orozco y Manuel Carrasco. Fue VJ durante varios años en salas emblemáticas de Valencia como La3, MiniClub y LaMattina, aportando calidad y creatividad a cada sesión.
+<ul id="discografia-list" aria-live="polite" aria-relevant="additions"></ul>
 
-Ha participado en festivales como Medusa, Pilares de Zaragoza, OffSonar, RMF y en el Wizink Center, consolidándose como referencia en producción visual y lumínica.  Su trayectoria está marcada por la fundación y dirección de los sellos Basics Hard Music Company y Dancefloor Studios, ambos ya inactivos, así como por su papel en la promoción y producción del hard dance en España.
+<footer>© 2025 -Basics - Miguel Aimeur - Todos los derechos reservados</footer>
 
-Carrera y Trayectoria
+<script>
+  const discografia = [
+    { artista: "Miguel Aimeur", titulo: "Never Forget This Tracks Vol1", enlace: "https://music.apple.com/us/artist/miguel-aimeur/717726114" },
+    { artista: "Miguel Aimeur", titulo: "Lesson II (con Neira)", enlace: "https://music.apple.com/us/song/lesson-ii/1624442638" },
+    { artista: "Miguel Aimeur", titulo: "Goodbaaa (con Neira)", enlace: "https://music.apple.com/us/song/goodbaaa/1624442639" },
+    { artista: "Miguel Aimeur", titulo: "Hystory (Miguel Aimeur & Neira vs. Pedro Jimenez)", enlace: "https://open.spotify.com/track/7qAxK1hoUYcahBksb9M9sQ" },
+    { artista: "Miguel Aimeur", titulo: "Feellings (feat. Shey) (con Nando CP)", enlace: "https://music.apple.com/us/album/feellings-feat-shey-single/1046300554" },
+    { artista: "Miguel Aimeur", titulo: "Firebolt (Original Mix) (con Neira & DJ Colás NG)", enlace: "https://tidal.com/browse/track/195672128" },
+    { artista: "Miguel Aimeur", titulo: "I Love You (con Nando CP)", enlace: "https://music.amazon.com/albums/B00V3SBJ2E" },
+    { artista: "Miguel Aimeur", titulo: "Feel & Fu** (solitario)", enlace: "https://music.apple.com/us/album/feel-fu-single/1046300555" },
+    { artista: "Miguel Aimeur", titulo: "Grow Up (con Neira)", enlace: "https://music.amazon.com/tracks/B00SFW6KLS" },
+    { artista: "Miguel Aimeur", titulo: "Fight Or Die (con Neira)", enlace: "https://tidal.com/browse/track/195672129" },
+    { artista: "Miguel Aimeur", titulo: "Rappappen (con Neira)", enlace: "https://tidal.com/browse/track/195672130" },
+    { artista: "Miguel Aimeur", titulo: "Feel & Fuck (con Neira)", enlace: "https://tidal.com/browse/track/195672131" },
+    { artista: "Miguel Aimeur", titulo: "F..k Yeah (con DJ Kolyn)", enlace: "https://music.amazon.com/tracks/B071X7Z7Y8" },
+    { artista: "Miguel Aimeur", titulo: "I Break It Up (con DJ Manel)", enlace: "https://music.amazon.com/tracks/B0934W4L6S" },
+    { artista: "Miguel Aimeur", titulo: "Breaking Your Mind (solitario)", enlace: "https://music.amazon.com/tracks/B00JABJUS8" },
+    { artista: "Miguel Aimeur", titulo: "Crazy Time (con Neira)", enlace: "https://tidal.com/browse/track/195672132" },
+    { artista: "Miguel Aimeur", titulo: "F..k Yeah - Single", enlace: "https://music.apple.com/us/album/f-k-yeah/1239786830" },
+    { artista: "Miguel Aimeur", titulo: "Be Good", enlace: "https://www.youtube.com/watch?v=aWAW8ryemGo" },
+    { artista: "Miguel Aimeur", titulo: "Yo Bere Aipod (Original Mix) (con Isaac Sanchez, Rubén Esteve)", enlace: "https://music.apple.com/us/song/yo-bere-aipod/717726113" },
+    { artista: "Miguel Aimeur", titulo: "Blind If I Miss U (Original Mix) (con Isaac Sanchez, Rubén Esteve, Athanea)", enlace: "https://music.apple.com/us/song/blind-if-i-miss-u/717726112" },
+    { artista: "Miguel Aimeur", titulo: "Forever Alone (Original Mix) (con Neira, Isaac Sanchez, Nunu)", enlace: "https://www.beatport.com/track/forever-alone/4586969" },
+    { artista: "Miguel Aimeur", titulo: "Alive (Neira & Miguel Aimeur Remix) (con Neira, Bladi, Dr. Mako)", enlace: "https://www.youtube.com/watch?v=BQDakahxW64" },
+    { artista: "Miguel Aimeur", titulo: "Just a Bitch (con Neira)", enlace: "https://www.beatport.com/track/just-a-bitch/4586970" },
+    { artista: "Miguel Aimeur", titulo: "Poky Boom (con Neira & Pedro Jimenez)", enlace: "https://open.spotify.com/track/5yS5x3Z9jC2hX9vK4rJXJ6" },
+    { artista: "Miguel Aimeur", titulo: "Gangster (con Neira)", enlace: "https://music.apple.com/us/album/gangster/917726115" },
+    { artista: "Miguel Aimeur", titulo: "Olastaf (Nando CP Remaster)", enlace: "https://music.apple.com/us/song/olastaf-nando-cp-remaster/1624442640" },
+    { artista: "Miguel Aimeur", titulo: "Addiction (con Neira & Pedro Jimenez)", enlace: "https://music.apple.com/us/song/addiction/1578901233" },
+    { artista: "Miguel Aimeur", titulo: "Up & Down 2012 (con Neira)", enlace: "https://music.apple.com/us/song/up-down-2012/1578901232" },
+    { artista: "Miguel Aimeur", titulo: "Trackback (con Neira)", enlace: "https://music.apple.com/us/song/trackback/1578901231" },
+    { artista: "Miguel Aimeur", titulo: "Goodba (con Neira)", enlace: "https://music.apple.com/us/song/goodba/1578901230" },
+    { artista: "Miguel Aimeur", titulo: "Love Survive (con Neira)", enlace: "https://soundcloud.com/basics-df/free-download-miguel-aimeur" },
+    { artista: "Miguel Aimeur", titulo: "The Beginning (con Varo MK & Neira)", enlace: "https://tidal.com/browse/track/91755555" },
+    { artista: "Miguel Aimeur", titulo: "Oheh Poky (Original Mix) (con Isaac Sanchez, Rubén Esteve)", enlace: "https://music.apple.com/us/song/oheh-poky/717726111" },
+    { artista: "Miguel Aimeur", titulo: "Desorden Beis (con Neira)", enlace: "https://music.apple.com/us/song/desorden-beis/1578901234" },
+    { artista: "Miguel Aimeur", titulo: "Kick Da Klub In Da Head (con Neira)", enlace: "https://soundcloud.com/neira-official-soundclou/dfs034-miguel-aimeur-neira" },
+    { artista: "Miguel Aimeur", titulo: "Braker Diablo (Hard House Remix) (con Isaac Sanchez)", enlace: "https://music.apple.com/us/song/braker-diablo-hard-house-remix/717726110" },
+    { artista: "Miguel Aimeur", titulo: "2ordenbeis (con Neira)", enlace: "https://soundcloud.com/neira-official-soundclou/dfs023-hardhouse-basics-france" },
+    { artista: "Miguel Aimeur", titulo: "Fatastro (solitario)", enlace: "https://www.beatport.com/track/fatastro/1384512" },
+    { artista: "Miguel Aimeur", titulo: "Close My Eyes (con Genetic Process)", enlace: "https://www.beatport.com/track/close-my-eyes/1384513" },
+    { artista: "Miguel Aimeur", titulo: "Paradise (con Gali & Alvaro GM)", enlace: "https://tidal.com/browse/track/438765432" },
+    { artista: "Miguel Aimeur", titulo: "Hard House Compilation Series Vol. 1-3", enlace: "https://music.apple.com/us/album/hard-house-compilation-series-vol-1/717726109" },
+    { artista: "Miguel Aimeur", titulo: "I Love Hardhouse", enlace: "https://music.apple.com/us/album/i-love-hardhouse/976726116" },
+    { artista: "Miguel Aimeur", titulo: "Hard Dance Essence Vol.1", enlace: "https://music.apple.com/us/album/hard-dance-essence-vol-1/1578901229" },
+    { artista: "Miguel Aimeur", titulo: "Happy Hard Dance Vol. 3 (con Lyon Kise)", enlace: "https://tidal.com/browse/album/123456789" },
+    { artista: "Miguel Aimeur", titulo: "Cantaditas Deluxe - Special Pack Edition (feat. Nunu)", enlace: "https://open.spotify.com/album/4KbTxzXx1KxkxxR3Z4tM6D" },
+    { artista: "Miguel Aimeur", titulo: "Vocal Compilation Series Vol. 1", enlace: "https://music.apple.com/us/album/vocal-compilation-series-vol-1/717726108" },
+    { artista: "Miguel Aimeur", titulo: "Fussion Series Vol.2", enlace: "https://music.apple.com/us/album/fussion-series-vol-2/717726107" },
+    { artista: "Miguel Aimeur", titulo: "Only Aimeur & Neira", enlace: "https://music.amazon.com/albums/B0CB9N6Y1G" },
+    { artista: "Miguel Aimeur", titulo: "Harder: The Anthology Vol.2", enlace: "https://soundcloud.com/harder-the-anthology-vol2" },
+    { artista: "Miguel Aimeur", titulo: "Q Compilations", enlace: "https://music.apple.com/us/album/q-compilations/717726106" },
+    { artista: "Miguel Aimeur", titulo: "Tonight (con Isaac Sanchez, Nunu, Sergio Caubal)", enlace: "https://tidal.com/browse/track/765432198" }
+  ];
 
-        
+  const lista = document.getElementById('discografia-list');
+  const buscador = document.getElementById('search-box');
 
-Inició su carrera a finales de los 2000 con lanzamientos en vinilo como Be Good (2008). Desde el inicio, su estilo se definió por ritmos acelerados, basslines contundentes y un enfoque en el hard house con influencias makineras españolas.
+  function renderList(items) {
+    lista.innerHTML = '';
+    if(items.length === 0){
+      lista.innerHTML = '<li>No se encontraron resultados.</li>';
+      return;
+    }
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span class="artista">${item.artista}</span> - 
+        <a href="${item.enlace}" target="_blank" rel="noopener noreferrer">${item.titulo}</a>
+      `;
+      lista.appendChild(li);
+    });
+  }
 
-Fundó Basics Hard Music Company, sello emblemático que lanzó trabajos propios y de otros artistas, incluyendo su álbum Hard Sex & Music (2014), producido junto a Neira como dúo Aimeur & Neira. Este álbum, relanzado en 2021, es un referente del hard dance nacional con temas como "Grow Up" y "Breaking Your Mind".
+  buscador.addEventListener('input', () => {
+    const term = buscador.value.trim().toLowerCase();
+    if(term === ''){
+      renderList(discografia);
+      return;
+    }
+    const filtered = discografia.filter(item =>
+      item.artista.toLowerCase().includes(term) || item.titulo.toLowerCase().includes(term)
+    );
+    renderList(filtered);
+  });
 
-En paralelo trabajó con Dancefloor Studios y Squad Music, sellos históricos donde publicó colaboraciones y remixes en conjunto con Neira y otros artistas destacados del género.
-
-        
-
-Como DJ, tuvo residencias en discotecas emblemáticas como The Sun (Moonlight) y Bananas (Masters of Dance) en Valencia, y Tropicana Dance Club e Icarus en Madrid. También pinchó en eventos reconocidos, entre ellos las Fallas Ruzafa 2019 y fiestas en Virtual Dance Valencia y Fantasy Almansa.
-
-Actualmente, tras la extinción de sus sellos, Miguel mantiene su presencia en la escena como locutor del podcast A Puro Reel, centrado en sátira y cultura musical.
-
-        
-
-DJs con los que ha compartido cabina
-
-Miguel Aimeur ha compartido cabina con figuras destacadas de la escena hard dance y electrónica nacional e internacional como Neira, Nando CP, Ismael Lora, Raúl Soto, DJ Vito, Isaac Sánchez, Rubén Esteve, Jorge Hardbass, DJ Colás NG, Pedro Jiménez, Korsakoff, DJ Sancho,Miguel Serna,dj ruthless, Fran DJ (Energy Time), Alfre DJ (Más Que Dance) y DJ Kbo (JhonK en Fethis Valencia), entre otros.
-
-
-    </p>
-
-    <a class="back-btn" href="index.html">← Volver al inicio</a>
+  // Render inicial
+  renderList(discografia);
+</script>
 
 </body>
 </html>
