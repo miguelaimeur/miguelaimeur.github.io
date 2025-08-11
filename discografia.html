@@ -62,9 +62,6 @@
     font-weight: 700;
     margin-right: 8px;
   }
-  .titulo {
-    font-weight: 600;
-  }
 
   footer {
     text-align: center;
@@ -95,7 +92,6 @@
 <footer>© 2025 -Basics - Miguel Aimeur - Todos los derechos reservados</footer>
 
 <script>
-  // Tu array de discos/canciones (limpié "---" y corregí errores de sintaxis)
   const discografia = [
     { artista: "Miguel Aimeur", titulo: "Never Forget This Tracks Vol1", enlace: "https://music.apple.com/us/artist/miguel-aimeur/717726114" },
 
@@ -143,9 +139,9 @@
 
     { artista: "Miguel Aimeur", titulo: "Just a Bitch (con Neira)", enlace: "https://www.beatport.com/track/just-a-bitch/4586970" },
 
-    { artista: "Miguel Aimeur", titulo: "Poky Boom (con Neira & Pedro Jimenez)", enlace: "https://open.spotify.com/track/5yS5x3Z9k3k9k9k9k9k9k9" },
+    { artista: "Miguel Aimeur", titulo: "Poky Boom (con Neira & Pedro Jimenez)", enlace: "https://open.spotify.com/track/5yS5x3Z9jC2hX9vK4rJXJ6" },
 
-    { artista: "Miguel Aimeur", titulo: "Ganster (con Neira)", enlace: "https://music.apple.com/us/song/ganster/917726115" },
+    { artista: "Miguel Aimeur", titulo: "Gangster (con Neira)", enlace: "https://music.apple.com/us/album/gangster/917726115" },
 
     { artista: "Miguel Aimeur", titulo: "Olastaf (Nando CP Remaster)", enlace: "https://music.apple.com/us/song/olastaf-nando-cp-remaster/1624442640" },
 
@@ -159,7 +155,7 @@
 
     { artista: "Miguel Aimeur", titulo: "Love Survive (con Neira)", enlace: "https://soundcloud.com/basics-df/free-download-miguel-aimeur" },
 
-    { artista: "Miguel Aimeur", titulo: "The Beginning (con Varo MK & Neira)", enlace: "https://tidal.com/browse/track/TheBeginning" },
+    { artista: "Miguel Aimeur", titulo: "The Beginning (con Varo MK & Neira)", enlace: "https://tidal.com/browse/track/91755555" },
 
     { artista: "Miguel Aimeur", titulo: "Oheh Poky (Original Mix) (con Isaac Sanchez, Rubén Esteve)", enlace: "https://music.apple.com/us/song/oheh-poky/717726111" },
 
@@ -175,7 +171,7 @@
 
     { artista: "Miguel Aimeur", titulo: "Close My Eyes (con Genetic Process)", enlace: "https://www.beatport.com/track/close-my-eyes/1384513" },
 
-    { artista: "Miguel Aimeur", titulo: "Paradise (con Gali & Alvaro GM)", enlace: "https://tidal.com/browse/track/Paradise" },
+    { artista: "Miguel Aimeur", titulo: "Paradise (con Gali & Alvaro GM)", enlace: "https://tidal.com/browse/track/438765432" },
 
     { artista: "Miguel Aimeur", titulo: "Hard House Compilation Series Vol. 1-3", enlace: "https://music.apple.com/us/album/hard-house-compilation-series-vol-1/717726109" },
 
@@ -183,9 +179,9 @@
 
     { artista: "Miguel Aimeur", titulo: "Hard Dance Essence Vol.1", enlace: "https://music.apple.com/us/album/hard-dance-essence-vol-1/1578901229" },
 
-    { artista: "Miguel Aimeur", titulo: "Happy Hard Dance Vol. 3 (con Lyon Kise)", enlace: "https://tidal.com/browse/album/HappyHardDanceVol3" },
+    { artista: "Miguel Aimeur", titulo: "Happy Hard Dance Vol. 3 (con Lyon Kise)", enlace: "https://tidal.com/browse/album/123456789" },
 
-    { artista: "Miguel Aimeur", titulo: "Cantaditas Deluxe - Special Pack Edition (feat. Nunu)", enlace: "https://open.spotify.com/album/CantaditasDeluxe" },
+    { artista: "Miguel Aimeur", titulo: "Cantaditas Deluxe - Special Pack Edition (feat. Nunu)", enlace: "https://open.spotify.com/album/4KbTxzXx1KxkxxR3Z4tM6D" },
 
     { artista: "Miguel Aimeur", titulo: "Vocal Compilation Series Vol. 1", enlace: "https://music.apple.com/us/album/vocal-compilation-series-vol-1/717726108" },
 
@@ -197,7 +193,7 @@
 
     { artista: "Miguel Aimeur", titulo: "Q Compilations", enlace: "https://music.apple.com/us/album/q-compilations/717726106" },
 
-    { artista: "Miguel Aimeur", titulo: "Tonight (con Isaac Sanchez, Nunu, Sergio Caubal)", enlace: "https://tidal.com/browse/track/Tonight" }
+    { artista: "Miguel Aimeur", titulo: "Tonight (con Isaac Sanchez, Nunu, Sergio Caubal)", enlace: "https://tidal.com/browse/track/765432198" }
   ];
 
   const lista = document.getElementById('discografia-list');
@@ -206,7 +202,7 @@
     const li = document.createElement('li');
     li.innerHTML = `
       <span class="artista">${item.artista}</span> - 
-      <a class="titulo" href="${item.enlace}" target="_blank" rel="noopener noreferrer">${item.titulo}</a>
+      <a href="${item.enlace}" target="_blank" rel="noopener noreferrer">${item.titulo}</a>
     `;
     lista.appendChild(li);
   });
