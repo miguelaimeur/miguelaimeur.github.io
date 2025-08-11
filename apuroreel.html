@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A PURO REEL - Playlist</title>
+<title>A PURO REEL - Playlist Oficial | Miguel Aimeur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
 
 <style>
+    /* Reset básico */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
     body {
         font-family: 'Montserrat', sans-serif;
         background: #0e0e0e;
         color: #fff;
         margin: 0;
-        padding: 20px;
+        padding: 2em;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -23,7 +28,7 @@
     h1 {
         font-weight: 800;
         font-size: 2.5em;
-        margin-bottom: 20px;
+        margin-bottom: 1.25em;
     }
     iframe {
         border: none;
@@ -34,7 +39,7 @@
         box-shadow: 0 0 20px #ff4c00aa;
     }
     a.back-btn {
-        margin-top: 30px;
+        margin-top: 2em;
         background: #ff4c00;
         color: #fff;
         padding: 12px 25px;
@@ -43,9 +48,14 @@
         border-radius: 8px;
         transition: background-color 0.3s ease;
         user-select: none;
+        cursor: pointer;
+        display: inline-block;
     }
-    a.back-btn:hover {
+    a.back-btn:hover,
+    a.back-btn:focus {
         background-color: #e04300;
+        outline: none;
+        box-shadow: 0 0 8px #e04300;
     }
 </style>
 </head>
@@ -55,12 +65,5 @@
 
 <iframe 
     src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen 
-    loading="lazy"
-></iframe>
-
-<a class="back-btn" href="index.html">← Volver al inicio</a>
-
-</body>
-</html>
+    title="Playlist oficial de A Puro Reel en YouTube"
+    allow="accelerometer; autoplay; clipboard-wri
