@@ -98,12 +98,21 @@
 <body>
 
 <h1>A PURO REEL</h1>
-<h2 id="video-title">Cargando título del capítulo...</h2>
 
+<h2 id="video-title-1">Cargando título del capítulo 1...</h2>
 <iframe 
-    id="video-frame"
+    id="video-frame-1"
     src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
     title="A PURO REEL - Programa de comedia y sátira"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+<h2 id="video-title-2">Cargando título del capítulo 2...</h2>
+<iframe 
+    id="video-frame-2"
+    src="https://www.youtube.com/embed/30LIpMapD0Q" 
+    title="Video adicional A PURO REEL"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
 </iframe>
@@ -144,19 +153,24 @@
 
 <script>
 const apiKey = "YOUR_API_KEY";
-const videoId = "pPFlLgdGOWQ";
-fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
+
+function updateVideoTitle(videoId, elementId, fallbackText) {
+    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
     .then(response => response.json())
     .then(data => {
         if (data.items.length > 0) {
-            document.getElementById("video-title").textContent = data.items[0].snippet.title;
+            document.getElementById(elementId).textContent = data.items[0].snippet.title;
         } else {
-            document.getElementById("video-title").textContent = "Episodio de A PURO REEL";
+            document.getElementById(elementId).textContent = fallbackText;
         }
     })
     .catch(() => {
-        document.getElementById("video-title").textContent = "Episodio de A PURO REEL";
+        document.getElementById(elementId).textContent = fallbackText;
     });
+}
+
+updateVideoTitle("pPFlLgdGOWQ", "video-title-1", "Episodio de A PURO REEL");
+updateVideoTitle("30LIpMapD0Q", "video-title-2", "Video adicional de A PURO REEL");
 </script>
 
 </body>
