@@ -20,26 +20,32 @@
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #0a0a14 0%, #001f29 100%);
       color: #00e0ff;
-      text-align: center;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 1.8em;
       overflow-x: hidden;
+      text-align: center;
     }
 
-    h1 {
-      font-weight: 900;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      color: #00e0ff;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      margin: 0;
-      text-shadow:
-        0 0 10px #00e0ff,
-        0 0 20px #00bcd4,
-        0 0 30px #00bcd4;
+    /* Contenedor logo + botones */
+    .header-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Logo */
+    .logo {
+      width: 800px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     p {
@@ -104,6 +110,14 @@
       border: 0;
     }
 
+    /* Responsive */
+    @media (max-width: 900px) {
+      .logo {
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+
     @media (max-width: 400px) {
       body {
         padding: 1.5em 1em;
@@ -113,26 +127,35 @@
         max-width: none;
         font-size: 1em;
       }
+      .header-container {
+        flex-direction: column;
+      }
+      .logo {
+        max-width: 100%;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Miguel Aimeur</h1>
+  <div class="header-container">
+    <img src="log.png" alt="Logo Miguel Aimeur" class="logo" />
+    <section class="links" aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
+      <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
+      <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
+      <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
+      <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Canal de Twitch de Miguel Aimeur">Twitch</a>
+      <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Spotify de Miguel Aimeur">Spotify</a>
+      <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
+      <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
+      <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
+    </section>
+  </div>
+
   <p>Miguel Aimeur es DJ, VJ y productor de música electrónica con años de experiencia creando visuales en directo y sets exclusivos.</p>
 
   <div class="visually-hidden" aria-hidden="false">
     Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas reconocidas de Valencia como La3, MiniClub y LaMattina. Su estilo combina creatividad, técnica y pasión por la innovación audiovisual.
   </div>
-
-  <section class="links" aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
-    <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
-    <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
-    <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
-    <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Canal de Twitch de Miguel Aimeur">Twitch</a>
-    <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Spotify de Miguel Aimeur">Spotify</a>
-    <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
-    <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
-    <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
-  </section>
 </body>
 </html>
