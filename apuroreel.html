@@ -36,20 +36,26 @@
         margin-bottom: 0.5em;
         color: var(--amarillo-reel);
     }
-    h2 {
+    .video-container {
+        max-width: 1000px;
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    .video-title {
         font-weight: 600;
-        font-size: 1.5em;
-        margin-bottom: 1em;
+        font-size: 1.6em;
+        margin-bottom: 0.5em;
         color: var(--amarillo-reel);
+        text-align: left;
+        padding-left: 8px;
     }
     iframe {
         border: none;
         width: 100%;
-        max-width: 1000px;
         height: 562px;
         border-radius: 12px;
         box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
-        margin-bottom: 1.5em;
+        display: block;
     }
     .stream-buttons {
         display: flex;
@@ -99,23 +105,27 @@
 
 <h1>A PURO REEL</h1>
 
-<h2 id="video-title-1">Cargando título del capítulo 1...</h2>
-<iframe 
-    id="video-frame-1"
-    src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
-    title="A PURO REEL - FINAL DE TEMPORADA"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
+<div class="video-container">
+    <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
+    <iframe 
+        id="video-frame-1"
+        src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
+        title="A PURO REEL - FINAL DE TEMPORADA"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</div>
 
-<h2 id="video-title-2">Cargando título del capítulo 2...</h2>
-<iframe 
-    id="video-frame-2"
-    src="https://www.youtube.com/embed/30LIpMapD0Q" 
-    title="A PURO REEL - ENSALADA DE VERANO VOL 1"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
+<div class="video-container">
+    <h2 id="video-title-2" class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
+    <iframe 
+        id="video-frame-2"
+        src="https://www.youtube.com/embed/30LIpMapD0Q" 
+        title="A PURO REEL - ENSALADA DE VERANO VOL 1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</div>
 
 <div class="stream-buttons">
     <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
@@ -152,7 +162,7 @@
 </div>
 
 <script>
-const apiKey = "YOUR_API_KEY";
+const apiKey = "YOUR_API_KEY"; // PON TU API KEY AQUÍ si quieres actualizar títulos dinámicamente
 
 function updateVideoTitle(videoId, elementId, fallbackText) {
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
@@ -169,9 +179,11 @@ function updateVideoTitle(videoId, elementId, fallbackText) {
     });
 }
 
-updateVideoTitle("pPFlLgdGOWQ", "video-title-1", "EPISODIO 15-  A PURO REEL");
-updateVideoTitle("30LIpMapD0Q", "video-title-2", "ENSALADA DE VERANO A PURO REEL");
+// Puedes activar estas líneas si tienes API KEY y quieres que actualice títulos automáticamente
+// updateVideoTitle("pPFlLgdGOWQ", "video-title-1", "EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)");
+// updateVideoTitle("30LIpMapD0Q", "video-title-2", "ENSALADA DE VERANO VOL. 1 - A PURO REEL");
 </script>
 
 </body>
 </html>
+
