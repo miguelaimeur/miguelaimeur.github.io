@@ -11,10 +11,17 @@
     *, *::before, *::after {
         box-sizing: border-box;
     }
+    :root {
+        --amarillo-reel: #FFC72C; /* Pantone 1235 aproximado */
+        --amarillo-hover: #e6b127; /* tono más oscuro para hover */
+        --fondo: #0e0e0e;
+        --texto-principal: #fff;
+        --texto-secundario: #ccc;
+    }
     body {
         font-family: 'Montserrat', sans-serif;
-        background: #0e0e0e;
-        color: #fff;
+        background: var(--fondo);
+        color: var(--texto-principal);
         margin: 0;
         padding: 2em;
         min-height: 100vh;
@@ -27,12 +34,13 @@
         font-weight: 800;
         font-size: 3em;
         margin-bottom: 0.5em;
+        color: var(--amarillo-reel);
     }
     h2 {
         font-weight: 600;
         font-size: 1.5em;
         margin-bottom: 1em;
-        color: #ff4c00;
+        color: var(--amarillo-reel);
     }
     iframe {
         border: none;
@@ -40,22 +48,24 @@
         max-width: 1000px;
         height: 562px; /* relación 16:9 */
         border-radius: 12px;
-        box-shadow: 0 0 20px #ff4c00aa;
+        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
         margin-bottom: 1.5em;
     }
     .stream-buttons {
         display: flex;
         gap: 1em;
         margin-bottom: 2em;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .stream-buttons a {
-        background-color: #ff4c00;
-        color: #fff;
+        background-color: var(--amarillo-reel);
+        color: #000;
         padding: 12px 24px;
         text-decoration: none;
         font-weight: 700;
         border-radius: 8px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
         user-select: none;
         cursor: pointer;
         min-width: 120px;
@@ -65,15 +75,15 @@
     }
     .stream-buttons a:hover,
     .stream-buttons a:focus {
-        background-color: #e04300;
+        background-color: var(--amarillo-hover);
         outline: none;
-        box-shadow: 0 0 8px #e04300;
+        box-shadow: 0 0 8px var(--amarillo-hover);
     }
     .info {
         max-width: 900px;
         font-size: 1.1em;
         line-height: 1.5em;
-        color: #ccc;
+        color: var(--texto-secundario);
     }
     /* SEO oculto */
     .seo-hidden {
