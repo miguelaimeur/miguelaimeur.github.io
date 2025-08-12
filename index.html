@@ -9,10 +9,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -29,17 +26,13 @@
       overflow-x: hidden;
     }
 
-    h1 {
-      font-weight: 900;
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      color: #00e0ff;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;
-      margin: 0;
-      text-shadow:
-        0 0 10px #00e0ff,
-        0 0 20px #00bcd4,
-        0 0 30px #00bcd4;
+    /* Logo principal */
+    .logo {
+      max-width: 200px; /* ancho máximo igual o menor que botones */
+      height: auto;
+      margin: 0 auto 1em;
+      filter: drop-shadow(0 0 10px #00e0ff);
+      display: block;
     }
 
     p {
@@ -73,12 +66,8 @@
       text-decoration: none;
       letter-spacing: 0.03em;
       background: transparent;
-      box-shadow:
-        0 0 8px #00e0ff88;
-      transition: 
-        background-color 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #00e0ff88;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
     }
 
@@ -86,13 +75,11 @@
     .link-btn:focus {
       background-color: #00e0ff22;
       color: #ffffff;
-      box-shadow:
-        0 0 14px #00f7ffcc,
-        inset 0 0 14px #00f7ffcc;
+      box-shadow: 0 0 14px #00f7ffcc, inset 0 0 14px #00f7ffcc;
       outline: none;
     }
 
-    /* Oculto para SEO, accesibilidad y bots */
+    /* Oculto para SEO */
     .visually-hidden {
       position: absolute !important;
       width: 1px;
@@ -105,34 +92,36 @@
     }
 
     @media (max-width: 400px) {
-      body {
-        padding: 1.5em 1em;
-      }
-      .link-btn {
-        flex: 1 1 100%;
-        max-width: none;
-        font-size: 1em;
-      }
+      body { padding: 1.5em 1em; }
+      .link-btn { flex: 1 1 100%; max-width: none; font-size: 1em; }
+      .logo { max-width: 160px; }
     }
   </style>
 </head>
 <body>
-  <h1>Miguel Aimeur</h1>
-  <p> DJ   -   VJ   -   LJ </p>
 
+  <!-- Logo principal -->
+  <img src="images/logo.png" alt="Miguel Aimeur" class="logo" />
+
+  <!-- Texto oculto para SEO -->
   <div class="visually-hidden" aria-hidden="false">
-    Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco. Ha sido VJ residente en salas reconocidas de Valencia como La3, MiniClub y LaMattina. Su estilo combina creatividad, técnica y pasión por la innovación audiovisual.
+    Miguel Aimeur es DJ, VJ, LJ y productor audiovisual especializado en música electrónica y visuales en directo.
+    Con experiencia en festivales, clubs y eventos internacionales, ha colaborado con artistas como Dmitri Vegas, Like Mike, Nervo, Head Huntez, Jeff Miles, Antonio Orozco y Manuel Carrasco.
+    Ha sido VJ residente en salas icónicas de Valencia como La3, MiniClub y LaMattina.
+    Su propuesta combina creatividad, técnica avanzada y pasión por la innovación audiovisual.
   </div>
 
+  <!-- Enlaces -->
   <section class="links" aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
-    <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
-    <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
-    <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Canal de Twitch de Miguel Aimeur">Twitch</a>
-    <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
-    <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
-    <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
-    <a class="link-btn" href="dancepec.html" target="_blank" rel="noopener noreferrer" aria-label="Dance PEC, proyectos y eventos de Miguel Aimeur">DANCEPEC</a>
-    <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
+    <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer">YouTube</a>
+    <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer">Twitch</a>
+    <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a class="link-btn" href="discografia.html">Discografía</a>
+    <a class="link-btn" href="biografia.html">Biografía</a>
+    <a class="link-btn" href="dancepec.html" target="_blank" rel="noopener noreferrer">DANCEPEC</a>
+    <a class="link-btn" href="apuroreel.html">A PURO REEL</a>
   </section>
+
 </body>
 </html>
