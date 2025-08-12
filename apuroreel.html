@@ -31,37 +31,27 @@
         margin: 0;
         padding: 2em;
         min-height: 100vh;
+
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2em;
+        flex-wrap: wrap;
     }
     h1 {
         font-weight: 800;
         font-size: 3em;
         margin-bottom: 0.5em;
         color: var(--amarillo-reel);
+        width: 100%;
+        text-align: center;
     }
-    .video-container {
+    .main-content {
+        flex: 1 1 600px;
         max-width: 1000px;
-        width: 100%;
-        margin-bottom: 2em;
-    }
-    .video-title {
-        font-weight: 600;
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
-        color: var(--amarillo-reel);
-        text-align: left;
-        padding-left: 8px;
-    }
-    iframe {
-        border: none;
-        width: 100%;
-        height: 562px;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .stream-buttons {
         display: flex;
@@ -69,6 +59,7 @@
         margin-bottom: 2em;
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
     }
     .stream-buttons a {
         background-color: var(--amarillo-reel);
@@ -91,6 +82,26 @@
         outline: none;
         box-shadow: 0 0 8px var(--amarillo-hover);
     }
+    .video-container {
+        margin-bottom: 2em;
+        width: 100%;
+    }
+    .video-title {
+        font-weight: 600;
+        font-size: 1.6em;
+        margin-bottom: 0.5em;
+        color: var(--amarillo-reel);
+        text-align: left;
+        padding-left: 8px;
+    }
+    iframe {
+        border: none;
+        width: 100%;
+        height: 562px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
+        display: block;
+    }
     .info {
         max-width: 900px;
         font-size: 1.1em;
@@ -105,50 +116,93 @@
         overflow: hidden;
         visibility: hidden;
     }
+
+    /* Layout con playlist a la derecha */
+    .playlist-container {
+        flex: 0 1 360px;
+        max-width: 360px;
+        position: sticky;
+        top: 2em;
+    }
+    .playlist-container iframe {
+        width: 100%;
+        height: 600px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
+        border: none;
+    }
+
+    @media (max-width: 900px) {
+        body {
+            flex-direction: column;
+            padding: 1em;
+        }
+        .playlist-container {
+            max-width: 100%;
+            height: 360px;
+            position: relative;
+            top: auto;
+            margin-bottom: 2em;
+        }
+        .playlist-container iframe {
+            height: 360px;
+        }
+    }
 </style>
 </head>
 <body>
 
-<h1>A PURO REEL</h1>
+<div class="main-content">
+  <h1>A PURO REEL</h1>
 
-<div class="video-container">
-    <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
-    <iframe 
-        id="video-frame-1"
-        src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
-        title="A PURO REEL - FINAL DE TEMPORADA"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
+  <div class="stream-buttons">
+      <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
+      <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
+      <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
+  </div>
+
+  <div class="video-container">
+      <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
+      <iframe 
+          id="video-frame-1"
+          src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
+          title="A PURO REEL - FINAL DE TEMPORADA"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+      </iframe>
+  </div>
+
+  <div class="video-container">
+      <h2 id="video-title-2" class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
+      <iframe 
+          id="video-frame-2"
+          src="https://www.youtube.com/embed/30LIpMapD0Q" 
+          title="A PURO REEL - ENSALADA DE VERANO VOL 1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+      </iframe>
+  </div>
+
+  <div class="info">
+      ¡Bienvenidos a <strong>A Puro Reel</strong>, el videopodcast que nadie pidió, pero que todos terminan viendo! 😂  
+      Únete a Buba y el Presi en un caos de humor sin filtro, críticas políticas afiladas y comentarios sobre los reels más absurdos de internet.  
+      Desde secciones como <em>"Puro Cine"</em> hasta juegos para distinguir IA de realidad, este es el show para quienes aman lo auténtico y desordenado. 🎥  
+      Suscríbete y no te pierdas el desmadre en <strong>@APUROREEL</strong>. #HumorSinFiltro #APuroReel  
+      <br><br>
+      🔥 <strong>A Puro Reel</strong>: el videopodcast más caótico y real.  
+      Buba y el Presi traen risas, críticas y virales absurdos sin guion.  
+      ¡Échale un ojo en YouTube (<strong>@APUROREEL</strong>) e Instagram (<strong>@apuroreel</strong>)! 🗣️  
+      ¿Listo para el cachondeo? #APuroReel #HumorBruto
+  </div>
 </div>
 
-<div class="video-container">
-    <h2 id="video-title-2" class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
-    <iframe 
-        id="video-frame-2"
-        src="https://www.youtube.com/embed/30LIpMapD0Q" 
-        title="A PURO REEL - ENSALADA DE VERANO VOL 1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
-</div>
-
-<div class="stream-buttons">
-    <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
-    <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
-    <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
-</div>
-
-<div class="info">
-    ¡Bienvenidos a <strong>A Puro Reel</strong>, el videopodcast que nadie pidió, pero que todos terminan viendo! 😂  
-    Únete a Buba y el Presi en un caos de humor sin filtro, críticas políticas afiladas y comentarios sobre los reels más absurdos de internet.  
-    Desde secciones como <em>"Puro Cine"</em> hasta juegos para distinguir IA de realidad, este es el show para quienes aman lo auténtico y desordenado. 🎥  
-    Suscríbete y no te pierdas el desmadre en <strong>@APUROREEL</strong>. #HumorSinFiltro #APuroReel  
-    <br><br>
-    🔥 <strong>A Puro Reel</strong>: el videopodcast más caótico y real.  
-    Buba y el Presi traen risas, críticas y virales absurdos sin guion.  
-    ¡Échale un ojo en YouTube (<strong>@APUROREEL</strong>) e Instagram (<strong>@apuroreel</strong>)! 🗣️  
-    ¿Listo para el cachondeo? #APuroReel #HumorBruto
+<div class="playlist-container" aria-label="Playlist de YouTube A Puro Reel">
+  <iframe 
+    src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
+    title="Playlist de A Puro Reel en YouTube"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
 </div>
 
 <!-- SEO oculto -->
