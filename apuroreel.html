@@ -12,8 +12,8 @@
         box-sizing: border-box;
     }
     :root {
-        --amarillo-reel: #FFC72C; /* Pantone 1235 aproximado */
-        --amarillo-hover: #e6b127; /* tono más oscuro para hover */
+        --amarillo-reel: #FFC72C;
+        --amarillo-hover: #e6b127;
         --fondo: #0e0e0e;
         --texto-principal: #fff;
         --texto-secundario: #ccc;
@@ -46,7 +46,7 @@
         border: none;
         width: 100%;
         max-width: 1000px;
-        height: 562px; /* relación 16:9 */
+        height: 562px;
         border-radius: 12px;
         box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
         margin-bottom: 1.5em;
@@ -85,7 +85,6 @@
         line-height: 1.5em;
         color: var(--texto-secundario);
     }
-    /* SEO oculto */
     .seo-hidden {
         position: absolute;
         left: -9999px;
@@ -101,7 +100,6 @@
 <h1>A PURO REEL</h1>
 <h2 id="video-title">Cargando título del capítulo...</h2>
 
-<!-- Reproductor del vídeo -->
 <iframe 
     id="video-frame"
     src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
@@ -110,14 +108,12 @@
     allowfullscreen>
 </iframe>
 
-<!-- Botones de streaming -->
 <div class="stream-buttons">
     <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
     <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
     <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
 </div>
 
-<!-- Texto informativo visible -->
 <div class="info">
     ¡Bienvenidos a <strong>A Puro Reel</strong>, el videopodcast que nadie pidió, pero que todos terminan viendo! 😂  
     Únete a Buba y el Presi en un caos de humor sin filtro, críticas políticas afiladas y comentarios sobre los reels más absurdos de internet.  
@@ -136,11 +132,18 @@
     Monólogos, crítica política, actualidad, humor sin filtro, y análisis de los reels más absurdos de internet.  
     Incluye secciones como "Puro Cine", juegos para diferenciar IA de realidad, y debates con un tono irónico y divertido.  
     Etiquetas: APUROREEL, A PURO REEL, videopodcast de comedia, sátira política, humor bruto, humor sin filtro, Miguel Aimeur, Buba, Presi, YouTube, Instagram.
+
+    A Puro Reel: El podcast que destroza reels y la realidad con Buba, Presi y Chihako.
+    Suscríbete, dale like y prepárate para reírte con la verdad más cruda: https://youtube.com/@apuroreel
+    Síguenos en Instagram para más contenido: https://www.instagram.com/apuroreel
+    Un show que mezcla sátira, actualidad y humor sin censura.
+    Reels virales, política internacional (Donald Trump, Joe Biden, Puff Daddy), sociedad y cultura, modas absurdas, problemas económicos y festivales musicales.
+    Con el nuevo integrante Chihako y la Temporada 2 en octubre 2025.
+    Palabras clave: podcast de comedia, sátira política, humor sin censura, reels de Instagram, videos virales, YouTube shorts, actualidad y humor, comedia en español.
 </div>
 
 <script>
-// Obtener título del vídeo usando la API de YouTube (requiere API Key)
-const apiKey = "YOUR_API_KEY"; // Sustituir con tu clave de API de YouTube
+const apiKey = "YOUR_API_KEY";
 const videoId = "pPFlLgdGOWQ";
 fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
     .then(response => response.json())
