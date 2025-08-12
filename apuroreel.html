@@ -1,248 +1,61 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A PURO REEL - Podcast y Programa de Comedia, Sátira Política y Actualidad | Miguel Aimeur</title>
-
-<meta name="description" content="A Puro Reel es un podcast y videopodcast de comedia política y sátira en Valencia, España. Humor sin filtro, crítica social, reels virales y análisis de actualidad para jóvenes entre 18 y 50 años. Únete a Buba, Presi y Miguel Aimeur y disfruta de la mejor sátira política en español." />
-
-<meta name="keywords" content="podcast de comedia, sátira política, humor sin filtro, reels virales, comedia política en España, podcast en Valencia, actualidad política, programa satírico, humor para jóvenes, contenido corto en redes, A Puro Reel, Miguel Aimeur, Buba, Presi, podcast en español, videos cortos de política, comedia social, podcast satírico, entretenimiento para millennials" />
-
-<meta name="robots" content="index, follow" />
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
-
 <style>
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
-    :root {
-        --amarillo-reel: #FFC72C;
-        --amarillo-hover: #e6b127;
-        --fondo: #0e0e0e;
-        --texto-principal: #fff;
-        --texto-secundario: #ccc;
-    }
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: var(--fondo);
-        color: var(--texto-principal);
-        margin: 0;
-        padding: 2em;
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2em;
-        flex-wrap: wrap;
-    }
-    h1 {
-        font-weight: 800;
-        font-size: 3em;
-        margin-bottom: 0.5em;
-        color: var(--amarillo-reel);
-        width: 100%;
-        text-align: center;
-    }
-    .main-content {
-        flex: 1 1 600px;
-        max-width: 1000px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .stream-buttons {
+    /* Nuevo estilo para alinear playlist y primer video */
+    .video-playlist-row {
         display: flex;
         gap: 1em;
+        align-items: flex-start;
+        width: 100%;
         margin-bottom: 2em;
         flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    .stream-buttons a {
-        background-color: var(--amarillo-reel);
-        color: #000;
-        padding: 12px 24px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 8px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        user-select: none;
-        cursor: pointer;
-        min-width: 120px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .stream-buttons a:hover,
-    .stream-buttons a:focus {
-        background-color: var(--amarillo-hover);
-        outline: none;
-        box-shadow: 0 0 8px var(--amarillo-hover);
     }
     .video-container {
-        margin-bottom: 2em;
-        width: 100%;
+        flex: 1 1 640px;
     }
-    .video-title {
-        font-weight: 600;
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
-        color: var(--amarillo-reel);
-        text-align: left;
-        padding-left: 8px;
+    .playlist-inline {
+        flex: 0 0 350px;
+        max-width: 350px;
     }
-    iframe {
-        border: none;
+    .playlist-inline iframe {
         width: 100%;
-        height: 562px;
+        height: 315px; /* más pequeño */
         border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
-        display: block;
-    }
-    .info {
-        max-width: 900px;
-        font-size: 1.1em;
-        line-height: 1.5em;
-        color: var(--texto-secundario);
-    }
-    .seo-hidden {
-        position: absolute;
-        left: -9999px;
-        top: -9999px;
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
-    }
-
-    /* Layout con playlist a la derecha */
-    .playlist-container {
-        flex: 0 1 360px;
-        max-width: 360px;
-        position: sticky;
-        top: 2em;
-    }
-    .playlist-container iframe {
-        width: 100%;
-        height: 600px;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
+        box-shadow: 0 0 15px rgba(255, 199, 44, 0.5);
         border: none;
     }
 
     @media (max-width: 900px) {
-        body {
+        .video-playlist-row {
             flex-direction: column;
-            padding: 1em;
+            align-items: center;
         }
-        .playlist-container {
+        .playlist-inline {
             max-width: 100%;
-            height: 360px;
-            position: relative;
-            top: auto;
-            margin-bottom: 2em;
         }
-        .playlist-container iframe {
-            height: 360px;
+        .playlist-inline iframe {
+            height: 260px;
         }
     }
 </style>
-</head>
-<body>
 
-<div class="main-content">
-  <h1>A PURO REEL</h1>
+<!-- Sustituir este bloque del primer video y la playlist -->
+<div class="video-playlist-row">
+    <div class="video-container">
+        <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
+        <iframe 
+            id="video-frame-1"
+            src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
+            title="A PURO REEL - FINAL DE TEMPORADA"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
 
-  <div class="stream-buttons">
-      <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
-      <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
-      <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
-  </div>
-
-  <div class="video-container">
-      <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
-      <iframe 
-          id="video-frame-1"
-          src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
-          title="A PURO REEL - FINAL DE TEMPORADA"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-      </iframe>
-  </div>
-
-  <div class="video-container">
-      <h2 id="video-title-2" class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
-      <iframe 
-          id="video-frame-2"
-          src="https://www.youtube.com/embed/30LIpMapD0Q" 
-          title="A PURO REEL - ENSALADA DE VERANO VOL 1"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-      </iframe>
-  </div>
-
-  <div class="info">
-      ¡Bienvenidos a <strong>A Puro Reel</strong>, el videopodcast que nadie pidió, pero que todos terminan viendo! 😂  
-      Únete a Buba y el Presi en un caos de humor sin filtro, críticas políticas afiladas y comentarios sobre los reels más absurdos de internet.  
-      Desde secciones como <em>"Puro Cine"</em> hasta juegos para distinguir IA de realidad, este es el show para quienes aman lo auténtico y desordenado. 🎥  
-      Suscríbete y no te pierdas el desmadre en <strong>@APUROREEL</strong>. #HumorSinFiltro #APuroReel  
-      <br><br>
-      🔥 <strong>A Puro Reel</strong>: el videopodcast más caótico y real.  
-      Buba y el Presi traen risas, críticas y virales absurdos sin guion.  
-      ¡Échale un ojo en YouTube (<strong>@APUROREEL</strong>) e Instagram (<strong>@apuroreel</strong>)! 🗣️  
-      ¿Listo para el cachondeo? #APuroReel #HumorBruto
-  </div>
+    <div class="playlist-inline" aria-label="Playlist de YouTube A Puro Reel">
+        <iframe 
+            src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
+            title="Playlist de A Puro Reel en YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
 </div>
-
-<div class="playlist-container" aria-label="Playlist de YouTube A Puro Reel">
-  <iframe 
-    src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
-    title="Playlist de A Puro Reel en YouTube"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<!-- SEO oculto -->
-<div class="seo-hidden">
-    APUROREEL es un programa de comedia, sátira y humor presentado por Miguel Aimeur, junto a Buba y el Presi.  
-    Monólogos, crítica política, actualidad, humor sin filtro, y análisis de los reels más absurdos de internet.  
-    Incluye secciones como "Puro Cine", juegos para diferenciar IA de realidad, y debates con un tono irónico y divertido.  
-    Etiquetas: APUROREEL, A PURO REEL, videopodcast de comedia, sátira política, humor bruto, humor sin filtro, Miguel Aimeur, Buba, Presi, YouTube, Instagram.
-
-    A Puro Reel: El podcast que destroza reels y la realidad con Buba, Presi y Chihako.
-    Suscríbete, dale like y prepárate para reírte con la verdad más cruda: https://youtube.com/@apuroreel
-    Síguenos en Instagram para más contenido: https://www.instagram.com/apuroreel
-    Un show que mezcla sátira, actualidad y humor sin censura.
-    Reels virales, política internacional (Donald Trump, Joe Biden, Puff Daddy), sociedad y cultura, modas absurdas, problemas económicos y festivales musicales.
-    Con el nuevo integrante Chihako y la Temporada 2 en octubre 2025.
-    Palabras clave: podcast de comedia, sátira política, humor sin censura, reels de Instagram, videos virales, YouTube shorts, actualidad y humor, comedia en español.
-</div>
-
-<script>
-const apiKey = "YOUR_API_KEY"; // PON TU API KEY AQUÍ si quieres actualizar títulos dinámicamente
-
-function updateVideoTitle(videoId, elementId, fallbackText) {
-    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data.items.length > 0) {
-            document.getElementById(elementId).textContent = data.items[0].snippet.title;
-        } else {
-            document.getElementById(elementId).textContent = fallbackText;
-        }
-    })
-    .catch(() => {
-        document.getElementById(elementId).textContent = fallbackText;
-    });
-}
-
-// Puedes activar estas líneas si tienes API KEY y quieres que actualice títulos automáticamente
-// updateVideoTitle("pPFlLgdGOWQ", "video-title-1", "EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)");
-// updateVideoTitle("30LIpMapD0Q", "video-title-2", "ENSALADA DE VERANO VOL. 1 - A PURO REEL");
-</script>
-
-</body>
-</html>
