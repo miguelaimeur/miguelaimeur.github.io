@@ -6,17 +6,13 @@
 <title>A PURO REEL - Podcast y Programa de Comedia, Sátira Política y Actualidad | Miguel Aimeur</title>
 
 <meta name="description" content="A Puro Reel es un podcast y videopodcast de comedia política y sátira en Valencia, España. Humor sin filtro, crítica social, reels virales y análisis de actualidad para jóvenes entre 18 y 50 años. Únete a Buba, Presi y Miguel Aimeur y disfruta de la mejor sátira política en español." />
-
 <meta name="keywords" content="podcast de comedia, sátira política, humor sin filtro, reels virales, comedia política en España, podcast en Valencia, actualidad política, programa satírico, humor para jóvenes, contenido corto en redes, A Puro Reel, Miguel Aimeur, Buba, Presi, podcast en español, videos cortos de política, comedia social, podcast satírico, entretenimiento para millennials" />
-
 <meta name="robots" content="index, follow" />
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
 
 <style>
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
     :root {
         --amarillo-reel: #FFC72C;
         --amarillo-hover: #e6b127;
@@ -75,11 +71,31 @@
         justify-content: center;
         align-items: center;
     }
-    .stream-buttons a:hover,
-    .stream-buttons a:focus {
-        background-color: var(--amarillo-hover);
-        outline: none;
-        box-shadow: 0 0 8px var(--amarillo-hover);
+    /* Colores hover por plataforma */
+    .btn-twitch:hover, .btn-twitch:focus {
+        background-color: #9146FF;
+        box-shadow: 0 0 8px #9146FF;
+        color: #fff;
+    }
+    .btn-youtube:hover, .btn-youtube:focus {
+        background-color: #FF0000;
+        box-shadow: 0 0 8px #FF0000;
+        color: #fff;
+    }
+    .btn-kick:hover, .btn-kick:focus {
+        background-color: #53FC18;
+        box-shadow: 0 0 8px #53FC18;
+        color: #000;
+    }
+    .btn-instagram:hover, .btn-instagram:focus {
+        background-color: #E1306C;
+        box-shadow: 0 0 8px #E1306C;
+        color: #fff;
+    }
+    .btn-tiktok:hover, .btn-tiktok:focus {
+        background-color: #69C9D0;
+        box-shadow: 0 0 8px #69C9D0;
+        color: #000;
     }
     .video-container {
         margin-bottom: 2em;
@@ -129,22 +145,15 @@
         border: none;
     }
     @media (max-width: 900px) {
-        body {
-            flex-direction: column;
-            padding: 1em;
-        }
-        iframe {
-            box-shadow: none;
-        }
+        body { flex-direction: column; padding: 1em; }
+        iframe { box-shadow: none; }
         .playlist-container {
             max-width: 100%;
             position: relative;
             top: auto;
             margin-bottom: 2em;
         }
-        .playlist-container iframe {
-            height: 320px;
-        }
+        .playlist-container iframe { height: 320px; }
     }
 </style>
 </head>
@@ -154,9 +163,11 @@
   <h1>A PURO REEL</h1>
 
   <div class="stream-buttons">
-      <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer">Twitch</a>
-      <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer">YouTube</a>
-      <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer">Kick</a>
+      <a class="btn-twitch" href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer">Twitch</a>
+      <a class="btn-youtube" href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a class="btn-kick" href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer">Kick</a>
+      <a class="btn-instagram" href="https://www.instagram.com/apuroreel/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="btn-tiktok" href="https://www.tiktok.com/@apuroreel" target="_blank" rel="noopener noreferrer">TikTok</a>
   </div>
 
   <div class="video-container">
@@ -165,8 +176,7 @@
           src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
           title="A PURO REEL - FINAL DE TEMPORADA"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-      </iframe>
+          allowfullscreen></iframe>
   </div>
 
   <div class="video-container">
@@ -175,8 +185,7 @@
           src="https://www.youtube.com/embed/30LIpMapD0Q" 
           title="A PURO REEL - ENSALADA DE VERANO VOL 1"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-      </iframe>
+          allowfullscreen></iframe>
   </div>
 
   <div class="info">
@@ -198,8 +207,7 @@
     src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
     title="APUROREEL - TODOS LOS EPISODIOS"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+    allowfullscreen></iframe>
 </div>
 
 <!-- SEO oculto -->
