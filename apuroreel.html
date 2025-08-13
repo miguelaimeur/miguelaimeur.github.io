@@ -31,7 +31,6 @@
         margin: 0;
         padding: 2em;
         min-height: 100vh;
-
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -116,8 +115,6 @@
         overflow: hidden;
         visibility: hidden;
     }
-
-    /* Layout con playlist a la derecha */
     .playlist-container {
         flex: 0 1 360px;
         max-width: 360px;
@@ -131,21 +128,22 @@
         box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
         border: none;
     }
-
     @media (max-width: 900px) {
         body {
             flex-direction: column;
             padding: 1em;
         }
+        iframe {
+            box-shadow: none;
+        }
         .playlist-container {
             max-width: 100%;
-            height: 360px;
             position: relative;
             top: auto;
             margin-bottom: 2em;
         }
         .playlist-container iframe {
-            height: 360px;
+            height: 320px;
         }
     }
 </style>
@@ -156,15 +154,14 @@
   <h1>A PURO REEL</h1>
 
   <div class="stream-buttons">
-      <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
-      <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
-      <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
+      <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer">Twitch</a>
+      <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer">Kick</a>
   </div>
 
   <div class="video-container">
-      <h2 id="video-title-1" class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
-      <iframe 
-          id="video-frame-1"
+      <h2 class="video-title">EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)</h2>
+      <iframe loading="lazy"
           src="https://www.youtube.com/embed/pPFlLgdGOWQ?start=30" 
           title="A PURO REEL - FINAL DE TEMPORADA"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -173,9 +170,8 @@
   </div>
 
   <div class="video-container">
-      <h2 id="video-title-2" class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
-      <iframe 
-          id="video-frame-2"
+      <h2 class="video-title">ENSALADA DE VERANO VOL. 1 - A PURO REEL</h2>
+      <iframe loading="lazy"
           src="https://www.youtube.com/embed/30LIpMapD0Q" 
           title="A PURO REEL - ENSALADA DE VERANO VOL 1"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -196,10 +192,11 @@
   </div>
 </div>
 
-<div class="playlist-container" aria-label="Playlist de YouTube A Puro Reel">
-  <iframe 
+<div class="playlist-container">
+  <h2 class="video-title">APUROREEL - TODOS LOS EPISODIOS</h2>
+  <iframe loading="lazy"
     src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
-    title="Playlist de A Puro Reel en YouTube"
+    title="APUROREEL - TODOS LOS EPISODIOS"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
@@ -220,29 +217,6 @@
     Con el nuevo integrante Chihako y la Temporada 2 en octubre 2025.
     Palabras clave: podcast de comedia, sátira política, humor sin censura, reels de Instagram, videos virales, YouTube shorts, actualidad y humor, comedia en español.
 </div>
-
-<script>
-const apiKey = "YOUR_API_KEY"; // PON TU API KEY AQUÍ si quieres actualizar títulos dinámicamente
-
-function updateVideoTitle(videoId, elementId, fallbackText) {
-    fetch(https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey})
-    .then(response => response.json())
-    .then(data => {
-        if (data.items.length > 0) {
-            document.getElementById(elementId).textContent = data.items[0].snippet.title;
-        } else {
-            document.getElementById(elementId).textContent = fallbackText;
-        }
-    })
-    .catch(() => {
-        document.getElementById(elementId).textContent = fallbackText;
-    });
-}
-
-// Puedes activar estas líneas si tienes API KEY y quieres que actualice títulos automáticamente
-// updateVideoTitle("pPFlLgdGOWQ", "video-title-1", "EPISODIO 15 - A PURO REEL (FINAL DE TEMPORADA)");
-// updateVideoTitle("30LIpMapD0Q", "video-title-2", "ENSALADA DE VERANO VOL. 1 - A PURO REEL");
-</script>
 
 </body>
 </html>
