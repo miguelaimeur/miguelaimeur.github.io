@@ -1,3 +1,9 @@
+Aquí tienes el HTML completo con:
+
+* Botones en el orden que pediste.
+* Logo más grande (1100 px en escritorio, 700 px en pantallas medianas, 100 % en móviles).
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,16 +15,13 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       padding: 2.5em 1.5em;
       font-family: 'Montserrat', sans-serif;
-      background: #000000; /* Fondo negro puro */
+      background: #000000;
       color: #00e0ff;
       min-height: 100vh;
       display: flex;
@@ -29,20 +32,18 @@
       text-align: center;
     }
 
-    /* Contenedor logo + botones */
     .header-container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 1.8em;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    /* Logo - más grande */
     .logo {
-      width: 900px;  /* aumenté 100px */
+      width: 1100px; /* aumentado */
       max-width: 100%;
       height: auto;
       display: block;
@@ -79,12 +80,8 @@
       text-decoration: none;
       letter-spacing: 0.03em;
       background: transparent;
-      box-shadow:
-        0 0 8px #00e0ff88;
-      transition: 
-        background-color 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease;
+      box-shadow: 0 0 8px #00e0ff88;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
     }
 
@@ -92,13 +89,10 @@
     .link-btn:focus {
       background-color: #00e0ff22;
       color: #ffffff;
-      box-shadow:
-        0 0 14px #00f7ffcc,
-        inset 0 0 14px #00f7ffcc;
+      box-shadow: 0 0 14px #00f7ffcc, inset 0 0 14px #00f7ffcc;
       outline: none;
     }
 
-    /* Oculto para SEO, accesibilidad y bots */
     .visually-hidden {
       position: absolute !important;
       width: 1px;
@@ -110,7 +104,6 @@
       border: 0;
     }
 
-    /* Footer pequeño */
     footer {
       font-size: 0.75rem;
       color: #007f99cc;
@@ -121,30 +114,15 @@
       letter-spacing: 0.05em;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
-      .logo {
-        width: 100%;
-        max-width: 600px;
-      }
+      .logo { width: 100%; max-width: 700px; }
     }
 
     @media (max-width: 400px) {
-      body {
-        padding: 1.5em 1em;
-      }
-      .link-btn {
-        flex: 1 1 100%;
-        max-width: none;
-        font-size: 1em;
-      }
-      .header-container {
-        flex-direction: column;
-      }
-      .logo {
-        max-width: 100%;
-        width: 100%;
-      }
+      body { padding: 1.5em 1em; }
+      .link-btn { flex: 1 1 100%; max-width: none; font-size: 1em; }
+      .header-container { flex-direction: column; }
+      .logo { max-width: 100%; width: 100%; }
     }
   </style>
 </head>
@@ -152,18 +130,18 @@
   <div class="header-container">
     <img src="log.png" alt="Logo Miguel Aimeur" class="logo" />
     <section class="links" aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
-      <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
-      <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
       <a class="link-btn" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
-      <a class="link-btn" href="https://www.twitch.tv/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Canal de Twitch de Miguel Aimeur">Twitch</a>
-      <a class="link-btn" href="https://open.spotify.com/artist/47mUSrF7SEchM3LyQxDKdr" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Spotify de Miguel Aimeur">Spotify</a>
       <a class="link-btn" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
+      <a class="link-btn" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
       <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
       <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
+      <a class="link-btn" href="work.html" aria-label="Trabajos y proyectos de Miguel Aimeur">Work</a>
+      <a class="link-btn" href="dancepc.html" aria-label="Dance PC de Miguel Aimeur">DancePC</a>
+      <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
     </section>
   </div>
 
-  <p>Miguel Aimeur - DJ - VJ  - LJ .</p>
+  <p>Miguel Aimeur - DJ - VJ - LJ.</p>
 
   <div class="visually-hidden" aria-hidden="false">
     Miguel Aimeur es un DJ, VJ y productor audiovisual con amplia experiencia en música electrónica, visuales en directo, diseño de efectos visuales y producción musical. Ha trabajado con artistas como Dmitri Vegas, 
@@ -171,7 +149,7 @@
     por la innovación audiovisual.DJ Nano DJ Marta Vicente One More Time Alex & Giro Alfredo Pareja Bassdrum Project Chumi Cristian Millán David Cabeza German Bass Ismael Lora Javi Molina José Conca Juanma Lemur La Luna 
     Mónica X Miguel Serna Óscar Akagy Papero Raúl Antón Raúl Ortiz Skudero Toni Massama Wakan Armin van Buuren Hardwell Timmy Trumpet Afrojack Alok Don Diablo Quintino Fedde Le Grand Nervo Danny Ávila Nora En Pure Krewella
     Laidback Luke Mandy DJs from Mars Padre Guilherme Love The 90's Patones Remember Festival A Summer Story Dreambeach Villaricos I Love The 90’s Festival 90s Pop Tour Fabrica de Colores Pont Aeri Remember Festival 
-    Remember Los 90 Máxima FM Remember Aquasella Festival Back to the 90’s ROCKOLA, VIRTUAL DANCE, ROCKOLA MISLATA, fanstasy almansa, happines, klub, sound factory, 
+    Remember Los 90 Máxima FM Remember Aquasella Festival Back to the 90’s ROCKOLA, VIRTUAL DANCE, ROCKOLA MISLATA, fanstasy almansa, happines, klub, sound factory
   </div>
 
   <footer>
@@ -179,3 +157,6 @@
   </footer>
 </body>
 </html>
+```
+
+¿Quieres que también haga que el logo **quede perfectamente alineado en altura** con los botones para que todo se vea como un bloque uniforme?
