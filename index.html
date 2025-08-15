@@ -34,6 +34,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   header {
@@ -51,10 +52,14 @@
     letter-spacing: 0.05em;
     text-shadow: 0 0 12px #00e0ff44;
     font-size: clamp(2rem, 6vw, 4rem);
+    opacity: 0;
+    transform: scale(0.8);
   }
 
   nav {
     width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .links {
@@ -80,8 +85,28 @@
     letter-spacing: 0.03em;
     background: transparent;
     box-shadow: 0 0 8px #00e0ff88;
-    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.1s ease;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
     user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Glow animado */
+  .link-btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--c-accent) 0%, transparent 60%);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .link-btn:hover::before {
+    opacity: 0.2;
+    transform: scale(1);
   }
 
   /* Botones de plataformas */
@@ -110,6 +135,8 @@
     font-weight: 400;
     letter-spacing: 0.05em;
     padding: 0 1rem;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   @media (max-width: 480px) {
@@ -125,24 +152,31 @@
 
   <nav aria-label="Enlaces a redes sociales y secciones de Miguel Aimeur">
     <div class="links">
-      <a class="link-btn youtube" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de Miguel Aimeur">YouTube</a>
-      <a class="link-btn facebook" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer" aria-label="Página de Facebook de Miguel Aimeur">Facebook</a>
-      <a class="link-btn instagram" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Miguel Aimeur, DJ y artista visual">Instagram</a>
-      <a class="link-btn" href="discografia.html" aria-label="Discografía de Miguel Aimeur">Discografía</a>
-      <a class="link-btn" href="biografia.html" aria-label="Biografía de Miguel Aimeur">Biografía</a>
-      <a class="link-btn" href="work.html" aria-label="Trabajos y proyectos de Miguel Aimeur">Work</a>
-      <a class="link-btn" href="dancepec.html" aria-label="Dance PEC de Miguel Aimeur">DancePEC</a>
-      <a class="link-btn" href="apuroreel.html" aria-label="Página de A Puro Reel, programa de Miguel Aimeur">A PURO REEL</a>
+      <a class="link-btn youtube" href="https://www.youtube.com/@miguelaimeurdj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a class="link-btn facebook" href="https://facebook.com/miguelaimeur" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a class="link-btn instagram" href="https://instagram.com/miguelaimeur/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="link-btn" href="discografia.html">Discografía</a>
+      <a class="link-btn" href="biografia.html">Biografía</a>
+      <a class="link-btn" href="work.html">Work</a>
+      <a class="link-btn" href="dancepec.html">DancePEC</a>
+      <a class="link-btn" href="apuroreel.html">A PURO REEL</a>
     </div>
   </nav>
 </header>
 
-<main>
-  <!-- Contenido principal eliminado para minimalismo -->
-</main>
+<main></main>
 
 <footer>
   Basics 2025 &nbsp;|&nbsp; miguelaimeur@gmail.com &nbsp;|&nbsp; Todos los derechos reservados
 </footer>
+
+<!-- GSAP Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
+  gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
+  gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
+  gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
+</script>
 </body>
 </html>
