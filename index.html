@@ -1,96 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miguel Aimeur - Video</title>
   <style>
-    body {
-      margin: 0;
-      background-color: #0d0d0d;
-      font-family: Arial, sans-serif;
-      color: #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    body { margin:0; background:#0d0d0d; font-family:Arial,sans-serif; color:#e0e0e0; display:flex; flex-direction:column; min-height:100vh; }
+    header, footer { text-align:center; padding:1rem; background:#111; }
+    main { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:1rem; }
+    .video-container { position:relative; width:100%; max-width:960px; aspect-ratio:16/9; background:#000; margin-bottom:1rem; }
+    .video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+    /* Botón TRON para el enlace Kick */
+    .kick-link {
+      display:none; /* solo se muestra en móvil */
+      padding:0.8rem 1.5rem;
+      color:#00e0ff;
+      font-weight:bold;
+      text-decoration:none;
+      font-size:1rem;
+      border:2px solid #00e0ff;
+      border-radius:12px;
+      box-shadow:0 0 15px #00e0ff, 0 0 30px #00e0ff22;
+      transition: all 0.3s ease;
+      text-align:center;
+
+      /* Animación de parpadeo TRON */
+      animation: neonFlicker 3s infinite;
     }
-    header, footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
+
+    .kick-link:hover {
+      background-color: #00e0ff22;
+      box-shadow:0 0 25px #00e0ff, inset 0 0 15px #00e0ff33;
+      text-decoration:none;
+      color:#fff;
     }
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
-    .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      aspect-ratio: 16/9;
-      background: #000;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    /* Backup oculto por defecto */
-    .backup {
-      display: none;
+
+    @keyframes neonFlicker {
+      0%,19%,21%,23%,25%,54%,56%,100% { text-shadow:0 0 15px #00e0ff,0 0 30px #00e0ff22; opacity:1; }
+      20%,22%,24%,55% { text-shadow:0 0 4px #00e0ff; opacity:0.8; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Miguel Aimeur</h1>
-  </header>
+  <header><h1>Miguel Aimeur</h1></header>
   <main>
-    <div class="video-container">
-      <!-- Kick embed (principal) -->
-      <iframe id="kick-player"
-        src="https://kick.com/embed/videos/9261d8e4-f744-4049-b0f0-70b939e7548b"
-        title="Video de Miguel Aimeur en Kick"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-        allowfullscreen loading="lazy">
-      </iframe>
-
-      <!-- YouTube embed (backup) -->
-      <iframe id="yt-backup" class="backup"
-        src="https://www.youtube.com/embed/nOwks6mVdkk"
-        title="Video de Miguel Aimeur en YouTube"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-        allowfullscreen loading="lazy">
-      </iframe>
-    </div>
+    <div class="video-container" id="video-wrapper"></div>
+    <a id="kick-mobile-link" class="kick-link" href="https://kick.com/homedjsklubb/videos/9261d8e4-f744-4049-b0f0-70b939e7548b" target="_blank">
+      Miguel Aimeur visita Home DJS Klub
+    </a>
   </main>
-  <footer>
-    <p>&copy; 2025 Miguel Aimeur</p>
-  </footer>
+  <footer><p>&copy; 2025 Miguel Aimeur</p></footer>
 
   <script>
-    // Script para activar backup si Kick falla
-    const kickPlayer = document.getElementById('kick-player');
-    const ytBackup = document.getElementById('yt-backup');
+    const videoWrapper = document.getElementById('video-wrapper');
+    const kickLink = document.getElementById('kick-mobile-link');
 
-    kickPlayer.addEventListener('error', () => {
-      kickPlayer.style.display = 'none';
-      ytBackup.classList.remove('backup');
-    });
+    // Detectamos si es móvil
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    // Fallback extra: si en 5s no carga Kick, activar backup
-    setTimeout(() => {
-      if (!kickPlayer.contentWindow || kickPlayer.contentWindow.length === 0) {
-        kickPlayer.style.display = 'none';
-        ytBackup.classList.remove('backup');
-      }
-    }, 5000);
+    let iframe = document.createElement('iframe');
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.loading = "lazy";
+
+    if (isMobile) {
+      // Móvil -> YouTube
+      iframe.src = "https://www.youtube.com/embed/nOwks6mVdkk";
+      iframe.title = "Video de Miguel Aimeur en YouTube";
+      // Mostrar botón TRON a Kick
+      kickLink.style.display = 'inline-block';
+    } else {
+      // Escritorio -> Kick
+      iframe.src = "https://kick.com/embed/videos/9261d8e4-f744-4049-b0f0-70b939e7548b";
+      iframe.title = "Video de Miguel Aimeur en Kick";
+      // Ocultar enlace en escritorio
+      kickLink.style.display = 'none';
+    }
+
+    videoWrapper.appendChild(iframe);
   </script>
 </body>
 </html>
