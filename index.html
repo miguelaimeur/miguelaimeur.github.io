@@ -20,7 +20,7 @@
   --yt: #FF0000;
   --fb: #1877F2;
   --ig: #E1306C;
-  --kick: #9146FF;
+  --kick: #53FC18; /* Verde Kick */
 }
 
 body {
@@ -80,6 +80,7 @@ header {
 }
 
 nav { width: 100%; opacity: 0; transform: translateY(20px); }
+
 .links { 
   display: flex; 
   flex-wrap: wrap; 
@@ -91,6 +92,7 @@ nav { width: 100%; opacity: 0; transform: translateY(20px); }
   position: relative; 
   z-index: 1; 
 }
+
 .link-btn {
   flex: 1 1 140px; max-width: 220px;
   padding: 0.9em; border: 2px solid var(--c-accent); border-radius: 12px;
@@ -100,6 +102,7 @@ nav { width: 100%; opacity: 0; transform: translateY(20px); }
   transition: background-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
   position: relative; overflow: hidden;
 }
+
 .link-btn::before {
   content: ""; position: absolute; top: -50%; left: -50%;
   width: 200%; height: 200%;
@@ -107,11 +110,14 @@ nav { width: 100%; opacity: 0; transform: translateY(20px); }
   opacity: 0; transform: scale(0);
   transition: opacity 0.4s, transform 0.4s;
 }
+
 .link-btn:hover::before { opacity: 0.2; transform: scale(1); }
+
 .link-btn.youtube:hover { background-color: var(--yt); border-color: var(--yt); box-shadow: 0 0 18px var(--yt), inset 0 0 18px var(--yt); }
 .link-btn.facebook:hover { background-color: var(--fb); border-color: var(--fb); box-shadow: 0 0 18px var(--fb), inset 0 0 18px var(--fb); }
 .link-btn.instagram:hover { background-color: var(--ig); border-color: var(--ig); box-shadow: 0 0 18px var(--ig), inset 0 0 18px var(--ig); }
-.link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick), inset 0 0 18px var(--kick); }
+.link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick), inset 0 0 18px var(--kick); color: #000; }
+
 .link-btn:not(.youtube):not(.facebook):not(.instagram):not(.kick):hover {
   background-color: var(--c-accent-soft);
   border-color: var(--c-accent);
@@ -177,4 +183,25 @@ footer {
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/MY9kFLda8Cw?autoplay=0" 
             title="Video de Miguel Aimeur" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+  </div>
+</header>
+
+<main></main>
+
+<footer>
+  Basics 2025 &nbsp;|&nbsp; miguelaimeur@gmail.com &nbsp;|&nbsp; Todos los derechos reservados
+</footer>
+
+<!-- Animaciones GSAP y Tron EXTREMO se quedan igual -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
+gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
+gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
+gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
+</script>
+
+</body>
+</html>
