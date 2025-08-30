@@ -152,6 +152,20 @@ footer {
   border: none;
 }
 
+.video-title {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+  color: var(--c-accent);
+  text-shadow: 0 0 8px var(--c-accent-soft);
+}
+
+.kick-btn-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
 @media (max-width: 480px) {
   header { padding: 1.8em 1em 0.6em; }
   .links { gap: 0.8em; }
@@ -171,7 +185,6 @@ footer {
       <a class="link-btn youtube" href="https://www.youtube.com/@miguelaimeurdj" target="_blank">YouTube</a>
       <a class="link-btn facebook" href="https://facebook.com/miguelaimeur" target="_blank">Facebook</a>
       <a class="link-btn instagram" href="https://instagram.com/miguelaimeur/" target="_blank">Instagram</a>
-      <a class="link-btn kick" href="https://kick.com/homedjsklubb/videos/9261d8e4-f744-4049-b0f0-70b939e7548b" target="_blank">Kick</a>
       <a class="link-btn" href="discografia.html">Discografía</a>
       <a class="link-btn" href="biografia.html">Biografía</a>
       <a class="link-btn" href="work.html">Work</a>
@@ -186,6 +199,10 @@ footer {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen></iframe>
   </div>
+  <div class="video-title">Miguel Aimeur - Entrevista en Home Djs Klub</div>
+  <div class="kick-btn-container">
+    <a class="link-btn kick" href="https://kick.com/homedjsklubb/videos/9261d8e4-f744-4049-b0f0-70b939e7548b" target="_blank">Ver en Kick</a>
+  </div>
 </header>
 
 <main></main>
@@ -194,7 +211,7 @@ footer {
   Basics 2025 &nbsp;|&nbsp; miguelaimeur@gmail.com &nbsp;|&nbsp; Todos los derechos reservados
 </footer>
 
-<!-- Animaciones GSAP y Tron EXTREMO se quedan igual -->
+<!-- Animaciones GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
 gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
