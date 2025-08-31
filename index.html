@@ -21,6 +21,8 @@
   --fb: #1877F2;
   --ig: #E1306C;
   --kick: #53FC18; /* Verde Kick */
+  --x: #000000;
+  --ivoox: #FF6600;
 }
 
 body {
@@ -79,15 +81,31 @@ header {
   20%,22%,24%,55% { text-shadow:0 0 4px var(--c-accent); opacity:0.8; }
 }
 
-nav { width: 100%; opacity: 0; transform: translateY(20px); }
+/* NAV BAR con fondo cyberpunk */
+nav { 
+  width: 100%; 
+  opacity: 0; 
+  transform: translateY(20px); 
+  background: repeating-linear-gradient(
+    45deg,
+    #111,
+    #111 10px,
+    #222 10px,
+    #222 20px
+  );
+  background-size: 40px 40px;
+  border-bottom: 2px solid var(--c-accent-soft);
+  box-shadow: 0 0 15px var(--c-accent-soft);
+  padding: 1em 0;
+}
 
 .links { 
   display: flex; 
   flex-wrap: wrap; 
   justify-content: center; 
   gap: 1em; 
-  max-width: 820px; 
-  margin: 0.6em auto 0; 
+  max-width: 900px; 
+  margin: 0 auto; 
   padding: 0 1rem; 
   position: relative; 
   z-index: 1; 
@@ -117,8 +135,10 @@ nav { width: 100%; opacity: 0; transform: translateY(20px); }
 .link-btn.facebook:hover { background-color: var(--fb); border-color: var(--fb); box-shadow: 0 0 18px var(--fb), inset 0 0 18px var(--fb); }
 .link-btn.instagram:hover { background-color: var(--ig); border-color: var(--ig); box-shadow: 0 0 18px var(--ig), inset 0 0 18px var(--ig); }
 .link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick), inset 0 0 18px var(--kick); color: #000; }
+.link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x), inset 0 0 18px var(--x); color: #fff; }
+.link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox), inset 0 0 18px var(--ivoox); color: #fff; }
 
-.link-btn:not(.youtube):not(.facebook):not(.instagram):not(.kick):hover {
+.link-btn:not(.youtube):not(.facebook):not(.instagram):not(.kick):not(.x):not(.ivoox):hover {
   background-color: var(--c-accent-soft);
   border-color: var(--c-accent);
   box-shadow: 0 0 18px var(--c-accent), inset 0 0 8px var(--c-accent-soft);
@@ -185,6 +205,8 @@ footer {
   <h1 class="site-title">Miguel Aimeur – DJ · VJ · LJ</h1>
   <nav>
     <div class="links">
+      <a class="link-btn x" href="https://x.com/MiguelAimeur" target="_blank">X</a>
+      <a class="link-btn ivoox" href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" target="_blank">iVoox</a>
       <a class="link-btn youtube" href="https://www.youtube.com/@miguelaimeurdj" target="_blank">YouTube</a>
       <a class="link-btn facebook" href="https://facebook.com/miguelaimeur" target="_blank">Facebook</a>
       <a class="link-btn instagram" href="https://instagram.com/miguelaimeur/" target="_blank">Instagram</a>
