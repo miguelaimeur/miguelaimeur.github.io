@@ -6,165 +6,150 @@
   <title>Miguel Aimeur</title>
 
   <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg:#000000;
-      --accent:#ffc72c;
+      --bg:#0a0a0a;
+      --accent:#00f0ff;
       --text:#ffffff;
-      --card:#0f0f12;
-      --shadow:0 10px 30px rgba(0,0,0,.55);
-      --radius:16px;
+      --card:#101018;
+      --shadow:0 0 15px rgba(0,255,255,0.3);
+      --radius:12px;
       --container:1000px;
+      --glow:0 0 12px rgba(0,255,255,0.7);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      font-family:"Orbitron", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       text-align:center;
       line-height:1.5;
-      -webkit-font-smoothing:antialiased;
       position:relative;
       overflow-x:hidden;
     }
 
-    /* Textura sutil en el fondo (sin imágenes externas) */
+    /* Textura tipo grid y neón sutil */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       background:
-        radial-gradient(1px 1px at 25px 25px, rgba(255,255,255,.06) 0, transparent 60%) repeat,
-        radial-gradient(1px 1px at 75px 75px, rgba(255,255,255,.04) 0, transparent 60%) repeat,
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-      background-size:100px 100px, 120px 120px, 100% 100%;
+        linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px) 0 0 / 50px 50px,
+        linear-gradient(rgba(0,255,255,.05) 1px, transparent 1px) 0 0 / 50px 50px;
       pointer-events:none;
-      mix-blend-mode:soft-light;
       z-index:0;
     }
 
     .wrap{
       position:relative;
       z-index:1;
-      padding:32px 16px 80px;
+      padding:40px 20px 80px;
     }
 
     h1{
-      font-weight:800;
-      letter-spacing:.4px;
-      font-size: clamp(28px, 4vw, 48px);
+      font-weight:900;
+      letter-spacing:1px;
+      font-size: clamp(32px, 6vw, 60px);
       color: var(--accent);
-      margin: 0 0 28px;
-      text-shadow: 0 2px 0 rgba(0,0,0,.35);
+      margin:0 0 32px;
+      text-shadow: 0 0 8px #00f0ff, 0 0 16px #00f0ff, 0 0 24px #00f0ff;
     }
 
     .section{
       max-width: var(--container);
       margin: 0 auto 64px;
-      padding: 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.06);
+      padding: 24px;
+      background: rgba(16,16,24,0.5);
+      border: 1px solid rgba(0,255,255,.2);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
 
     h2{
       display:inline-block;
-      margin: 0 0 18px;
-      padding: 10px 16px;
-      border-radius: 999px;
+      margin:0 0 20px;
+      padding:10px 20px;
+      border-radius: 50px;
       background: var(--accent);
-      color: #1a1a1a;
-      font-weight:800;
-      font-size: clamp(16px, 2.3vw, 22px);
-      letter-spacing:.3px;
+      color:#0a0a0a;
+      font-weight:700;
+      font-size: clamp(16px, 2.5vw, 24px);
+      letter-spacing:.4px;
+      text-shadow: 0 0 4px #00f0ff, 0 0 10px #00f0ff;
     }
 
-    /* Reproductores más grandes y elegantes */
+    /* Embeds con borde neón */
     .embed{
-      width: 100%;
-      border: 0;
-      border-radius: 18px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 12px 30px rgba(0,0,0,.45);
+      width:100%;
+      border:0;
+      border-radius:16px;
+      box-shadow: 0 0 6px rgba(0,255,255,.4), 0 12px 28px rgba(0,0,0,.6);
       background: var(--card);
-      transition: transform .15s ease, box-shadow .15s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
+      outline: 2px solid rgba(0,255,255,.5);
     }
-    .embed:hover{ transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 16px 40px rgba(0,0,0,.55); }
+    .embed:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 0 16px #00f0ff, 0 0 28px rgba(0,255,255,.6), 0 16px 40px rgba(0,0,0,.7);
+    }
 
-    /* Alturas mayores */
     .album-embed{ height: 520px; }
-    .track-embed{ height: 110px; }
+    .track-embed{ height: 120px; }
 
-    /* Separación consistente */
-    .stack{ display:grid; gap: 22px; }
+    .stack{ display:grid; gap:24px; }
 
-    /* Responsive fino */
-    @media (min-width: 700px){
+    @media (min-width:700px){
       .albums{ grid-template-columns: 1fr 1fr; }
       .tracks{ grid-template-columns: 1fr 1fr; }
     }
-    @media (min-width: 1024px){
+    @media (min-width:1024px){
       .tracks{ grid-template-columns: 1fr 1fr 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1> Miguel Aimeur</h1>
+    <h1>Miguel Aimeur</h1>
 
     <div class="section">
       <h2>Álbumes destacados</h2>
       <div class="stack albums">
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/4uS0PJfUlnQQ2t4QIv5cg7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Álbum · Hard Sex & Music"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5iLkhvz10L5wdovN0CZsYd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Álbum destacado"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/27ZDgv4cWxNyyEs1OPS3Ol" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Álbum destacado"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/2GPpFqOjaXBv0G4qpYhaup" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Álbum destacado"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/4uS0PJfUlnQQ2t4QIv5cg7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5iLkhvz10L5wdovN0CZsYd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/27ZDgv4cWxNyyEs1OPS3Ol" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/2GPpFqOjaXBv0G4qpYhaup" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
 
     <div class="section">
       <h2>Discografía destacada</h2>
       <div class="stack albums">
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/570VO52y9ltVmJqpPfzaNb" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Discografía destacada"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5EiuSOgD1KrlhnLJB0TYah" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Discografía destacada"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/0ngcrZb5NoX0KfYWhTRYMd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Discografía destacada"></iframe>
-
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/14cYkzDL6ASxjRCBNE1bXx" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Discografía destacada"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/570VO52y9ltVmJqpPfzaNb" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5EiuSOgD1KrlhnLJB0TYah" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/0ngcrZb5NoX0KfYWhTRYMd" loading="lazy"></iframe>
+        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/14cYkzDL6ASxjRCBNE1bXx" loading="lazy"></iframe>
       </div>
     </div>
 
     <div class="section">
       <h2>Canciones destacadas</h2>
       <div class="stack tracks">
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/3uTp5YT5n4Lysow8EJdws7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/77PfvEk61YVbOlUrQAFdpR" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5Xb9JqrbCjZ8CUi66pqiVH" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5679KtcNW7pRBvsHlv1Dsh" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0lNspO51eHCNobRT7tps9P" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/2JFb5VZlcbQVP9qpsDFytD" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0MUquZ6TgOriXikdYyFm66" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5pSmo1NNO6qp4TkqABLbOR" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/65v5Nk7OejgHDeK1VIHCCh" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
-
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/26LuEBhiJsn7J0wgNDsI2D" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Canción destacada"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/3uTp5YT5n4Lysow8EJdws7" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/77PfvEk61YVbOlUrQAFdpR" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5Xb9JqrbCjZ8CUi66pqiVH" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5679KtcNW7pRBvsHlv1Dsh" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0lNspO51eHCNobRT7tps9P" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/2JFb5VZlcbQVP9qpsDFytD" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0MUquZ6TgOriXikdYyFm66" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5pSmo1NNO6qp4TkqABLbOR" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/65v5Nk7OejgHDeK1VIHCCh" loading="lazy"></iframe>
+        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/26LuEBhiJsn7J0wgNDsI2D" loading="lazy"></iframe>
       </div>
     </div>
   </div>
