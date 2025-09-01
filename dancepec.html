@@ -53,7 +53,6 @@
         100% { background-position: -200px 200px, -200px 200px; }
     }
 
-    /* Scanlines */
     body::after {
         content: "";
         position: fixed;
@@ -73,11 +72,28 @@
         padding: 20px;
     }
 
+    /* Título Tron elegante */
     h1 {
         font-weight: 800;
-        font-size: 3.5em;
+        font-size: 3em;
         color: #0ff;
-        text-shadow: 0 0 10px #0ff, 0 0 20px #08f, 0 0 40px #0ff;
+        text-shadow: 
+            0 0 5px #0ff,
+            0 0 10px #0ff,
+            0 0 20px #08f,
+            0 0 40px #0ff,
+            0 0 80px #0ff;
+        margin-bottom: 0.2em;
+    }
+
+    h2 {
+        font-weight: 600;
+        font-size: 2em;
+        color: #0ff;
+        text-shadow: 
+            0 0 5px #0ff,
+            0 0 10px #0ff,
+            0 0 20px #08f;
         margin-bottom: 1.5em;
     }
 
@@ -107,6 +123,7 @@
 
 <div class="content">
     <h1>DANCE PEC</h1>
+    <h2>Miguel Aimeur</h2>
 
     <iframe 
         src="https://www.youtube.com/embed/videoseries?list=PLiZ47mcbCWGDUElcQVhLLsDa9ZxPpKLMj" 
