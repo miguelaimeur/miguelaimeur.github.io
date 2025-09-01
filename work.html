@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Work | DANCE PEC - Miguel Aimeur</title>
-<meta name="description" content="Work de Miguel Aimeur – Playlist DANCE PEC, música electrónica, DJ & VJ, visuales en directo." />
+<title>Miguel Aimeur | Trabajos Audiovisuales</title>
+<meta name="description" content="Trabajos audiovisuales de Miguel Aimeur – Playlist de proyectos audiovisuales, música electrónica, DJ & VJ, visuales en directo." />
 <link rel="icon" href="favicon.ico" />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
 
@@ -17,12 +17,6 @@
   --c-accent-soft: #00e0ff22;
   --c-text: #a0f0ffcc;
   --c-muted: #007f99cc;
-  --yt: #FF0000;
-  --fb: #1877F2;
-  --ig: #E1306C;
-  --kick: #53FC18;
-  --x: #000000;
-  --ivoox: #FF6600;
 }
 
 body {
@@ -63,7 +57,7 @@ body {
   100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
 }
 
-/* Header y navegación */
+/* Header */
 header {
   padding: 2em 1em 1em;
   display: flex;
@@ -80,39 +74,8 @@ header {
   -webkit-text-stroke: 1px var(--c-accent);
   text-shadow: 0 0 15px var(--c-accent), 0 0 30px var(--c-accent-soft);
   text-align: center;
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
 }
-
-nav { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 0.8rem; 
-  margin-bottom: 2em;
-}
-
-.link-btn {
-  flex: 1 1 120px;
-  max-width: 140px;
-  padding: 0.9em;
-  border: 2px solid var(--c-accent);
-  border-radius: 12px;
-  color: var(--c-accent);
-  font-weight: 700;
-  font-size: 1em;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.25s;
-  background: transparent;
-  box-shadow: 0 0 10px var(--c-accent);
-}
-
-.link-btn.youtube:hover { background-color: var(--yt); border-color: var(--yt); box-shadow: 0 0 18px var(--yt); }
-.link-btn.facebook:hover { background-color: var(--fb); border-color: var(--fb); box-shadow: 0 0 18px var(--fb); }
-.link-btn.instagram:hover { background-color: var(--ig); border-color: var(--ig); box-shadow: 0 0 18px var(--ig); }
-.link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick); color: #000; }
-.link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x); color: #fff; }
-.link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox); color: #fff; }
 
 /* Main content */
 .content {
@@ -122,18 +85,6 @@ nav {
   width: 100%;
   padding: 1em;
   text-align: center;
-}
-
-.content h1 {
-  font-size: 3em;
-  text-shadow: 0 0 10px #0ff,0 0 20px #08f,0 0 30px #0ff;
-  margin-bottom: 0.5em;
-}
-
-.content h2 {
-  font-size: 1.8em;
-  text-shadow: 0 0 10px #0ff,0 0 20px #08f;
-  margin-bottom: 1.5em;
 }
 
 .video-container {
@@ -165,23 +116,12 @@ footer {
 <body>
 
 <header>
-  <h1 class="site-title">DANCE PEC - Miguel Aimeur</h1>
-  <nav>
-    <a href="#" class="link-btn youtube">YouTube</a>
-    <a href="#" class="link-btn facebook">Facebook</a>
-    <a href="#" class="link-btn instagram">Instagram</a>
-    <a href="#" class="link-btn kick">Kick</a>
-    <a href="#" class="link-btn x">X</a>
-    <a href="#" class="link-btn ivoox">iVoox</a>
-  </nav>
+  <h1 class="site-title">Miguel Aimeur<br>Trabajos Audiovisuales</h1>
 </header>
 
 <div class="grid"></div>
 
 <main class="content">
-  <h1>Work de Miguel Aimeur</h1>
-  <h2>Playlist DANCE PEC</h2>
-
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLiZ47mcbCWGAqmAaIErY6O2JuwPYW1GUN" allowfullscreen></iframe>
   </div>
