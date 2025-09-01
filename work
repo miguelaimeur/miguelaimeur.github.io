@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DANCE PEC | Miguel Aimeur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+        font-family: 'Orbitron', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle at center, #000 0%, #050505 100%);
+        color: #0ff;
+    }
+
+    /* Grid parallax animado */
+    .grid {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 200%; height: 200%;
+        background: linear-gradient(to right, rgba(0,255,255,0.15) 1px, transparent 1px) 0 0,
+                    linear-gradient(to bottom, rgba(0,255,255,0.15) 1px, transparent 1px) 0 0;
+        background-size: 60px 60px;
+        transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg);
+        animation: gridmove 12s linear infinite, gridrotate 60s linear infinite;
+        opacity: 0.25;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @keyframes gridmove {
+        0% { background-position: 0 0, 0 0; }
+        100% { background-position: -240px 240px, -240px 240px; }
+    }
+
+    @keyframes gridrotate {
+        0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
+        100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
+    }
+
+    /* Líneas de neón animadas */
+    .neon-lines::before, .neon-lines::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 50%;
+        width: 2px; height: 100%;
+        background: linear-gradient(to bottom, transparent, #0ff, transparent);
+        animation: lineMove 4s linear infinite;
+        opacity: 0.3;
+    }
+
+    .neon-lines::after {
+        left: 30%;
+        animation-delay: 2s;
+    }
+
+    @keyframes lineMove {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        width: 100%;
+        max-width: 960px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: 3em;
+        color: #0ff;
+        text-transform: uppercase;
+        text-shadow: 
+            0 0 10px #0ff,
+            0 0 20px #0ff,
+            0 0 30px #08f,
+            0 0 40px #0ff,
+            0 0 60px #0ff;
+        margin-bottom: 0.2em;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 1.8em;
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff, 0 0 20px #08f;
+        margin-bottom: 1.5em;
+        animation: glow 2.5s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 5px #0ff, 0 0 15px #08f, 0 0 25px #0ff; }
+        100% { text-shadow: 0 0 20px #0ff, 0 0 40px #08f, 0 0 60px #0ff; }
+    }
+
+    iframe {
+        border: 2px solid #0ff;
+        border-radius: 16px;
+        box-shadow: 0 0 35px #0ff, 0 0 60px #08f;
+        width: 100%;
+        height: 540px;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="grid"></div>
+<div class="neon-lines"></div>
+
+<div class="content">
+    <h1>DANCE PEC</h1>
+    <h2>Miguel Aimeur</h2>
+
+    <iframe 
+        src="https://www.youtube.com/embed/videoseries?list=PLiZ47mcbCWGAqmAaIErY6O2JuwPYW1GUN&si=FiyWBiyIlfz_2TTm" 
+        title="DANCE PEC Playlist"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+</div>
+
+</body>
+</html>
