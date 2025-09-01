@@ -1,77 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biografía - Miguel Aimeur | DJ, VJ, LJ y Productor Audiovisual</title>
 
-<meta name="description" content="Biografía de Miguel Aimeur, DJ, VJ, LJ y productor audiovisual español especializado en hard dance y hard house. Más de 25 años en la escena electrónica, trabajando con artistas y festivales de primer nivel." />
-<meta name="keywords" content="Miguel Aimeur, DJ, VJ, LJ, productor audiovisual, hard dance, hard house, música electrónica" />
-<meta name="robots" content="index, follow" />
+<meta name="description" content="Biografía de Miguel Aimeur, DJ, VJ, LJ y productor audiovisual español especializado en hard dance y hard house. Más de 25 años en la escena electrónica, trabajando con artistas y festivales de primer nivel.">
+<meta name="keywords" content="Miguel Aimeur, DJ, VJ, LJ, productor audiovisual, hard dance, hard house, música electrónica">
+<meta name="robots" content="index, follow">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Biografía - Miguel Aimeur" />
-<meta property="og:description" content="Más de 25 años en la escena electrónica. DJ, VJ, LJ y productor audiovisual especializado en hard dance y hard house." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.miguelaimeur.pro/biografia.html" />
-<meta property="og:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg" />
+<meta property="og:title" content="Biografía - Miguel Aimeur">
+<meta property="og:description" content="Más de 25 años en la escena electrónica. DJ, VJ, LJ y productor audiovisual especializado en hard dance y hard house.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.miguelaimeur.pro/biografia.html">
+<meta property="og:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Biografía - Miguel Aimeur" />
-<meta name="twitter:description" content="Más de 25 años en la escena electrónica. DJ, VJ, LJ y productor audiovisual especializado en hard dance y hard house." />
-<meta name="twitter:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Biografía - Miguel Aimeur">
+<meta name="twitter:description" content="Más de 25 años en la escena electrónica. DJ, VJ, LJ y productor audiovisual especializado en hard dance y hard house.">
+<meta name="twitter:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg">
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+    /* Reset básico */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
         font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(135deg, #0e0e0e 0%, #1f1f1f 100%);
-        color: #fff;
-        margin: 0;
-        padding: 40px 20px;
+        background: radial-gradient(circle at top left, #0a0a0a, #1a1a1a);
+        color: #e0e0e0;
         min-height: 100vh;
+        padding: 40px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
+
     h1, h2 {
-        font-weight: 800;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        text-shadow: 0 0 8px #ff4c00, 0 0 16px #ff4c00;
         margin-bottom: 20px;
     }
-    h1 { font-size: 2.5em; }
-    h2 {
-        color: #ff4c00;
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.8em;
-    }
+
+    h1 { font-size: 3em; color: #ff4c00; }
+    h2 { font-size: 2em; color: #00eaff; margin-top: 40px; margin-bottom: 20px; }
+
     p {
-        max-width: 700px;
-        font-weight: 400;
-        font-size: 1.2em;
-        color: #ccc;
-        line-height: 1.6;
+        max-width: 800px;
+        font-size: 1.15em;
+        line-height: 1.7;
+        color: #cfd8dc;
         margin-bottom: 30px;
         text-align: justify;
     }
-    strong { color: #ff4c00; }
+
+    strong { color: #ff4c00; font-weight: 700; }
+
     a.back-btn {
-        background: #ff4c00;
-        color: #fff;
-        padding: 12px 25px;
+        display: inline-block;
+        background: #00eaff;
+        color: #0a0a0a;
+        padding: 12px 30px;
         text-decoration: none;
         font-weight: 700;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-        user-select: none;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #00eaff55, 0 0 30px #00eaff22 inset;
+        transition: all 0.3s ease;
+        margin-top: 20px;
     }
+
     a.back-btn:hover {
-        background-color: #e04300;
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px #00eaff, 0 0 40px #00eaff inset;
+        background: #00c8e0;
     }
+
+    main {
+        width: 100%;
+        max-width: 900px;
+        padding: 20px;
+    }
+
+    section { margin-bottom: 50px; }
 </style>
 </head>
 <body>
