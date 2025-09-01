@@ -3,87 +3,99 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DANCE PEC - Próximamente | Miguel Aimeur</title>
+<title>DANCE PEC | Miguel Aimeur</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
 
 <style>
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
         font-family: 'Montserrat', sans-serif;
-        background: #0e0e0e;
-        color: #fff;
         margin: 0;
-        padding: 2em;
-        min-height: 100vh;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        text-align: center;
-    }
-    #main-text {
-        font-weight: 800;
-        font-size: 4em;
-        color: #ff4c00;
-        margin-bottom: 2em;
-    }
-    iframe {
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 0 20px #ff4c00aa;
-        margin-bottom: 0.4em;
-        max-width: 1000px;
-        width: 100%;
-        height: 562px; /* Para YouTube, 16:9 */
-    }
-    iframe.soundcloud {
-        height: 166px; /* estándar SoundCloud embed height */
-        max-width: 1000px;
-        width: 100%;
-    }
-    .stream-buttons {
-        display: flex;
-        gap: 1em;
-        margin-bottom: 2em;
-    }
-    .stream-buttons a {
-        background-color: #ff4c00;
-        color: #fff;
-        padding: 12px 24px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-        user-select: none;
-        cursor: pointer;
-        min-width: 120px;
-        display: inline-flex;
         justify-content: center;
         align-items: center;
+        background: #000;
+        color: #0ff;
     }
-    .stream-buttons a:hover,
-    .stream-buttons a:focus {
-        background-color: #e04300;
-        outline: none;
-        box-shadow: 0 0 8px #e04300;
+
+    /* Fondo Tron con grid y scanlines */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: radial-gradient(circle at center, rgba(0,255,255,0.05) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
     }
-    .video-title {
-        font-weight: 600;
-        font-size: 1.2em;
-        color: #ff4c00;
-        margin-bottom: 2em;
-        max-width: 1000px;
+
+    .grid {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 200%; height: 200%;
+        background: linear-gradient(to right, #0ff 1px, transparent 1px) 0 0,
+                    linear-gradient(to bottom, #0ff 1px, transparent 1px) 0 0;
+        background-size: 50px 50px;
+        transform: translate(-50%, -50%) rotateX(60deg);
+        animation: gridmove 10s linear infinite;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @keyframes gridmove {
+        0% { background-position: 0 0, 0 0; }
+        100% { background-position: -200px 200px, -200px 200px; }
+    }
+
+    /* Scanlines */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: repeating-linear-gradient(transparent, transparent 1px, rgba(0,255,255,0.05) 2px);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
         text-align: center;
+        width: 100%;
+        max-width: 960px;
+        padding: 20px;
     }
+
+    h1 {
+        font-weight: 800;
+        font-size: 3.5em;
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff, 0 0 20px #08f, 0 0 40px #0ff;
+        margin-bottom: 1.5em;
+    }
+
+    iframe {
+        border: 2px solid #0ff;
+        border-radius: 16px;
+        box-shadow: 0 0 25px #0ff, 0 0 50px #08f;
+        width: 100%;
+        height: 540px; /* 16:9 */
+    }
+
     /* SEO oculto */
     .seo-hidden {
         position: absolute;
         left: -9999px;
         top: -9999px;
         height: 0;
+        width: 0;
         overflow: hidden;
         visibility: hidden;
     }
@@ -91,25 +103,31 @@
 </head>
 <body>
 
-<div id="main-text">DANCE PEC PROXIMAMENTE</div>
+<div class="grid"></div>
 
-<!-- Botones de streaming -->
-<div class="stream-buttons">
-    <a href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Twitch de APUROREEL">Twitch</a>
-    <a href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a YouTube de APUROREEL">YouTube</a>
-    <a href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ir a Kick de APUROREEL">Kick</a>
+<div class="content">
+    <h1>DANCE PEC</h1>
+
+    <iframe 
+        src="https://www.youtube.com/embed/videoseries?list=PLiZ47mcbCWGDUElcQVhLLsDa9ZxPpKLMj" 
+        title="DANCE PEC Playlist"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
 </div>
 
-<!-- Reproductores con títulos -->
+<!-- Contenido SEO oculto -->
+<div class="seo-hidden">
+    <h2>Dance P.E.C. – Programa de música electrónica y comedia</h2>
+    <p>Dance P.E.C. es un programa de música electrónica y comedia donde hablamos de la escena dance, hard, remember y techno sin pelos en la lengua. Aquí el humor, las sesiones en directo y las charlas sobre la industria van de la mano, siempre ‘Por El Culo’: sin filtros, sin formalidades y haciendo las cosas a nuestra manera. Prepárate para un espacio donde la música, la sátira y los visuales impactantes se mezclan para crear una experiencia única e inmersiva.</p>
 
-<!-- 1) YouTube -->
-<iframe 
-    src="https://www.youtube.com/embed/-_nnfnTFg_k" 
-    title="Homedjsklubb"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-<div class="video-title">Homedjsklubb</div>
+    <h3>LJ - VJ - DJ y productor español</h3>
+    <p>LJ - VJ - DJ y productor español especializado en hard dance y hard house, con más de 25 años de carrera en la escena electrónica nacional. Diseña visuales, iluminación y efectos especiales (FX) de alto nivel técnico y artístico para eventos y festivales en España, integrando gráficos en tiempo real, luces y FX sincronizados con la música. Ha sido VJ y LJ de artistas como Dmitri Vegas & Like Mike, Nervo, Headhunterz, Jeff Mills, Antonio Orozco, Natos y Waor, Edurne, Manuel Carrasco. VJ en salas emblemáticas de Valencia como La3, MiniClub y LaMattina.</p>
 
-<!-- 2) YouTube -->
-<iframe
+    <p>Participó como VJ y LJ en festivales como Medusa, Pilares de Zaragoza, OffSonar, RMF, Pirata Fest, y en espacios como IFEMA, Japan Weekend, Wizink Center. Fundó los sellos Basics Hard Music Company y Dancefloor Studios. Inició su carrera a finales de los 2000 con lanzamientos en vinilo como Be Good (2008). Fundó Basics Hard Music Company y publicó álbumes como Hard Sex & Music (2014) con Neira. Como DJ tuvo residencias en salas como The Sun (Moonlight), Bananas (Masters of Sound), Tropicana Dance Club e Icarus. Actualmente es locutor del podcast A Puro Reel.</p>
+
+    <p>Ha compartido cabina con artistas como Neira, Nando CP, Ismael Lora, Raúl Soto, DJ Vito, Isaac Sánchez, Rubén Esteve, Jorge Hardbass, DJ Colás NG, Pedro Jiménez, Korsakoff, DJ Sancho, Miguel Serna, DJ Ruthless, Fran DJ (Energy Time), Alfre DJ (Más Que Dance) y DJ Kbo (JhonK en Fethis Valencia).</p>
+</div>
+
+</body>
+</html>
