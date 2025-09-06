@@ -11,10 +11,8 @@
 
   <!-- ESTILOS -->
   <style>
-    /* Reset y box-sizing */
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Variables de colores */
     :root {
       --c-bg: #000000;
       --c-accent: #00e0ff;
@@ -29,7 +27,6 @@
       --ivoox: #FF6600;
     }
 
-    /* BODY */
     body {
       font-family: 'Orbitron', sans-serif;
       background: var(--c-bg);
@@ -41,7 +38,6 @@
       position: relative;
     }
 
-    /* FONDO TRON */
     #tron-bg {
       position: fixed;
       top: 0;
@@ -51,7 +47,6 @@
       z-index: -1;
     }
 
-    /* HEADER */
     header {
       padding: 2.5em 1.5em 1em;
       display: grid;
@@ -60,7 +55,6 @@
       gap: 1rem;
     }
 
-    /* TITULO */
     .site-title {
       margin: 0;
       font-weight: 400;
@@ -90,7 +84,6 @@
       20%,22%,24%,55% { text-shadow:0 0 4px var(--c-accent); opacity:0.8; }
     }
 
-    /* NAVBAR */
     nav {
       width: 100%;
       opacity: 0;
@@ -127,7 +120,6 @@
       text-align: center;
     }
 
-    /* HOVER DE BOTONES */
     .link-btn.youtube:hover { background-color: var(--yt); border-color: var(--yt); box-shadow: 0 0 18px var(--yt); }
     .link-btn.facebook:hover { background-color: var(--fb); border-color: var(--fb); box-shadow: 0 0 18px var(--fb); }
     .link-btn.instagram:hover { background-color: var(--ig); border-color: var(--ig); box-shadow: 0 0 18px var(--ig); }
@@ -135,7 +127,6 @@
     .link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x); color: #fff; }
     .link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox); color: #fff; }
 
-    /* MAIN */
     main {
       flex: 1;
       padding-bottom: 3em;
@@ -174,7 +165,6 @@
       margin: 1.5em 0 2.5em;
     }
 
-    /* FOOTER */
     footer {
       font-size: 0.85rem;
       color: var(--c-muted);
@@ -188,14 +178,12 @@
       transform: translateY(20px);
     }
 
-    /* MEDIA QUERIES */
     @media (max-width: 480px) {
       header { padding: 1.8em 1em 0.6em; }
       .links { gap: 0.8em; }
       .link-btn { flex: 1 1 100%; max-width: none; font-size: 1rem; }
       .video-container { width: 95%; margin: 1.5em auto; }
     }
-
   </style>
 </head>
 <body>
@@ -206,6 +194,8 @@
   <!-- HEADER -->
   <header>
     <h1 class="site-title">Miguel Aimeur – DJ · VJ · LJ</h1>
+    
+    <!-- NAV CON BOTONES NUEVOS -->
     <nav>
       <div class="links">
         <a class="link-btn x" href="https://x.com/MiguelAimeur" target="_blank">X</a>
@@ -218,6 +208,8 @@
         <a class="link-btn" href="work.html">Work</a>
         <a class="link-btn" href="dancepec.html">DancePEC</a>
         <a class="link-btn" href="apuroreel.html">A PURO REEL</a>
+        <a class="link-btn" href="entrevistas.html">Entrevistas</a>
+        <a class="link-btn" href="descargas.html">Descargas</a>
       </div>
     </nav>
   </header>
