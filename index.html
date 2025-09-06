@@ -23,7 +23,7 @@
   --kick: #53FC18;
   --x: #000000;
   --ivoox: #FF6600;
-  --tron-color: #FF0000;
+  --tron-color: #00e0ff;
 }
 
 body {
@@ -92,10 +92,9 @@ nav {
 }
 
 .links { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 1em; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1em;
   max-width: 900px; 
   margin: 0 auto; 
   padding: 0 1rem; 
@@ -114,8 +113,29 @@ nav {
   letter-spacing: 0.03em;
   background: transparent; 
   box-shadow: 0 0 10px #00e0ff88;
-  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
   text-align: center;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, #00e0ff77, transparent);
+  transition: 0.3s;
+}
+
+.link-btn:hover::before {
+  left: 0;
+}
+
+.link-btn:hover {
+  box-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff77, 0 0 60px #00e0ff44;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .link-btn.youtube:hover { background-color: var(--yt); border-color: var(--yt); box-shadow: 0 0 18px var(--yt); }
@@ -125,30 +145,10 @@ nav {
 .link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x); color: #fff; }
 .link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox); color: #fff; }
 
-/* Botones nuevos */
 .link-btn.descarga,
 .link-btn.entrevistas {
-  flex: 1 1 140px; 
-  max-width: 140px;
-  padding: 0.9em; 
   border: 2px solid var(--tron-color); 
-  border-radius: 12px;
-  color: var(--tron-color); 
-  font-weight: 700; 
-  font-size: 1.05em;
-  text-decoration: none; 
-  letter-spacing: 0.03em;
-  background: transparent; 
-  box-shadow: 0 0 10px #FF000088;
-  text-align: center;
-  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
-}
-.link-btn.descarga:hover,
-.link-btn.entrevistas:hover {
-  background-color: var(--tron-color);
-  border-color: var(--tron-color);
-  box-shadow: 0 0 18px var(--tron-color);
-  color: #fff;
+  box-shadow: 0 0 10px var(--tron-color)88;
 }
 
 main { 
@@ -252,7 +252,7 @@ gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
 gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
 gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
 
-// Fondo Tron rojo 3D mejorado
+// Fondo Tron azul 3D
 const canvas = document.getElementById('tron-bg');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
@@ -275,13 +275,13 @@ function drawTron(){
 
     lines.forEach(l=>{
         let gradient = ctx.createLinearGradient(l.x, l.y, l.x, l.y-l.len);
-        gradient.addColorStop(0, 'rgba(255,0,0,0)');
-        gradient.addColorStop(0.5, 'rgba(255,0,0,0.4)');
-        gradient.addColorStop(1, 'rgba(255,0,0,0.1)');
+        gradient.addColorStop(0, 'rgba(0,224,255,0)');
+        gradient.addColorStop(0.5, 'rgba(0,224,255,0.4)');
+        gradient.addColorStop(1, 'rgba(0,224,255,0.1)');
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 2.5;
-        ctx.shadowColor = 'rgba(255,0,0,0.7)';
+        ctx.shadowColor = 'rgba(0,224,255,0.7)';
         ctx.shadowBlur = l.glow;
 
         ctx.beginPath();
