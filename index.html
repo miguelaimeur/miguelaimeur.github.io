@@ -20,9 +20,10 @@
   --yt: #FF0000;
   --fb: #1877F2;
   --ig: #E1306C;
-  --kick: #53FC18; /* Verde Kick */
+  --kick: #53FC18;
   --x: #000000;
   --ivoox: #FF6600;
+  --tron-color: #FF0000;
 }
 
 body {
@@ -37,7 +38,6 @@ body {
   position: relative;
 }
 
-/* Fondo estilo Tron */
 #tron-bg {
   position: fixed;
   top: 0; left: 0;
@@ -82,7 +82,6 @@ header {
   20%,22%,24%,55% { text-shadow:0 0 4px var(--c-accent); opacity:0.8; }
 }
 
-/* NAV BAR simple */
 nav { 
   width: 100%; 
   opacity: 0; 
@@ -125,6 +124,32 @@ nav {
 .link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick); color: #000; }
 .link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x); color: #fff; }
 .link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox); color: #fff; }
+
+/* Botones nuevos */
+.link-btn.descarga,
+.link-btn.entrevistas {
+  flex: 1 1 140px; 
+  max-width: 140px;
+  padding: 0.9em; 
+  border: 2px solid var(--tron-color); 
+  border-radius: 12px;
+  color: var(--tron-color); 
+  font-weight: 700; 
+  font-size: 1.05em;
+  text-decoration: none; 
+  letter-spacing: 0.03em;
+  background: transparent; 
+  box-shadow: 0 0 10px #FF000088;
+  text-align: center;
+  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+.link-btn.descarga:hover,
+.link-btn.entrevistas:hover {
+  background-color: var(--tron-color);
+  border-color: var(--tron-color);
+  box-shadow: 0 0 18px var(--tron-color);
+  color: #fff;
+}
 
 main { 
   flex: 1;
@@ -196,6 +221,8 @@ footer {
       <a class="link-btn" href="work.html">Work</a>
       <a class="link-btn" href="dancepec.html">DancePEC</a>
       <a class="link-btn" href="apuroreel.html">A PURO REEL</a>
+      <a class="link-btn descarga" href="ENLACE_DESCARGA_DRIVE" target="_blank">DESCARGA</a>
+      <a class="link-btn entrevistas" href="ENLACE_ENTREVISTAS" target="_blank">ENTREVISTAS</a>
     </div>
   </nav>
 </header>
@@ -219,38 +246,67 @@ footer {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
-// GSAP animaciones
+// Animaciones GSAP
 gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
 gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
 gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
 gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
 
-// Fondo Tron dinámico
+// Fondo Tron rojo 3D mejorado
 const canvas = document.getElementById('tron-bg');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
 let height = canvas.height = window.innerHeight;
+
 let lines = [];
-for(let i=0;i<30;i++){
-    lines.push({x:Math.random()*width,y:Math.random()*height,len:Math.random()*height, speed:1+Math.random()*2});
+for(let i=0;i<60;i++){
+    lines.push({
+        x: Math.random()*width,
+        y: Math.random()*height,
+        len: Math.random()*height/2 + 50,
+        speed: 1 + Math.random()*3,
+        glow: Math.random()*20 + 10
+    });
 }
-function draw(){
-    ctx.fillStyle='black';
+
+function drawTron(){
+    ctx.fillStyle = 'black';
     ctx.fillRect(0,0,width,height);
-    ctx.strokeStyle = '#00e0ff22';
-    ctx.lineWidth = 2;
+
     lines.forEach(l=>{
+        let gradient = ctx.createLinearGradient(l.x, l.y, l.x, l.y-l.len);
+        gradient.addColorStop(0, 'rgba(255,0,0,0)');
+        gradient.addColorStop(0.5, 'rgba(255,0,0,0.4)');
+        gradient.addColorStop(1, 'rgba(255,0,0,0.1)');
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2.5;
+        ctx.shadowColor = 'rgba(255,0,0,0.7)';
+        ctx.shadowBlur = l.glow;
+
         ctx.beginPath();
         ctx.moveTo(l.x,l.y);
         ctx.lineTo(l.x,l.y-l.len);
         ctx.stroke();
+
         l.y += l.speed;
-        if(l.y-l.len>height) l.y=0;
+        if(l.y - l.len > height){
+            l.y = 0;
+            l.x = Math.random()*width;
+            l.len = Math.random()*height/2 + 50;
+            l.speed = 1 + Math.random()*3;
+            l.glow = Math.random()*20 + 10;
+        }
     });
-    requestAnimationFrame(draw);
+
+    requestAnimationFrame(drawTron);
 }
-draw();
-window.addEventListener('resize',()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
+drawTron();
+
+window.addEventListener('resize', ()=>{
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
