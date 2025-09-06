@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --c-bg: #000000;
   --c-accent: #00e0ff;
@@ -21,7 +21,6 @@
 }
 
 body {
-  margin: 0;
   font-family: 'Orbitron', sans-serif;
   background: var(--c-bg);
   color: var(--c-accent);
@@ -53,22 +52,9 @@ header {
   line-height: 1.1;
   letter-spacing: 0.05em;
   font-size: clamp(2rem, 6vw, 4rem);
-  opacity: 0;
-  transform: scale(0.8);
-  color: transparent;
+  color: var(--c-accent);
   -webkit-text-stroke: 1px var(--c-accent);
   text-shadow: 0 0 15px var(--c-accent), 0 0 30px var(--c-accent-soft);
-  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: titleGlow 4s infinite linear, neonFlicker 3s infinite;
-}
-
-@keyframes titleGlow {
-  0% { background-position: -200% 0; }
-  50% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
 }
 
 @keyframes neonFlicker {
@@ -78,8 +64,10 @@ header {
 
 nav { 
   width: 100%; 
-  opacity: 0; 
-  transform: translateY(20px); 
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  z-index: 2;
   background: transparent; 
   border-bottom: 2px solid var(--c-accent-soft);
   padding: 1em 0;
@@ -98,20 +86,22 @@ nav {
   padding: 0.9em; 
   border: 2px solid var(--tron-color); 
   border-radius: 12px;
-  color: var(--tron-color); 
+  color: #fff; /* Color contrastante */
   font-weight: 700; 
   font-size: 1.05em;
   text-decoration: none; 
   letter-spacing: 0.03em;
   background: transparent; 
-  box-shadow: 0 0 8px var(--tron-color);
+  box-shadow: 0 0 10px var(--tron-color);
   text-align: center;
   transition: all 0.25s ease-in-out;
+  position: relative;
+  z-index: 2;
 }
 
 .link-btn:hover {
   background: linear-gradient(45deg, #00e0ff33, #00e0ff77, #00e0ff33);
-  box-shadow: 0 0 15px #00e0ff, 0 0 30px #00e0ff88, 0 0 50px #00e0ff44;
+  box-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff88, 0 0 60px #00e0ff44;
   color: #fff;
   transform: scale(1.05);
 }
@@ -122,10 +112,16 @@ main {
 }
 
 footer {
-  font-size: 0.85rem; color: var(--c-muted); text-align: center;
-  margin: auto 0 2.2em; user-select: none;
-  font-weight: 400; letter-spacing: 0.05em;
-  padding: 0 1rem; opacity: 0; transform: translateY(20px);
+  font-size: 0.85rem; 
+  color: var(--c-muted); 
+  text-align: center;
+  margin: auto 0 2.2em; 
+  user-select: none;
+  font-weight: 400; 
+  letter-spacing: 0.05em;
+  padding: 0 1rem;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .video-container {
@@ -211,11 +207,12 @@ footer {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
-gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
-gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
-gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
-gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
+// Animaciones GSAP
+gsap.from(".site-title", {opacity:0, scale:0.8, duration:1, ease:"power2.out"});
+gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.5, duration:0.6, ease:"power2.out"});
+gsap.from("footer", {opacity:0, y:20, delay:1, duration:0.8, ease:"power2.out"});
 
+// Canvas TRON
 const canvas = document.getElementById('tron-bg');
 const ctx = canvas.getContext('2d');
 let width = canvas.width = window.innerWidth;
