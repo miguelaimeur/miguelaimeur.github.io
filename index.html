@@ -141,12 +141,11 @@
       border-radius: 12px;
       box-shadow: 0 0 30px var(--c-accent), inset 0 0 15px var(--c-accent-soft);
       overflow: hidden;
-      aspect-ratio: 16/9;
     }
 
     .video-container iframe {
       width: 100%;
-      height: 100%;
+      height: 400px; /* fijo para iVoox */
       display: block;
       border: none;
     }
@@ -195,7 +194,7 @@
   <header>
     <h1 class="site-title">Miguel Aimeur – DJ · VJ · LJ</h1>
     
-    <!-- NAV CON BOTONES NUEVOS -->
+    <!-- NAV -->
     <nav>
       <div class="links">
         <a class="link-btn x" href="https://x.com/MiguelAimeur" target="_blank">X</a>
@@ -217,9 +216,11 @@
   <!-- MAIN -->
   <main>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/GHWILd0oj1k?autoplay=0" title="Video de Miguel Aimeur" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.ivoox.com/player_es_podcast_2741467_zp_1.html?c1=8d8f9a" 
+              width="100%" height="400" frameborder="0" 
+              allowfullscreen="" scrolling="no" loading="lazy"></iframe>
     </div>
-    <div class="video-title">Miguel Aimeur - Entrevista en Home Djs Klub</div>
+    <div class="video-title">Miguel Aimeur - Podcast en iVoox</div>
     <div class="kick-btn-container">
       <a class="link-btn kick" href="https://kick.com/homedjsklubb/videos/9261d8e4-f744-4049-b0f0-70b939e7548b" target="_blank">Ver en Kick</a>
     </div>
