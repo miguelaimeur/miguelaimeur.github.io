@@ -52,6 +52,7 @@
 
     .gold-line { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
 
+    /* HEADER */
     .page-header {
       padding:5rem 2rem 4rem;
       text-align:center;
@@ -106,12 +107,49 @@
     }
     .header-roles .dot { color:var(--gold); font-size:.5rem; }
 
+    .social-bar {
+      margin-top:2rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .soc-link {
+      display:flex;align-items:center;gap:.4rem;
+      padding:.5rem 1rem;
+      border:1px solid rgba(201,168,76,.25);
+      color:var(--gold);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .soc-link::before {
+      content:'';position:absolute;inset:0;
+      background:var(--crimson);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .soc-link:hover::before { transform:scaleX(1); }
+    .soc-link:hover { color:var(--white);border-color:var(--crimson); }
+    .soc-link span,.soc-icon { position:relative;z-index:1; }
+    .soc-icon { font-size:.95rem; }
+
+    .section-bar {
+      margin-top:1rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .sec-link {
+      padding:.45rem 1rem;
+      border:1px solid rgba(245,240,232,.08);
+      color:var(--muted);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;
+    }
+    .sec-link:hover { border-color:var(--gold);color:var(--gold); }
+
+    /* MAIN */
     main {
       max-width:860px;
       margin:0 auto;
       padding:5rem 2rem 6rem;
     }
 
+    /* SECTIONS */
     .bio-section {
       margin-bottom:4.5rem;
       opacity:0;
@@ -151,6 +189,7 @@
     strong { color:var(--white); font-weight:600; }
     em { color:var(--gold); font-style:normal; }
 
+    /* Intro quote */
     .intro-text {
       font-size:1.2rem;
       line-height:1.9;
@@ -160,6 +199,7 @@
       margin-bottom:2rem;
     }
 
+    /* Tags */
     .tags {
       display:flex;
       flex-wrap:wrap;
@@ -179,12 +219,14 @@
     .tag.cr { border-color:rgba(232,0,61,.25); color:var(--crimson); }
     .tag.gd { border-color:rgba(201,168,76,.35); color:var(--gold); }
 
+    /* Divider */
     .divider {
       width:50px; height:1px;
       background:linear-gradient(90deg,var(--crimson),var(--gold));
       margin:0 0 4.5rem;
     }
 
+    /* Stats */
     .stat-row {
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -209,6 +251,7 @@
       margin-top:.4rem;
     }
 
+    /* Back button */
     .back-btn {
       display:inline-flex;
       align-items:center;
@@ -238,6 +281,7 @@
     .back-btn:hover::before { transform:scaleX(1); }
     .back-btn span { position:relative; z-index:1; }
 
+    /* Footer */
     footer {
       text-align:center;
       padding:2rem;
@@ -270,17 +314,39 @@
       <span>LJ</span><span class="dot">◆</span>
       <span>Valencia · España</span>
     </div>
+
+    <nav class="social-bar" aria-label="Redes sociales">
+      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">📸</span><span>Instagram</span></a>
+      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">▶</span><span>YouTube</span></a>
+      <a href="https://facebook.com/miguelaimeur" class="soc-link" target="_blank"><span class="soc-icon">f</span><span>Facebook</span></a>
+      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">𝕏</span><span>Twitter</span></a>
+      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">🎧</span><span>iVoox</span></a>
+      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">⚡</span><span>Kick</span></a>
+    </nav>
+
+    <nav class="section-bar" aria-label="Secciones de la web">
+      <a href="index.html" class="sec-link">Inicio</a>
+      <a href="discografia.html" class="sec-link">Discografía</a>
+      <a href="work.html" class="sec-link">Work</a>
+      <a href="dancepec.html" class="sec-link">DancePEC</a>
+      <a href="apuroreel.html" class="sec-link">A Puro Reel</a>
+      <a href="entrevistas.html" class="sec-link">Entrevistas</a>
+      <a href="descargas.html" class="sec-link">Descargas</a>
+    </nav>
+
   </header>
 
   <div class="gold-line"></div>
 
   <main>
 
+    <!-- INTRO -->
     <section class="bio-section" aria-label="Presentación">
       <p class="section-eyebrow">// 001 — Perfil</p>
       <p class="intro-text">
         Miguel Aimeur es <strong>DJ, VJ y LJ profesional</strong> con base en Valencia y más de 25 años de trayectoria en la escena electrónica española. Especializado en hard dance y hard house, su trabajo abarca la producción musical, la dirección visual en vivo, la organización de eventos, la comunicación y la producción audiovisual.
       </p>
+
       <div class="stat-row">
         <div class="stat-item">
           <div class="stat-num">25+</div>
@@ -299,13 +365,23 @@
 
     <div class="divider"></div>
 
+    <!-- DJ -->
     <section class="bio-section" aria-label="Trayectoria como DJ">
       <p class="section-eyebrow">// 002 — Producción y Cabina</p>
       <h2>DJ</h2>
-      <p>Su carrera comienza a finales de los 2000 con sus primeros lanzamientos en vinilo. <strong>Be Good (2008)</strong> es su primer trabajo publicado, con un sonido orientado al hard house con influencias makineras y basslines contundentes a más de 150 BPM. En 2014 publica <strong>Hard Sex & Music</strong> bajo el alias Aimeur & Neira — con temas como <em>Grow Up</em> y <em>Breaking Your Mind</em> — álbum de referencia en el hard dance nacional disponible en Beatport, Juno Download y Spotify desde su relanzamiento en 2021. Colaboró también con Dancefloor Studios y Squad Music, publicando remixes y producciones dentro de la escena hard dance y hard house española.</p>
-      <p>Fundó los sellos <strong>Basics Hard Music Company</strong> y <strong>Dancefloor Studios</strong>, desde los que impulsó durante años la producción y distribución del género en España.</p>
-      <p>Ha tenido residencias como DJ en The Sun (Moonlight) y Bananas (Masters of Sound) en Valencia, y en Tropicana Dance Club e Icarus en Madrid. Ha actuado en Virtual Dance Valencia, Fantasy Almansa y Summer Rave en Pirámide Cabanes. Como DJ internacional ha sido residente en la <strong>Tomatina All Around Party</strong> con Festivals All Around en las ediciones de 2022, 2023 y 2024.</p>
-      <p>Ha compartido cabina con referentes de la escena nacional como <strong>Neira, Nando CP, Ismael Lora, Raúl Soto, Isaac Sánchez, Rubén Esteve, Jorge Hardbass, DJ Colás NG, Pedro Jiménez, Korsakoff, Miguel Serna y DJ Ruthless</strong>, entre otros.</p>
+      <p>
+        Su carrera comienza a finales de los 2000 con sus primeros lanzamientos en vinilo. <strong>Be Good (2008)</strong> es su primer trabajo publicado, con un sonido orientado al hard house con influencias makineras y basslines contundentes a más de 150 BPM. En 2014 publica <strong>Hard Sex & Music</strong> bajo el alias Aimeur & Neira — con temas como <em>Grow Up</em> y <em>Breaking Your Mind</em> — álbum de referencia en el hard dance nacional disponible en Beatport, Juno Download y Spotify desde su relanzamiento en 2021. Colaboró también con Dancefloor Studios y Squad Music, publicando remixes y producciones dentro de la escena hard dance y hard house española.
+      </p>
+      <p>
+        Fundó los sellos <strong>Basics Hard Music Company</strong> y <strong>Dancefloor Studios</strong>, desde los que impulsó durante años la producción y distribución del género en España.
+      </p>
+      <p>
+        Ha tenido residencias como DJ en The Sun (Moonlight) y Bananas (Masters of Sound) en Valencia, y en Tropicana Dance Club e Icarus en Madrid. Ha actuado en Virtual Dance Valencia, Fantasy Almansa y Summer Rave en Pirámide Cabanes. Como DJ internacional ha sido residente en la <strong>Tomatina All Around Party</strong> con Festivals All Around en las ediciones de 2022, 2023 y 2024.
+      </p>
+      <p>
+        Ha compartido cabina con referentes de la escena nacional como <strong>Neira, Nando CP, Ismael Lora, Raúl Soto, Isaac Sánchez, Rubén Esteve, Jorge Hardbass, DJ Colás NG, Pedro Jiménez, Korsakoff, Miguel Serna y DJ Ruthless</strong>, entre otros.
+      </p>
+
       <div class="tags">
         <span class="tag gd">Hard Dance</span>
         <span class="tag gd">Hard House</span>
@@ -320,13 +396,23 @@
 
     <div class="divider"></div>
 
+    <!-- VJ & LJ -->
     <section class="bio-section" aria-label="Trayectoria como VJ y LJ">
       <p class="section-eyebrow">// 003 — Dirección Visual en Vivo</p>
       <h2>VJ y LJ</h2>
-      <p>Como <strong>VJ y LJ profesional</strong> diseña y opera en tiempo real gráficos generativos, iluminación técnica y efectos especiales sincronizados con la música — integrando luces y FX para crear experiencias inmersivas en directo.</p>
-      <p>Ha trabajado como VJ y LJ en festivales y espacios de primer nivel nacional: <strong>Medusa Festival, OffSonar, Pirata Fest, Pilares de Zaragoza, RMF Festival 2025, IFEMA, Japan Weekend y WiZink Center</strong>. En 2025 formó parte del equipo de la <strong>gira de Luis Cortés</strong> como VJ y LJ.</p>
-      <p>Ha ejercido como VJ en producciones en vivo con artistas de proyección internacional como <strong>Dmitri Vegas & Like Mike, Nervo, Headhunterz, Jeff Mills, Antonio Orozco, Natos y Waor, Edurne y Manuel Carrasco</strong>, consolidando su perfil como uno de los VJ de referencia en la escena de eventos en directo en España.</p>
-      <p>Fue VJ residente en salas históricas de la escena valenciana como <strong>La3, MiniClub y LaMattina</strong>.</p>
+      <p>
+        Como <strong>VJ y LJ profesional</strong> diseña y opera en tiempo real gráficos generativos, iluminación técnica y efectos especiales sincronizados con la música — integrando luces y FX para crear experiencias inmersivas en directo.
+      </p>
+      <p>
+        Ha trabajado como VJ y LJ en festivales y espacios de primer nivel nacional: <strong>Medusa Festival, OffSonar, Pirata Fest, Pilares de Zaragoza, RMF Festival 2025, IFEMA, Japan Weekend y WiZink Center</strong>. En 2025 formó parte del equipo de la <strong>gira de Luis Cortés</strong> como VJ y LJ.
+      </p>
+      <p>
+        Ha ejercido como VJ en producciones en vivo con artistas de proyección internacional como <strong>Dmitri Vegas & Like Mike, Nervo, Headhunterz, Jeff Mills, Antonio Orozco, Natos y Waor, Edurne y Manuel Carrasco</strong>, consolidando su perfil como uno de los VJ de referencia en la escena de eventos en directo en España.
+      </p>
+      <p>
+        Fue VJ residente en salas históricas de la escena valenciana como <strong>La3, MiniClub y LaMattina</strong>.
+      </p>
+
       <div class="tags">
         <span class="tag cr">Medusa Festival</span>
         <span class="tag cr">OffSonar</span>
@@ -344,12 +430,20 @@
 
     <div class="divider"></div>
 
+    <!-- EVENTOS -->
     <section class="bio-section" aria-label="Dirección y producción de eventos">
       <p class="section-eyebrow">// 004 — Producción y Dirección</p>
       <h2>Dirección de Eventos</h2>
-      <p>En 2019 creó, dirigió, coordinó y presentó el <strong>Festival Fallas Ruzafa</strong>, 12 días de programación musical multiestilos con más de 50.000 asistentes en el barrio de Ruzafa, Valencia.</p>
-      <p>Como <strong>Product Manager en Eventual Services</strong> ha dirigido eventos, giras y proyectos audiovisuales de escala nacional, con trabajos para <strong>RTVE</strong> entre sus clientes. Ha trabajado en el segmento <strong>MICE</strong> junto a <strong>On Site</strong> en la producción de congresos y eventos corporativos de alto nivel. Ha ejercido como <strong>jefe técnico de campaña</strong> para partidos políticos y entidades de ámbito nacional e internacional.</p>
-      <p>Ha trabajado como <strong>Road Manager y técnico de gira</strong> para la rapera <strong>McKea</strong>, y como <strong>segundo de dirección</strong> en proyectos audiovisuales y cortometrajes.</p>
+      <p>
+        En 2019 creó, dirigió, coordinó y presentó el <strong>Festival Fallas Ruzafa</strong>, 12 días de programación musical multiestilos con más de 50.000 asistentes en el barrio de Ruzafa, Valencia.
+      </p>
+      <p>
+        Como <strong>Product Manager en Eventual Services</strong> ha dirigido eventos, giras y proyectos audiovisuales de escala nacional, con trabajos para <strong>RTVE</strong> entre sus clientes. Ha trabajado en el segmento <strong>MICE</strong> junto a <strong>On Site</strong> en la producción de congresos y eventos corporativos de alto nivel. Ha ejercido como <strong>jefe técnico de campaña</strong> para partidos políticos y entidades de ámbito nacional e internacional.
+      </p>
+      <p>
+        Ha trabajado como <strong>Road Manager y técnico de gira</strong> para la rapera <strong>McKea</strong>, y como <strong>segundo de dirección</strong> en proyectos audiovisuales y cortometrajes.
+      </p>
+
       <div class="tags">
         <span class="tag gd">Eventual Services</span>
         <span class="tag gd">RTVE</span>
@@ -364,10 +458,14 @@
 
     <div class="divider"></div>
 
+    <!-- PRESENTADOR -->
     <section class="bio-section" aria-label="Presentador y speaker">
       <p class="section-eyebrow">// 005 — Presentación y Comunicación</p>
       <h2>Presentador y Speaker</h2>
-      <p>Ha ejercido como presentador y director artístico en la <strong>Cannabis Cup</strong> en sus ediciones de 2018 y 2023. Ha presentado los <strong>Carnavales de Guadalajara 2023</strong> y el <strong>Maratón y Media Maratón de Valencia 2025</strong>.</p>
+      <p>
+        Ha ejercido como presentador y director artístico en la <strong>Cannabis Cup</strong> en sus ediciones de 2018 y 2023. Ha presentado los <strong>Carnavales de Guadalajara 2023</strong> y el <strong>Maratón y Media Maratón de Valencia 2025</strong>.
+      </p>
+
       <div class="tags">
         <span class="tag">Cannabis Cup 2018 · 2023</span>
         <span class="tag">Carnavales Guadalajara 2023</span>
@@ -378,11 +476,17 @@
 
     <div class="divider"></div>
 
+    <!-- RADIO -->
     <section class="bio-section" aria-label="Trayectoria en radio">
       <p class="section-eyebrow">// 006 — Radio</p>
       <h2>Radio</h2>
-      <p>Durante más de 10 años fue locutor en <strong>Mislata Radio</strong>, donde condujo <strong>Dancefloor</strong>, programa semanal dedicado a la actualidad del hard dance y el hard house en España. El programa analizaba la cultura de pista con referencias a salas históricas de la escena electrónica española como <strong>Rockola, Sound Factory, Fantasy, The Face, Puzzle, Xque, Pont Aeri, Pirámide y Apache</strong> — espacios que marcaron varias generaciones de aficionados al hard dance, la música makinera y el hard house en España.</p>
-      <p>En 2022 y 2023 fue locutor en <strong>89 BPM</strong>, emisora especializada en hip hop.</p>
+      <p>
+        Durante más de 10 años fue locutor en <strong>Mislata Radio</strong>, donde condujo <strong>Dancefloor</strong>, programa semanal dedicado a la actualidad del hard dance y el hard house en España. El programa analizaba la cultura de pista con referencias a salas históricas de la escena electrónica española como <strong>Rockola, Sound Factory, Fantasy, The Face, Puzzle, Xque, Pont Aeri, Pirámide y Apache</strong> — espacios que marcaron varias generaciones de aficionados al hard dance, la música makinera y el hard house en España.
+      </p>
+      <p>
+        En 2022 y 2023 fue locutor en <strong>89 BPM</strong>, emisora especializada en hip hop.
+      </p>
+
       <div class="tags">
         <span class="tag gd">Mislata Radio · +10 años</span>
         <span class="tag gd">Dancefloor — Programa semanal</span>
@@ -399,10 +503,14 @@
 
     <div class="divider"></div>
 
+    <!-- A PURO REEL -->
     <section class="bio-section" aria-label="A Puro Reel">
       <p class="section-eyebrow">// 007 — Actualidad</p>
       <h2>A Puro Reel</h2>
-      <p>Actualmente dirige y presenta <strong>A Puro Reel</strong> <em style="color:var(--muted);font-style:italic">(apuroreel.es)</em>, programa de sátira política de actualidad con formato de comedia que utiliza reels de Instagram como hilo conductor de los acontecimientos más recientes.</p>
+      <p>
+        Actualmente dirige y presenta <strong>A Puro Reel</strong> <em style="color:var(--muted);font-style:italic">(apuroreel.es)</em>, programa de sátira política de actualidad con formato de comedia que utiliza reels de Instagram como hilo conductor de los acontecimientos más recientes.
+      </p>
+
       <div class="tags">
         <span class="tag gd">apuroreel.es</span>
         <span class="tag">Sátira política</span>
@@ -419,6 +527,7 @@
   </main>
 
   <div class="gold-line"></div>
+
   <footer>© 2025 Miguel Aimeur · DJ · VJ · LJ · Valencia</footer>
 
   <script>
