@@ -1,157 +1,446 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Miguel Aimeur</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Discografía - Miguel Aimeur | DJ y Productor de Hard Dance y Hard House</title>
 
-  <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+  <meta name="description" content="Discografía completa de Miguel Aimeur, DJ y productor de hard dance y hard house en Valencia. Álbumes, EPs y canciones disponibles en Spotify, Beatport y Juno Download."/>
+  <meta name="keywords" content="Miguel Aimeur discografía, hard dance España, hard house Valencia, Basics Hard Music Company, Dancefloor Studios, Be Good, Hard Sex and Music, Aimeur Neira, música electrónica Valencia, Spotify hard dance"/>
+  <meta name="robots" content="index, follow"/>
+
+  <meta property="og:title" content="Discografía - Miguel Aimeur | DJ y Productor de Hard Dance"/>
+  <meta property="og:description" content="Álbumes, EPs y canciones de Miguel Aimeur disponibles en Spotify. Hard dance y hard house desde 2008."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.miguelaimeur.pro/discografia.html"/>
+  <meta property="og:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Discografía - Miguel Aimeur | DJ y Productor de Hard Dance"/>
+  <meta name="twitter:description" content="Álbumes, EPs y canciones de Miguel Aimeur disponibles en Spotify. Hard dance y hard house desde 2008."/>
+  <meta name="twitter:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg"/>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
 
   <style>
-    :root{
-      --bg:#0a0a0a;
-      --accent:#00f0ff;
-      --text:#ffffff;
-      --card:#101018;
-      --shadow:0 0 15px rgba(0,255,255,0.3);
-      --radius:12px;
-      --container:1000px;
-      --glow:0 0 12px rgba(0,255,255,0.7);
+    :root {
+      --black:   #080505;
+      --black2:  #100808;
+      --crimson: #e8003d;
+      --gold:    #c9a84c;
+      --white:   #f5f0e8;
+      --muted:   rgba(245,240,232,0.4);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Orbitron", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      font-family:'Cormorant Garamond', Georgia, serif;
+      background:var(--black);
+      color:var(--white);
+      min-height:100vh;
+    }
+
+    body::after {
+      content:'';
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:500; opacity:.5;
+    }
+
+    /* GOLD LINE */
+    .gold-line { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+
+    /* HEADER */
+    .page-header {
+      padding:5rem 2rem 4rem;
       text-align:center;
-      line-height:1.5;
       position:relative;
-      overflow-x:hidden;
+      overflow:hidden;
     }
-
-    /* Textura tipo grid y neón sutil */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-        linear-gradient(90deg, rgba(0,255,255,.05) 1px, transparent 1px) 0 0 / 50px 50px,
-        linear-gradient(rgba(0,255,255,.05) 1px, transparent 1px) 0 0 / 50px 50px;
+    .page-header::before {
+      content:'';
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:700px; height:400px;
+      background:radial-gradient(ellipse,rgba(232,0,61,.06) 0%,transparent 70%);
       pointer-events:none;
-      z-index:0;
+    }
+    .header-eyebrow {
+      font-size:.6rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--crimson);
+      margin-bottom:1.5rem;
+    }
+    .page-title {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(4rem,12vw,10rem);
+      line-height:.9;
+      letter-spacing:.05em;
+    }
+    .page-title .line1 {
+      display:block;
+      color:transparent;
+      -webkit-text-stroke:1.5px var(--crimson);
+      text-shadow:0 0 40px rgba(232,0,61,.25);
+    }
+    .page-title .line2 {
+      display:block;
+      color:var(--gold);
+      text-shadow:0 0 30px rgba(201,168,76,.2);
+    }
+    .header-roles {
+      display:flex;
+      gap:1.5rem;
+      justify-content:center;
+      align-items:center;
+      margin-top:1.5rem;
+      flex-wrap:wrap;
+    }
+    .header-roles span {
+      font-size:.7rem;
+      letter-spacing:.4em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .header-roles .dot { color:var(--gold); font-size:.5rem; }
+
+    /* SOCIAL BAR */
+    .social-bar {
+      margin-top:2rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .soc-link {
+      display:flex;align-items:center;gap:.4rem;
+      padding:.5rem 1rem;
+      border:1px solid rgba(201,168,76,.25);
+      color:var(--gold);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .soc-link::before {
+      content:'';position:absolute;inset:0;
+      background:var(--crimson);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .soc-link:hover::before { transform:scaleX(1); }
+    .soc-link:hover { color:var(--white);border-color:var(--crimson); }
+    .soc-link span,.soc-icon { position:relative;z-index:1; }
+    .soc-icon { font-size:.95rem; }
+
+    /* SECTION NAV */
+    .section-bar {
+      margin-top:1rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .sec-link {
+      padding:.45rem 1rem;
+      border:1px solid rgba(245,240,232,.08);
+      color:var(--muted);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;
+    }
+    .sec-link:hover,.sec-link.active { border-color:var(--gold);color:var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width:1100px;
+      margin:0 auto;
+      padding:5rem 2rem 6rem;
     }
 
-    .wrap{
+    /* SECTION BLOCK */
+    .disc-section {
+      margin-bottom:5rem;
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+    .disc-section.vis { opacity:1; transform:translateY(0); }
+
+    .section-eyebrow {
+      font-size:.58rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--crimson);
+      margin-bottom:.75rem;
+    }
+
+    h2 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2rem,5vw,3.2rem);
+      letter-spacing:.05em;
+      color:var(--gold);
+      line-height:1;
+      padding-bottom:1rem;
+      margin-bottom:.75rem;
+      border-bottom:1px solid rgba(201,168,76,.15);
+    }
+
+    .section-desc {
+      font-size:1rem;
+      line-height:1.8;
+      color:var(--muted);
+      font-weight:300;
+      margin-bottom:2rem;
+    }
+
+    /* GRIDS */
+    .grid-albums {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1.5rem;
+    }
+    .grid-tracks {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+    }
+
+    /* EMBED WRAPPER */
+    .embed-wrap {
       position:relative;
-      z-index:1;
-      padding:40px 20px 80px;
+      padding:1px;
+      background:linear-gradient(135deg,rgba(201,168,76,.3),rgba(232,0,61,.2),transparent);
+      transition:all .3s;
     }
-
-    h1{
-      font-weight:900;
-      letter-spacing:1px;
-      font-size: clamp(32px, 6vw, 60px);
-      color: var(--accent);
-      margin:0 0 32px;
-      text-shadow: 0 0 8px #00f0ff, 0 0 16px #00f0ff, 0 0 24px #00f0ff;
+    .embed-wrap:hover {
+      background:linear-gradient(135deg,var(--gold),var(--crimson));
     }
-
-    .section{
-      max-width: var(--container);
-      margin: 0 auto 64px;
-      padding: 24px;
-      background: rgba(16,16,24,0.5);
-      border: 1px solid rgba(0,255,255,.2);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
+    .embed-wrap::before {
+      content:'';
+      position:absolute; inset:-1px;
+      background:linear-gradient(135deg,var(--gold),var(--crimson),transparent);
+      z-index:-1;filter:blur(6px);opacity:0;
+      transition:opacity .3s;
     }
+    .embed-wrap:hover::before { opacity:.3; }
 
-    h2{
-      display:inline-block;
-      margin:0 0 20px;
-      padding:10px 20px;
-      border-radius: 50px;
-      background: var(--accent);
-      color:#0a0a0a;
-      font-weight:700;
-      font-size: clamp(16px, 2.5vw, 24px);
-      letter-spacing:.4px;
-      text-shadow: 0 0 4px #00f0ff, 0 0 10px #00f0ff;
-    }
-
-    /* Embeds con borde neón */
-    .embed{
+    iframe {
+      display:block;
       width:100%;
-      border:0;
-      border-radius:16px;
-      box-shadow: 0 0 6px rgba(0,255,255,.4), 0 12px 28px rgba(0,0,0,.6);
-      background: var(--card);
-      transition: transform .2s ease, box-shadow .2s ease;
-      outline: 2px solid rgba(0,255,255,.5);
+      border:none;
+      background:#000;
     }
-    .embed:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 0 16px #00f0ff, 0 0 28px rgba(0,255,255,.6), 0 16px 40px rgba(0,0,0,.7);
+    .album-embed { height:380px; }
+    .track-embed { height:80px; }
+
+    /* DIVIDER */
+    .divider {
+      width:50px; height:1px;
+      background:linear-gradient(90deg,var(--crimson),var(--gold));
+      margin:0 0 5rem;
     }
 
-    .album-embed{ height: 520px; }
-    .track-embed{ height: 120px; }
-
-    .stack{ display:grid; gap:24px; }
-
-    @media (min-width:700px){
-      .albums{ grid-template-columns: 1fr 1fr; }
-      .tracks{ grid-template-columns: 1fr 1fr; }
+    /* PLATFORMS */
+    .platforms {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:2rem;
     }
-    @media (min-width:1024px){
-      .tracks{ grid-template-columns: 1fr 1fr 1fr; }
+    .platform-btn {
+      display:flex;align-items:center;gap:.5rem;
+      padding:.6rem 1.2rem;
+      border:1px solid rgba(201,168,76,.2);
+      color:var(--gold);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.15em;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .platform-btn::before {
+      content:'';position:absolute;inset:0;
+      background:var(--gold);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .platform-btn:hover { color:var(--black); }
+    .platform-btn:hover::before { transform:scaleX(1); }
+    .platform-btn span { position:relative;z-index:1; }
+
+    /* BACK BTN */
+    .back-btn {
+      display:inline-flex;align-items:center;gap:.75rem;
+      padding:1rem 2rem;
+      border:1px solid var(--gold);color:var(--gold);
+      font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.25em;
+      text-decoration:none;margin-top:3rem;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .back-btn::before {
+      content:'';position:absolute;inset:0;
+      background:var(--gold);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .back-btn:hover { color:var(--black); }
+    .back-btn:hover::before { transform:scaleX(1); }
+    .back-btn span { position:relative;z-index:1; }
+
+    footer {
+      text-align:center;padding:2rem;
+      font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;
+      color:rgba(245,240,232,.2);
+    }
+
+    @media(max-width:768px){
+      .grid-albums { grid-template-columns:1fr; }
+      .grid-tracks  { grid-template-columns:1fr; }
+      main { padding:3rem 1.5rem 4rem; }
+    }
+    @media(max-width:600px){
+      .grid-tracks { grid-template-columns:1fr 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Miguel Aimeur</h1>
 
-    <div class="section">
-      <h2>Álbumes destacados</h2>
-      <div class="stack albums">
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/4uS0PJfUlnQQ2t4QIv5cg7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5iLkhvz10L5wdovN0CZsYd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/27ZDgv4cWxNyyEs1OPS3Ol" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/2GPpFqOjaXBv0G4qpYhaup" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
+  <div class="gold-line"></div>
+
+  <header class="page-header">
+    <p class="header-eyebrow">// miguelaimeur.pro</p>
+    <h1 class="page-title">
+      <span class="line1">MIGUEL</span>
+      <span class="line2">AIMEUR</span>
+    </h1>
+    <div class="header-roles">
+      <span>DJ</span><span class="dot">◆</span>
+      <span>VJ</span><span class="dot">◆</span>
+      <span>LJ</span><span class="dot">◆</span>
+      <span>Valencia · España</span>
     </div>
 
-    <div class="section">
-      <h2>Discografía destacada</h2>
-      <div class="stack albums">
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/570VO52y9ltVmJqpPfzaNb" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/5EiuSOgD1KrlhnLJB0TYah" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/0ngcrZb5NoX0KfYWhTRYMd" loading="lazy"></iframe>
-        <iframe class="embed album-embed" src="https://open.spotify.com/embed/album/14cYkzDL6ASxjRCBNE1bXx" loading="lazy"></iframe>
-      </div>
-    </div>
+    <nav class="social-bar" aria-label="Redes sociales">
+      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">📸</span><span>Instagram</span></a>
+      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">▶</span><span>YouTube</span></a>
+      <a href="https://facebook.com/miguelaimeur" class="soc-link" target="_blank"><span class="soc-icon">f</span><span>Facebook</span></a>
+      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">𝕏</span><span>Twitter</span></a>
+      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">🎧</span><span>iVoox</span></a>
+      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">⚡</span><span>Kick</span></a>
+    </nav>
 
-    <div class="section">
-      <h2>Canciones destacadas</h2>
-      <div class="stack tracks">
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/3uTp5YT5n4Lysow8EJdws7" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/77PfvEk61YVbOlUrQAFdpR" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5Xb9JqrbCjZ8CUi66pqiVH" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5679KtcNW7pRBvsHlv1Dsh" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0lNspO51eHCNobRT7tps9P" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/2JFb5VZlcbQVP9qpsDFytD" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/0MUquZ6TgOriXikdYyFm66" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/5pSmo1NNO6qp4TkqABLbOR" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/65v5Nk7OejgHDeK1VIHCCh" loading="lazy"></iframe>
-        <iframe class="embed track-embed" src="https://open.spotify.com/embed/track/26LuEBhiJsn7J0wgNDsI2D" loading="lazy"></iframe>
+    <nav class="section-bar" aria-label="Secciones de la web">
+      <a href="index.html" class="sec-link">Inicio</a>
+      <a href="biografia.html" class="sec-link">Biografía</a>
+      <a href="work.html" class="sec-link">Work</a>
+      <a href="dancepec.html" class="sec-link">DancePEC</a>
+      <a href="apuroreel.html" class="sec-link">A Puro Reel</a>
+      <a href="entrevistas.html" class="sec-link">Entrevistas</a>
+      <a href="descargas.html" class="sec-link">Descargas</a>
+    </nav>
+  </header>
+
+  <div class="gold-line"></div>
+
+  <main>
+
+    <!-- ÁLBUMES DESTACADOS -->
+    <section class="disc-section" aria-label="Álbumes destacados">
+      <p class="section-eyebrow">// 001 — Producción</p>
+      <h2>Álbumes Destacados</h2>
+      <p class="section-desc">Hard dance y hard house producido desde Valencia. Disponible en Spotify, Beatport y Juno Download.</p>
+      <div class="grid-albums">
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/4uS0PJfUlnQQ2t4QIv5cg7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/5iLkhvz10L5wdovN0CZsYd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/27ZDgv4cWxNyyEs1OPS3Ol" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/2GPpFqOjaXBv0G4qpYhaup" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- DISCOGRAFÍA -->
+    <section class="disc-section" aria-label="Discografía completa">
+      <p class="section-eyebrow">// 002 — Catálogo</p>
+      <h2>Discografía</h2>
+      <p class="section-desc">Lanzamientos en sellos como Basics Hard Music Company y Dancefloor Studios. Hard dance nacional desde 2008.</p>
+      <div class="grid-albums">
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/570VO52y9ltVmJqpPfzaNb" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/5EiuSOgD1KrlhnLJB0TYah" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/0ngcrZb5NoX0KfYWhTRYMd" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/14cYkzDL6ASxjRCBNE1bXx" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CANCIONES -->
+    <section class="disc-section" aria-label="Canciones destacadas">
+      <p class="section-eyebrow">// 003 — Tracks</p>
+      <h2>Canciones Destacadas</h2>
+      <p class="section-desc">Selección de tracks representativos. Hard house, hard dance y makineo desde Valencia.</p>
+      <div class="grid-tracks">
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/3uTp5YT5n4Lysow8EJdws7" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/77PfvEk61YVbOlUrQAFdpR" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5Xb9JqrbCjZ8CUi66pqiVH" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5679KtcNW7pRBvsHlv1Dsh" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/0lNspO51eHCNobRT7tps9P" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/2JFb5VZlcbQVP9qpsDFytD" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/0MUquZ6TgOriXikdYyFm66" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5pSmo1NNO6qp4TkqABLbOR" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/65v5Nk7OejgHDeK1VIHCCh" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/26LuEBhiJsn7J0wgNDsI2D" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Plataformas -->
+      <div class="platforms">
+        <a href="https://www.beatport.com/artist/miguel-aimeur/167081" class="platform-btn" target="_blank"><span>Beatport →</span></a>
+        <a href="https://www.junodownload.com/artists/Miguel+Aimeur/" class="platform-btn" target="_blank"><span>Juno Download →</span></a>
+        <a href="https://open.spotify.com/artist/miguelaimeur" class="platform-btn" target="_blank"><span>Spotify →</span></a>
+      </div>
+    </section>
+
+    <a class="back-btn" href="index.html" aria-label="Volver a la página principal">
+      <span>← Volver al inicio</span>
+    </a>
+
+  </main>
+
+  <div class="gold-line"></div>
+  <footer>© 2025 Miguel Aimeur · DJ · VJ · LJ · Valencia</footer>
+
+  <script>
+    const obs = new IntersectionObserver(els => {
+      els.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold:.1 });
+    document.querySelectorAll('.disc-section').forEach(el => obs.observe(el));
+  </script>
+
 </body>
 </html>
