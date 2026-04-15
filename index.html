@@ -1,277 +1,445 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Miguel Aimeur – DJ · VJ · LJ | DJ & Visual Artist</title>
-  <meta name="description" content="Miguel Aimeur – DJ, VJ, LJ y productor audiovisual. Música electrónica, visuales en directo, sets exclusivos y biografía." />
-  <link rel="icon" href="favicon.ico" />
-  <link rel="canonical" href="https://www.miguelaimeur.pro/" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Discografía - Miguel Aimeur | DJ y Productor de Hard Dance y Hard House</title>
 
-  <!-- ESTILOS -->
+  <meta name="description" content="Discografía completa de Miguel Aimeur, DJ y productor de hard dance y hard house en Valencia. Álbumes, EPs y canciones disponibles en Spotify, Beatport y Juno Download."/>
+  <meta name="keywords" content="Miguel Aimeur discografía, hard dance España, hard house Valencia, Basics Hard Music Company, Dancefloor Studios, Be Good, Hard Sex and Music, Aimeur Neira, música electrónica Valencia, Spotify hard dance"/>
+  <meta name="robots" content="index, follow"/>
+
+  <meta property="og:title" content="Discografía - Miguel Aimeur | DJ y Productor de Hard Dance"/>
+  <meta property="og:description" content="Álbumes, EPs y canciones de Miguel Aimeur disponibles en Spotify. Hard dance y hard house desde 2008."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.miguelaimeur.pro/discografia.html"/>
+  <meta property="og:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Discografía - Miguel Aimeur | DJ y Productor de Hard Dance"/>
+  <meta name="twitter:description" content="Álbumes, EPs y canciones de Miguel Aimeur disponibles en Spotify. Hard dance y hard house desde 2008."/>
+  <meta name="twitter:image" content="https://www.miguelaimeur.pro/imagen-previa.jpg"/>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --c-bg: #000000;
-      --c-accent: #00e0ff;
-      --c-accent-soft: #00e0ff22;
-      --c-text: #a0f0ffcc;
-      --c-muted: #007f99cc;
-      --yt: #FF0000;
-      --fb: #1877F2;
-      --ig: #E1306C;
-      --kick: #53FC18;
-      --x: #000000;
-      --ivoox: #FF6600;
+      --black:   #080505;
+      --black2:  #100808;
+      --crimson: #e8003d;
+      --gold:    #c9a84c;
+      --white:   #f5f0e8;
+      --muted:   rgba(245,240,232,0.4);
     }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
 
     body {
-      font-family: 'Orbitron', sans-serif;
-      background: var(--c-bg);
-      color: var(--c-accent);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      position: relative;
+      font-family:'Cormorant Garamond', Georgia, serif;
+      background:var(--black);
+      color:var(--white);
+      min-height:100vh;
     }
 
-    #tron-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
+    body::after {
+      content:'';
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events:none; z-index:500; opacity:.5;
     }
 
-    header {
-      padding: 2.5em 1.5em 1em;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      gap: 1rem;
+    /* GOLD LINE */
+    .gold-line { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+
+    /* HEADER */
+    .page-header {
+      padding:5rem 2rem 4rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-
-    .site-title {
-      margin: 0;
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: 0.05em;
-      font-size: clamp(2rem, 6vw, 4rem);
-      opacity: 0;
-      transform: scale(0.8);
-      color: transparent;
-      -webkit-text-stroke: 1px var(--c-accent);
-      text-shadow: 0 0 15px var(--c-accent), 0 0 30px var(--c-accent-soft);
-      background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
-      background-size: 200% 100%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      animation: titleGlow 4s infinite linear, neonFlicker 3s infinite;
+    .page-header::before {
+      content:'';
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:700px; height:400px;
+      background:radial-gradient(ellipse,rgba(232,0,61,.06) 0%,transparent 70%);
+      pointer-events:none;
     }
-
-    @keyframes titleGlow {
-      0% { background-position: -200% 0; }
-      50% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+    .header-eyebrow {
+      font-size:.6rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--crimson);
+      margin-bottom:1.5rem;
     }
-
-    @keyframes neonFlicker {
-      0%,19%,21%,23%,25%,54%,56%,100% { text-shadow:0 0 15px var(--c-accent),0 0 30px var(--c-accent-soft); opacity:1; }
-      20%,22%,24%,55% { text-shadow:0 0 4px var(--c-accent); opacity:0.8; }
+    .page-title {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(4rem,12vw,10rem);
+      line-height:.9;
+      letter-spacing:.05em;
     }
-
-    nav {
-      width: 100%;
-      opacity: 0;
-      transform: translateY(20px);
-      background: transparent;
-      border-bottom: 2px solid var(--c-accent-soft);
-      padding: 1em 0;
+    .page-title .line1 {
+      display:block;
+      color:transparent;
+      -webkit-text-stroke:1.5px var(--crimson);
+      text-shadow:0 0 40px rgba(232,0,61,.25);
     }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1em;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem;
+    .page-title .line2 {
+      display:block;
+      color:var(--gold);
+      text-shadow:0 0 30px rgba(201,168,76,.2);
     }
-
-    .link-btn {
-      flex: 1 1 140px;
-      max-width: 140px;
-      padding: 0.9em;
-      border: 2px solid var(--c-accent);
-      border-radius: 12px;
-      color: var(--c-accent);
-      font-weight: 700;
-      font-size: 1.05em;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      background: transparent;
-      box-shadow: 0 0 10px #00e0ff88;
-      transition: background-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
-      text-align: center;
+    .header-roles {
+      display:flex;
+      gap:1.5rem;
+      justify-content:center;
+      align-items:center;
+      margin-top:1.5rem;
+      flex-wrap:wrap;
     }
+    .header-roles span {
+      font-size:.7rem;
+      letter-spacing:.4em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .header-roles .dot { color:var(--gold); font-size:.5rem; }
 
-    .link-btn.youtube:hover { background-color: var(--yt); border-color: var(--yt); box-shadow: 0 0 18px var(--yt); }
-    .link-btn.facebook:hover { background-color: var(--fb); border-color: var(--fb); box-shadow: 0 0 18px var(--fb); }
-    .link-btn.instagram:hover { background-color: var(--ig); border-color: var(--ig); box-shadow: 0 0 18px var(--ig); }
-    .link-btn.kick:hover { background-color: var(--kick); border-color: var(--kick); box-shadow: 0 0 18px var(--kick); color: #000; }
-    .link-btn.x:hover { background-color: var(--x); border-color: var(--x); box-shadow: 0 0 18px var(--x); color: #fff; }
-    .link-btn.ivoox:hover { background-color: var(--ivoox); border-color: var(--ivoox); box-shadow: 0 0 18px var(--ivoox); color: #fff; }
+    /* SOCIAL BAR */
+    .social-bar {
+      margin-top:2rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .soc-link {
+      display:flex;align-items:center;gap:.4rem;
+      padding:.5rem 1rem;
+      border:1px solid rgba(201,168,76,.25);
+      color:var(--gold);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .soc-link::before {
+      content:'';position:absolute;inset:0;
+      background:var(--crimson);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .soc-link:hover::before { transform:scaleX(1); }
+    .soc-link:hover { color:var(--white);border-color:var(--crimson); }
+    .soc-link span,.soc-icon { position:relative;z-index:1; }
+    .soc-icon { font-size:.95rem; }
 
+    /* SECTION NAV */
+    .section-bar {
+      margin-top:1rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;
+    }
+    .sec-link {
+      padding:.45rem 1rem;
+      border:1px solid rgba(245,240,232,.08);
+      color:var(--muted);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
+      transition:all .3s;
+    }
+    .sec-link:hover,.sec-link.active { border-color:var(--gold);color:var(--gold); }
+
+    /* MAIN */
     main {
-      flex: 1;
-      padding-bottom: 3em;
+      max-width:1100px;
+      margin:0 auto;
+      padding:5rem 2rem 6rem;
     }
 
-    .video-container {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      margin: 2em auto;
-      border: 2px solid var(--c-accent);
-      border-radius: 12px;
-      box-shadow: 0 0 30px var(--c-accent), inset 0 0 15px var(--c-accent-soft);
-      overflow: hidden;
+    /* SECTION BLOCK */
+    .disc-section {
+      margin-bottom:5rem;
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+    .disc-section.vis { opacity:1; transform:translateY(0); }
+
+    .section-eyebrow {
+      font-size:.58rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--crimson);
+      margin-bottom:.75rem;
     }
 
-    .video-container iframe {
-      width: 100%;
-      height: 400px; /* fijo para iVoox */
-      display: block;
-      border: none;
+    h2 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2rem,5vw,3.2rem);
+      letter-spacing:.05em;
+      color:var(--gold);
+      line-height:1;
+      padding-bottom:1rem;
+      margin-bottom:.75rem;
+      border-bottom:1px solid rgba(201,168,76,.15);
     }
 
-    .video-title {
-      text-align: center;
-      font-size: 1.2em;
-      margin-top: 0.8em;
-      margin-bottom: 0.5em;
-      color: var(--c-accent);
-      text-shadow: 0 0 8px var(--c-accent-soft);
+    .section-desc {
+      font-size:1rem;
+      line-height:1.8;
+      color:var(--muted);
+      font-weight:300;
+      margin-bottom:2rem;
     }
 
-    .kick-btn-container {
-      text-align: center;
-      margin: 1.5em 0 2.5em;
+    /* GRIDS */
+    .grid-albums {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1.5rem;
     }
+    .grid-tracks {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+    }
+
+    /* EMBED WRAPPER */
+    .embed-wrap {
+      position:relative;
+      padding:1px;
+      background:linear-gradient(135deg,rgba(201,168,76,.3),rgba(232,0,61,.2),transparent);
+      transition:all .3s;
+    }
+    .embed-wrap:hover {
+      background:linear-gradient(135deg,var(--gold),var(--crimson));
+    }
+    .embed-wrap::before {
+      content:'';
+      position:absolute; inset:-1px;
+      background:linear-gradient(135deg,var(--gold),var(--crimson),transparent);
+      z-index:-1;filter:blur(6px);opacity:0;
+      transition:opacity .3s;
+    }
+    .embed-wrap:hover::before { opacity:.3; }
+
+    iframe {
+      display:block;
+      width:100%;
+      border:none;
+      background:#000;
+    }
+    .album-embed { height:380px; }
+    .track-embed { height:80px; }
+
+    /* DIVIDER */
+    .divider {
+      width:50px; height:1px;
+      background:linear-gradient(90deg,var(--crimson),var(--gold));
+      margin:0 0 5rem;
+    }
+
+    /* PLATFORMS */
+    .platforms {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      margin-top:2rem;
+    }
+    .platform-btn {
+      display:flex;align-items:center;gap:.5rem;
+      padding:.6rem 1.2rem;
+      border:1px solid rgba(201,168,76,.2);
+      color:var(--gold);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.15em;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .platform-btn::before {
+      content:'';position:absolute;inset:0;
+      background:var(--gold);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .platform-btn:hover { color:var(--black); }
+    .platform-btn:hover::before { transform:scaleX(1); }
+    .platform-btn span { position:relative;z-index:1; }
+
+    /* BACK BTN */
+    .back-btn {
+      display:inline-flex;align-items:center;gap:.75rem;
+      padding:1rem 2rem;
+      border:1px solid var(--gold);color:var(--gold);
+      font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.25em;
+      text-decoration:none;margin-top:3rem;
+      transition:all .3s;position:relative;overflow:hidden;
+    }
+    .back-btn::before {
+      content:'';position:absolute;inset:0;
+      background:var(--gold);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;z-index:0;
+    }
+    .back-btn:hover { color:var(--black); }
+    .back-btn:hover::before { transform:scaleX(1); }
+    .back-btn span { position:relative;z-index:1; }
 
     footer {
-      font-size: 0.85rem;
-      color: var(--c-muted);
-      text-align: center;
-      margin: auto 0 2.2em;
-      user-select: none;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(20px);
+      text-align:center;padding:2rem;
+      font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;
+      color:rgba(245,240,232,.2);
     }
 
-    @media (max-width: 480px) {
-      header { padding: 1.8em 1em 0.6em; }
-      .links { gap: 0.8em; }
-      .link-btn { flex: 1 1 100%; max-width: none; font-size: 1rem; }
-      .video-container { width: 95%; margin: 1.5em auto; }
+    @media(max-width:768px){
+      .grid-albums { grid-template-columns:1fr; }
+      .grid-tracks  { grid-template-columns:1fr; }
+      main { padding:3rem 1.5rem 4rem; }
+    }
+    @media(max-width:600px){
+      .grid-tracks { grid-template-columns:1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- FONDO TRON -->
-  <canvas id="tron-bg"></canvas>
+  <div class="gold-line"></div>
 
-  <!-- HEADER -->
-  <header>
-    <h1 class="site-title">Miguel Aimeur – DJ · VJ · LJ</h1>
-    
-    <!-- NAV -->
-    <nav>
-      <div class="links">
-        <a class="link-btn x" href="https://x.com/MiguelAimeur" target="_blank">X</a>
-        <a class="link-btn ivoox" href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" target="_blank">iVoox</a>
-        <a class="link-btn youtube" href="https://www.youtube.com/@miguelaimeurdj" target="_blank">YouTube</a>
-        <a class="link-btn facebook" href="https://facebook.com/miguelaimeur" target="_blank">Facebook</a>
-        <a class="link-btn instagram" href="https://instagram.com/miguelaimeur/" target="_blank">Instagram</a>
-        <a class="link-btn" href="discografia.html">Discografía</a>
-        <a class="link-btn" href="biografia.html">Biografía</a>
-        <a class="link-btn" href="work.html">Work</a>
-        <a class="link-btn" href="dancepec.html">DancePEC</a>
-        <a class="link-btn" href="apuroreel.html">A PURO REEL</a>
-        <a class="link-btn" href="entrevistas.html">Entrevistas</a>
-        <a class="link-btn" href="descargas.html">Descargas</a>
-      </div>
+  <header class="page-header">
+    <p class="header-eyebrow">// miguelaimeur.pro</p>
+    <h1 class="page-title">
+      <span class="line1">MIGUEL</span>
+      <span class="line2">AIMEUR</span>
+    </h1>
+    <div class="header-roles">
+      <span>DJ</span><span class="dot">◆</span>
+      <span>VJ</span><span class="dot">◆</span>
+      <span>LJ</span><span class="dot">◆</span>
+      <span>Valencia · España</span>
+    </div>
+
+    <nav class="social-bar" aria-label="Redes sociales">
+      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">📸</span><span>Instagram</span></a>
+      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">▶</span><span>YouTube</span></a>
+      <a href="https://facebook.com/miguelaimeur" class="soc-link" target="_blank"><span class="soc-icon">f</span><span>Facebook</span></a>
+      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">𝕏</span><span>Twitter</span></a>
+      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">🎧</span><span>iVoox</span></a>
+      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">⚡</span><span>Kick</span></a>
+    </nav>
+
+    <nav class="section-bar" aria-label="Secciones de la web">
+      <a href="index.html" class="sec-link">Inicio</a>
+      <a href="biografia.html" class="sec-link">Biografía</a>
+      <a href="work.html" class="sec-link">Work</a>
+      <a href="dancepec.html" class="sec-link">DancePEC</a>
+      <a href="apuroreel.html" class="sec-link">A Puro Reel</a>
+      <a href="entrevistas.html" class="sec-link">Entrevistas</a>
+      <a href="descargas.html" class="sec-link">Descargas</a>
     </nav>
   </header>
 
-  <!-- MAIN -->
+  <div class="gold-line"></div>
+
   <main>
-    <div class="video-container">
-      <iframe src="https://www.ivoox.com/player_es_podcast_2741467_zp_1.html?c1=8d8f9a" 
-              width="100%" height="400" frameborder="0" 
-              allowfullscreen="" scrolling="no" loading="lazy"></iframe>
-    </div>
-    <div class="video-title">Entrevista en Home Djs Klub </div>
-    <div class="kick-btn-container">
-      <a class="link-btn kick" href="https://kick.com/homedjsklubb/videos/9261d8e4-f744-4049-b0f0-70b939e7548b" target="_blank">Ver en Kick</a>
-    </div>
+
+    <!-- ÁLBUMES DESTACADOS -->
+    <section class="disc-section" aria-label="Álbumes destacados">
+      <p class="section-eyebrow">// 001 — Producción</p>
+      <h2>Álbumes Destacados</h2>
+      <p class="section-desc">Hard dance y hard house producido desde Valencia. Disponible en Spotify, Beatport y Juno Download.</p>
+      <div class="grid-albums">
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/4uS0PJfUlnQQ2t4QIv5cg7" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/5iLkhvz10L5wdovN0CZsYd" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/27ZDgv4cWxNyyEs1OPS3Ol" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/2GPpFqOjaXBv0G4qpYhaup" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- DISCOGRAFÍA -->
+    <section class="disc-section" aria-label="Discografía completa">
+      <p class="section-eyebrow">// 002 — Catálogo</p>
+      <h2>Discografía</h2>
+      <p class="section-desc">Lanzamientos en sellos como Basics Hard Music Company y Dancefloor Studios. Hard dance nacional desde 2008.</p>
+      <div class="grid-albums">
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/570VO52y9ltVmJqpPfzaNb" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/5EiuSOgD1KrlhnLJB0TYah" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/0ngcrZb5NoX0KfYWhTRYMd" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="album-embed" src="https://open.spotify.com/embed/album/14cYkzDL6ASxjRCBNE1bXx" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CANCIONES -->
+    <section class="disc-section" aria-label="Canciones destacadas">
+      <p class="section-eyebrow">// 003 — Tracks</p>
+      <h2>Canciones Destacadas</h2>
+      <p class="section-desc">Selección de tracks representativos. Hard house, hard dance y makineo desde Valencia.</p>
+      <div class="grid-tracks">
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/3uTp5YT5n4Lysow8EJdws7" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/77PfvEk61YVbOlUrQAFdpR" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5Xb9JqrbCjZ8CUi66pqiVH" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5679KtcNW7pRBvsHlv1Dsh" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/0lNspO51eHCNobRT7tps9P" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/2JFb5VZlcbQVP9qpsDFytD" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/0MUquZ6TgOriXikdYyFm66" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/5pSmo1NNO6qp4TkqABLbOR" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/65v5Nk7OejgHDeK1VIHCCh" loading="lazy"></iframe>
+        </div>
+        <div class="embed-wrap">
+          <iframe class="track-embed" src="https://open.spotify.com/embed/track/26LuEBhiJsn7J0wgNDsI2D" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Plataformas -->
+      <div class="platforms">
+        <a href="https://www.beatport.com/artist/miguel-aimeur/167081" class="platform-btn" target="_blank"><span>Beatport →</span></a>
+        <a href="https://www.junodownload.com/artists/Miguel+Aimeur/" class="platform-btn" target="_blank"><span>Juno Download →</span></a>
+        <a href="https://open.spotify.com/artist/miguelaimeur" class="platform-btn" target="_blank"><span>Spotify →</span></a>
+      </div>
+    </section>
+
+    <a class="back-btn" href="index.html" aria-label="Volver a la página principal">
+      <span>← Volver al inicio</span>
+    </a>
+
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    Basics 2025 &nbsp;|&nbsp; miguelaimeur@gmail.com &nbsp;|&nbsp; Todos los derechos reservados
-  </footer>
+  <div class="gold-line"></div>
+  <footer>© 2025 Miguel Aimeur · DJ · VJ · LJ · Valencia</footer>
 
-  <!-- SCRIPTS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    // ANIMACIONES GSAP
-    gsap.to(".site-title", {opacity:1, scale:1, duration:1, ease:"power2.out"});
-    gsap.to("nav", {opacity:1, y:0, delay:0.5, duration:0.8, ease:"power2.out"});
-    gsap.from(".link-btn", {y:20, opacity:0, stagger:0.1, delay:0.7, duration:0.6, ease:"power2.out"});
-    gsap.to("footer", {opacity:1, y:0, delay:1.5, duration:0.8, ease:"power2.out"});
-
-    // FONDO TRON
-    const canvas = document.getElementById('tron-bg');
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    let lines = [];
-    for(let i=0;i<30;i++){
-      lines.push({x:Math.random()*width, y:Math.random()*height, len:Math.random()*height, speed:1+Math.random()*2});
-    }
-
-    function draw(){
-      ctx.fillStyle='black';
-      ctx.fillRect(0,0,width,height);
-      ctx.strokeStyle = '#00e0ff22';
-      ctx.lineWidth = 2;
-      lines.forEach(l=>{
-        ctx.beginPath();
-        ctx.moveTo(l.x,l.y);
-        ctx.lineTo(l.x,l.y-l.len);
-        ctx.stroke();
-        l.y += l.speed;
-        if(l.y-l.len>height) l.y=0;
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-
-    window.addEventListener('resize', ()=>{
-      width=canvas.width=window.innerWidth;
-      height=canvas.height=window.innerHeight;
-    });
+    const obs = new IntersectionObserver(els => {
+      els.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold:.1 });
+    document.querySelectorAll('.disc-section').forEach(el => obs.observe(el));
   </script>
 
 </body>
