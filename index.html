@@ -4,499 +4,365 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Miguel Aimeur – DJ · VJ · LJ</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet"/>
+
   <style>
     :root {
-      --black:   #080505;
-      --black2:  #100808;
-      --crimson: #e8003d;
-      --gold:    #c9a84c;
-      --gold2:   #e8c96a;
-      --white:   #f5f0e8;
-      --muted:   rgba(245,240,232,0.35);
+      --black:#080505;
+      --black2:#100808;
+      --crimson:#e8003d;
+      --gold:#c9a84c;
+      --white:#f5f0e8;
+      --muted:rgba(245,240,232,0.35);
     }
 
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      overflow-x: hidden;
-      cursor: none;
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'Cormorant Garamond',Georgia,serif;
+      overflow-x:hidden;
+      cursor:none;
     }
 
-    /* CURSOR */
-    #cur  { position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
-    #cur2 { position:fixed;width:32px;height:32px;border:1px solid var(--crimson);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;opacity:.6; }
+    #cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    #cur2{position:fixed;width:32px;height:32px;border:1px solid var(--crimson);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;opacity:.6;}
 
-    /* NOISE */
-    body::after {
-      content:'';position:fixed;inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:500;opacity:.5;
-    }
+    .gold-line{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 
-    .gold-line { width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+    section{padding:7rem 2rem;}
 
-    /* ── HERO ── */
-    .hero {
+    .hero{
       min-height:100vh;
-      display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-      position:relative;padding:6rem 2rem 4rem;overflow:hidden;
-    }
-    .hero::before {
-      content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      width:700px;height:400px;
-      background:radial-gradient(ellipse,rgba(232,0,61,.06) 0%,transparent 70%);
-      pointer-events:none;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:6rem 2rem 4rem;
     }
 
-    .hero-triangle { width:80px;height:80px;margin-bottom:2.5rem;opacity:0;animation:fadeDown .8s .1s forwards; }
-    .hero-triangle svg { width:100%;height:100%; }
-
-    .hero-name {
+    .hero-name{
       font-family:'Bebas Neue',sans-serif;
       font-size:clamp(4.5rem,14vw,13rem);
-      line-height:.88;letter-spacing:.06em;
-      opacity:0;animation:fadeDown .9s .3s forwards;
+      line-height:.88;
     }
-    .hero-name .line1 {
-      display:block;color:transparent;
+
+    .hero-name .line1{
+      display:block;
+      color:transparent;
       -webkit-text-stroke:1.5px var(--crimson);
-      text-shadow:0 0 40px rgba(232,0,61,.3),0 0 100px rgba(232,0,61,.1);
-    }
-    .hero-name .line2 {
-      display:block;color:var(--gold);
-      text-shadow:0 0 30px rgba(201,168,76,.25);
     }
 
-    .hero-roles {
-      display:flex;gap:2rem;margin-top:2rem;align-items:center;
-      opacity:0;animation:fadeDown .8s .55s forwards;
+    .hero-name .line2{
+      display:block;
+      color:var(--gold);
     }
-    .hero-roles span { font-size:.75rem;letter-spacing:.5em;text-transform:uppercase;color:var(--muted); }
-    .hero-roles .dot { color:var(--gold);font-size:.5rem; }
 
-    /* SOCIAL BAR */
-    .social-bar {
+    .hero-roles{
+      display:flex;
+      gap:2rem;
+      margin-top:2rem;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .hero-roles span{
+      font-size:.75rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    /* SOCIAL */
+    .social-bar{
       margin-top:3rem;
-      display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;
-      opacity:0;animation:fadeDown .8s .75s forwards;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:.75rem;
     }
-    .soc-link {
-      display:flex;align-items:center;gap:.5rem;
+
+    .soc-link{
       padding:.55rem 1.1rem;
       border:1px solid rgba(201,168,76,.25);
-      color:var(--gold);text-decoration:none;
-      font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.15em;
-      transition:border-color .3s,background .3s,color .3s;
-      cursor:none;position:relative;overflow:hidden;
+      color:var(--gold);
+      text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;
+      letter-spacing:.15em;
     }
-    .soc-link::before {
-      content:'';position:absolute;inset:0;
-      background:var(--crimson);transform:scaleX(0);transform-origin:left;
-      transition:transform .3s ease;z-index:0;
-    }
-    .soc-link:hover::before { transform:scaleX(1); }
-    .soc-link:hover { color:var(--white);border-color:var(--crimson); }
-    .soc-link span,.soc-icon { position:relative;z-index:1; }
-    .soc-icon { font-size:1rem; }
 
-    .scroll-hint {
-      position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
-      display:flex;flex-direction:column;align-items:center;gap:.5rem;
-      font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);
-      opacity:0;animation:fadeDown .6s 1.2s forwards;
+    /* NAV SECCIONES */
+    .main-nav{
+      margin-top:1.5rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+      justify-content:center;
     }
-    .scroll-arrow {
-      width:1px;height:40px;
-      background:linear-gradient(to bottom,var(--gold),transparent);
-      animation:scrollPulse 2s 1.5s infinite;
-    }
-    @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)} }
 
-    /* TICKER */
-    .ticker-wrap {
-      border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);
-      padding:.9rem 0;overflow:hidden;background:var(--black2);
+    .nav-link{
+      padding:.45rem 1rem;
+      border:1px solid rgba(201,168,76,.2);
+      font-family:'Bebas Neue',sans-serif;
+      font-size:.8rem;
+      letter-spacing:.15em;
+      color:var(--muted);
+      text-decoration:none;
     }
-    .ticker-track { display:flex;gap:3rem;animation:ticker 25s linear infinite;white-space:nowrap; }
-    .ticker-item { font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.2em;color:var(--muted); }
-    .ticker-item.g { color:var(--gold); }
-    .ticker-sep { color:var(--crimson);opacity:.6; }
-    @keyframes ticker { from{transform:translateX(0)}to{transform:translateX(-50%)} }
 
-    /* SECTIONS */
-    section { padding:7rem 2rem; }
-    .section-eyebrow { font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--crimson);margin-bottom:1rem; }
-    .section-title { font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,6rem);line-height:.92;letter-spacing:.04em; }
-    .reveal { opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease; }
-    .reveal.vis { opacity:1;transform:translateY(0); }
+    .nav-link:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+    }
 
     /* PLAYER */
-    .player-section { background:var(--black2);border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1); }
-    .player-inner { max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center; }
-    .player-info .section-title { color:var(--white);margin-bottom:1rem; }
-    .player-info .section-title em { color:var(--gold);font-style:normal; }
-    .player-info p { font-size:1.05rem;line-height:1.9;color:var(--muted);font-weight:300;margin-bottom:2rem; }
+    .player-section{
+      background:var(--black2);
+    }
 
-    .player-frame {
-      position:relative;padding:1px;
-      background:linear-gradient(135deg,var(--gold) 0%,var(--crimson) 50%,transparent 100%);
+    .player-inner{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1.4fr;
+      gap:5rem;
+      align-items:center;
     }
-    .player-frame::before {
-      content:'';position:absolute;inset:-1px;
-      background:linear-gradient(135deg,var(--gold),var(--crimson),transparent);
-      z-index:-1;filter:blur(8px);opacity:.4;
-    }
-    .player-frame iframe { display:block;width:100%;aspect-ratio:16/9;border:none;background:#000; }
 
-    .playlist-tabs { display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap; }
-    .ptab {
-      padding:.4rem 1rem;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.15em;
-      border:1px solid rgba(201,168,76,.2);color:var(--muted);cursor:none;
-      transition:all .25s;background:transparent;
+    .section-title{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(2.8rem,6vw,6rem);
     }
-    .ptab:hover,.ptab.active { border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.05); }
+
+    .section-eyebrow{
+      font-size:.6rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:var(--crimson);
+      margin-bottom:1rem;
+    }
+
+    .player-frame iframe{
+      width:100%;
+      height:200px;
+      border:none;
+    }
+
+    .btn-contact{
+      display:inline-block;
+      margin-top:2rem;
+      padding:1rem 2.5rem;
+      border:1px solid var(--gold);
+      color:var(--gold);
+      text-decoration:none;
+      font-family:'Bebas Neue';
+    }
 
     /* ABOUT */
-    .about-inner { max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start; }
-    .about-left .section-title { margin-bottom:1.5rem; }
-    .about-left .section-title .outline { color:transparent;-webkit-text-stroke:1px var(--crimson); }
-    .about-left .section-title .solid { color:var(--gold); }
-    .about-text p { font-size:1.05rem;line-height:2;color:var(--muted);font-weight:300;margin-bottom:1.2rem; }
-    .about-text strong { color:var(--white);font-weight:600; }
-
-    .stat-grid { display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.1);margin-top:3rem; }
-    .stat { padding:2rem;background:var(--black);transition:background .3s; }
-    .stat:hover { background:var(--black2); }
-    .stat-n { font-family:'Bebas Neue',sans-serif;font-size:3.2rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold);text-shadow:0 0 20px rgba(201,168,76,.2); }
-    .stat-l { font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:.4rem; }
-
-    /* FESTIVALES */
-    .festivals-section { background:var(--black2); }
-    .festivals-inner { max-width:1100px;margin:0 auto; }
-    .fest-grid { display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem; }
-    .fest-tag { padding:.5rem 1.1rem;border:1px solid rgba(201,168,76,.15);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:all .3s;cursor:none; }
-    .fest-tag:hover,.fest-tag.hi { border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.04); }
-    .fest-tag.cr { border-color:rgba(232,0,61,.3);color:var(--crimson); }
-
-    /* PROYECTOS */
-    .projects-inner { max-width:1100px;margin:0 auto; }
-    .proj-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.08);margin-top:3rem; }
-    .proj-card {
-      background:var(--black);padding:2.5rem 2rem;position:relative;overflow:hidden;
-      transition:background .3s;text-decoration:none;color:var(--white);display:block;cursor:none;
+    .about-inner{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6rem;
     }
-    .proj-card::after {
-      content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,var(--crimson),var(--gold));
-      transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+
+    .about-text p{
+      color:var(--muted);
+      line-height:2;
+      margin-bottom:1rem;
     }
-    .proj-card:hover { background:var(--black2); }
-    .proj-card:hover::after { transform:scaleX(1); }
-    .proj-num { font-family:'Bebas Neue',sans-serif;font-size:.8rem;color:var(--crimson);letter-spacing:.3em;margin-bottom:1.2rem;opacity:.6; }
-    .proj-title { font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;margin-bottom:.75rem;color:var(--gold); }
-    .proj-desc { font-size:.85rem;line-height:1.8;color:var(--muted);font-weight:300; }
-    .proj-arrow { margin-top:1.5rem;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson); }
+
+    /* PROJECTS */
+    .proj-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:rgba(201,168,76,.08);
+      margin-top:3rem;
+    }
+
+    .proj-card{
+      background:var(--black);
+      padding:2rem;
+      text-decoration:none;
+      color:var(--white);
+    }
 
     /* CONTACT */
-    .contact-section { background:var(--black2);border-top:1px solid rgba(201,168,76,.1); }
-    .contact-inner { max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
-    .contact-big { font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,5rem);line-height:1.05; }
-    .contact-big a { color:var(--crimson);text-decoration:none;text-shadow:0 0 30px rgba(232,0,61,.3);transition:color .3s; }
-    .contact-big a:hover { color:var(--gold); }
-    .contact-sub { font-size:1rem;line-height:2;color:var(--muted);font-weight:300;margin-top:2rem; }
-    .contact-sub strong { color:var(--white); }
-
-    .btn-contact {
-      display:inline-block;margin-top:2rem;padding:1rem 2.5rem;
-      border:1px solid var(--gold);color:var(--gold);
-      font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.25em;
-      text-decoration:none;cursor:none;transition:all .3s;position:relative;overflow:hidden;
+    .contact-inner{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:5rem;
     }
-    .btn-contact::before {
-      content:'';position:absolute;inset:0;background:var(--gold);
-      transform:scaleX(0);transform-origin:left;transition:transform .3s;z-index:0;
+
+    footer{
+      border-top:1px solid rgba(201,168,76,.12);
+      padding:2rem;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
     }
-    .btn-contact:hover { color:var(--black); }
-    .btn-contact:hover::before { transform:scaleX(1); }
-    .btn-contact span { position:relative;z-index:1; }
-
-    /* FOOTER */
-    footer { border-top:1px solid rgba(201,168,76,.12);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem; }
-    footer p { font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);opacity:.4; }
-    .footer-logo { font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.3em;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.3); }
-
-    @keyframes fadeDown { from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)} }
 
     @media(max-width:768px){
-      .player-inner,.about-inner,.contact-inner{grid-template-columns:1fr;gap:3rem;}
-      .proj-grid{grid-template-columns:1fr;}
-      .hero-name{font-size:clamp(3.5rem,20vw,7rem);}
-      section{padding:5rem 1.5rem;}
-      footer{flex-direction:column;text-align:center;}
+      .player-inner,.about-inner,.contact-inner{
+        grid-template-columns:1fr;
+      }
+      .proj-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <div id="cur"></div>
-  <div id="cur2"></div>
-  <div class="gold-line"></div>
+<div id="cur"></div>
+<div id="cur2"></div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-triangle">
-      <svg viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-        <polygon points="40,4 76,66 4,66" stroke="#c9a84c" stroke-width="1.2" fill="none" filter="url(#glow)"/>
-        <polygon points="40,18 62,58 18,58" stroke="#e8003d" stroke-width=".8" fill="none" opacity=".6"/>
-        <line x1="40" y1="4" x2="40" y2="66" stroke="#c9a84c" stroke-width=".5" opacity=".3"/>
-      </svg>
-    </div>
+<!-- HERO -->
+<section class="hero">
 
-    <h1 class="hero-name">
-      <span class="line1">MIGUEL</span>
-      <span class="line2">AIMEUR</span>
-    </h1>
+  <h1 class="hero-name">
+    <span class="line1">MIGUEL</span>
+    <span class="line2">AIMEUR</span>
+  </h1>
 
-    <div class="hero-roles">
-      <span>DJ</span><span class="dot">◆</span>
-      <span>VJ</span><span class="dot">◆</span>
-      <span>LJ</span><span class="dot">◆</span>
-      <span>Valencia · España</span>
-    </div>
-
-    <nav class="social-bar" aria-label="Redes sociales">
-      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">📸</span><span>Instagram</span></a>
-      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">▶</span><span>YouTube</span></a>
-      <a href="https://facebook.com/miguelaimeur" class="soc-link" target="_blank"><span class="soc-icon">f</span><span>Facebook</span></a>
-      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">𝕏</span><span>Twitter</span></a>
-      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">🎧</span><span>iVoox</span></a>
-      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">⚡</span><span>Kick</span></a>
-    </nav>
-
-    <div class="scroll-hint">
-      <div class="scroll-arrow"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span class="ticker-item g">Dmitri Vegas & Like Mike</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Headhunterz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Nervo</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Jeff Mills</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Manuel Carrasco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Antonio Orozco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Korsakoff</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Natos y Waor</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Edurne</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Medusa Festival</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">WiZink Center</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">OffSonar</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Dmitri Vegas & Like Mike</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Headhunterz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Nervo</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Jeff Mills</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Manuel Carrasco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Antonio Orozco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Korsakoff</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Natos y Waor</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Edurne</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Medusa Festival</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">WiZink Center</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">OffSonar</span><span class="ticker-sep">✦</span>
-    </div>
+  <div class="hero-roles">
+    <span>DJ</span>
+    <span>VJ</span>
+    <span>LJ</span>
+    <span>Valencia</span>
   </div>
 
-  <!-- PLAYER -->
-  <section class="player-section" id="media">
-    <div class="player-inner">
-      <div class="player-info reveal">
-        <p class="section-eyebrow">// Escúchame</p>
-        <h2 class="section-title">Sets &amp;<br><em>Entrevistas</em></h2>
-        <p>Más de 25 años construyendo experiencias sonoras y visuales. Desde el vinilo hasta el festival.</p>
-        <div class="playlist-tabs">
-          <button class="ptab active" onclick="loadVideo('xPRpMvTAago',this)">Entrevista Home DJs</button>
-          <button class="ptab" onclick="loadVideo('PLchannel',this)">Más vídeos</button>
-        </div>
-        <a href="https://youtube.com/@miguelaimeurdj" class="btn-contact" target="_blank" style="margin-top:0"><span>Ver canal completo →</span></a>
-      </div>
-      <div class="player-embed reveal">
-        <div class="player-frame">
-          <iframe id="yt-player"
-            src="https://www.youtube.com/embed/xPRpMvTAago?rel=0&color=white"
-            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-      </div>
+  <nav class="social-bar">
+    <a class="soc-link" href="https://instagram.com/miguelaimeur/" target="_blank">Instagram</a>
+    <a class="soc-link" href="https://youtube.com/@miguelaimeurdj" target="_blank">YouTube</a>
+    <a class="soc-link" href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" target="_blank">iVoox</a>
+  </nav>
+
+  <!-- NAV SECCIONES -->
+  <nav class="main-nav">
+    <a href="#media" class="nav-link">Media</a>
+    <a href="#about" class="nav-link">Sobre mí</a>
+    <a href="#escenarios" class="nav-link">Escenarios</a>
+    <a href="#proyectos" class="nav-link">Proyectos</a>
+    <a href="#contact" class="nav-link">Contacto</a>
+  </nav>
+
+</section>
+
+<!-- PLAYER -->
+<section class="player-section" id="media">
+
+  <div class="player-inner">
+
+    <div>
+      <p class="section-eyebrow">// Escúchame</p>
+      <h2 class="section-title">Sets & Entrevistas</h2>
+      <p style="color:var(--muted);line-height:1.8;margin-top:1rem;">
+        Experiencia sonora y visual en escena.
+      </p>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-inner">
-      <div class="about-left reveal">
-        <p class="section-eyebrow">// Sobre mí</p>
-        <h2 class="section-title">
-          <span class="outline">Hard</span><br>
-          <span class="solid">Dance.</span><br>
-          <span class="outline">Imagen.</span><br>
-          <span class="solid">Luz.</span>
-        </h2>
-        <div class="stat-grid">
-          <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Años de carrera</div></div>
-          <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Festivales</div></div>
-          <div class="stat"><div class="stat-n">2008</div><div class="stat-l">Primer vinilo</div></div>
-          <div class="stat"><div class="stat-n">3</div><div class="stat-l">Roles en escena</div></div>
-        </div>
-      </div>
-      <div class="about-text reveal">
-        <p><strong>DJ, VJ y LJ</strong> especializado en hard dance y hard house. No solo pongo música: construyo experiencias visuales completas que no se olvidan.</p>
-        <p>Diseño visuales, iluminación y efectos especiales en tiempo real — <strong>gráficos, luces y FX</strong> sincronizados con cada BPM para crear algo verdaderamente inmersivo.</p>
-        <p>He trabajado en escenarios como el <strong>WiZink Center, IFEMA, Medusa Festival y OffSonar</strong>, junto a nombres como Dmitri Vegas & Like Mike, Headhunterz y Manuel Carrasco.</p>
-        <p>Fundé los sellos <strong>Basics Hard Music Company</strong> y Dancefloor Studios, y hoy soy locutor del podcast <strong>A Puro Reel</strong>.</p>
-        <a href="biografia.html" class="btn-contact" style="margin-top:1.5rem"><span>Trayectoria completa →</span></a>
-      </div>
+    <div class="player-frame">
+      <iframe 
+        src="https://www.ivoox.com/player_ej_159255588_6_1.html?c1=040c09"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
-  </section>
 
-  <!-- FESTIVALES -->
-  <section class="festivals-section" id="escenarios">
-    <div class="festivals-inner">
-      <p class="section-eyebrow reveal">// Escenarios</p>
-      <h2 class="section-title reveal">Donde<br>he estado.</h2>
-      <div class="fest-grid reveal">
-        <span class="fest-tag cr">Medusa Festival</span>
-        <span class="fest-tag cr">OffSonar</span>
-        <span class="fest-tag cr">WiZink Center</span>
-        <span class="fest-tag hi">IFEMA</span>
-        <span class="fest-tag hi">Pilares de Zaragoza</span>
-        <span class="fest-tag">RMF</span>
-        <span class="fest-tag cr">Pirata Fest</span>
-        <span class="fest-tag">Japan Weekend</span>
-        <span class="fest-tag">Fallas Ruzafa</span>
-        <span class="fest-tag">Virtual Dance Valencia</span>
-        <span class="fest-tag">Fantasy Almansa</span>
-        <span class="fest-tag">Summer Rave Pirámide</span>
-        <span class="fest-tag hi">La3 Valencia</span>
-        <span class="fest-tag">MiniClub Valencia</span>
-        <span class="fest-tag">LaMattina Valencia</span>
-        <span class="fest-tag">The Sun — Moonlight</span>
-        <span class="fest-tag">Bananas — Masters of Sound</span>
-        <span class="fest-tag">Tropicana Dance Club</span>
-        <span class="fest-tag">Icarus Madrid</span>
-      </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="about-inner">
+
+    <div>
+      <h2 class="section-title">Hard Dance. Luz. Imagen.</h2>
     </div>
-  </section>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <div class="projects-inner">
-      <p class="section-eyebrow reveal">// Proyectos</p>
-      <h2 class="section-title reveal">Escúchame.<br>Sígueme.</h2>
-      <div class="proj-grid reveal">
-        <a href="apuroreel.html" class="proj-card">
-          <div class="proj-num">001</div>
-          <div class="proj-title">A Puro Reel</div>
-          <p class="proj-desc">Podcast de sátira y cultura musical. Sin filtros, sin pelos en la lengua.</p>
-          <div class="proj-arrow">Escuchar →</div>
-        </a>
-        <a href="discografia.html" class="proj-card">
-          <div class="proj-num">002</div>
-          <div class="proj-title">Discografía</div>
-          <p class="proj-desc">Desde Be Good (2008) hasta Hard Sex & Music. Hard dance español de referencia.</p>
-          <div class="proj-arrow">Ver discografía →</div>
-        </a>
-        <a href="work.html" class="proj-card">
-          <div class="proj-num">003</div>
-          <div class="proj-title">Work / Reel</div>
-          <p class="proj-desc">Visuales, iluminación y efectos en directo. Lo que no se puede describir con palabras.</p>
-          <div class="proj-arrow">Ver trabajo →</div>
-        </a>
-        <a href="dancepec.html" class="proj-card">
-          <div class="proj-num">004</div>
-          <div class="proj-title">DancePEC</div>
-          <p class="proj-desc">El proyecto dedicado al hard dance y la cultura de pista más pura.</p>
-          <div class="proj-arrow">Ver proyecto →</div>
-        </a>
-        <a href="entrevistas.html" class="proj-card">
-          <div class="proj-num">005</div>
-          <div class="proj-title">Entrevistas</div>
-          <p class="proj-desc">Conversaciones en profundidad sobre la escena, la música y lo que hay detrás.</p>
-          <div class="proj-arrow">Leer →</div>
-        </a>
-        <a href="descargas.html" class="proj-card">
-          <div class="proj-num">006</div>
-          <div class="proj-title">Descargas</div>
-          <p class="proj-desc">Sets, mixes y material exclusivo disponible para descarga directa.</p>
-          <div class="proj-arrow">Descargar →</div>
-        </a>
-      </div>
+    <div class="about-text">
+      <p><strong>DJ, VJ y LJ</strong> especializado en experiencias inmersivas.</p>
+      <p>Trabajo con sonido, visuales y luces sincronizadas en directo.</p>
+      <p>He pasado por festivales, salas y grandes escenarios en España.</p>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="contact-inner">
-      <div class="reveal">
-        <p class="section-eyebrow">// Contacto</p>
-        <div class="contact-big">
-          ¿Hablamos?<br>
-          <a href="mailto:miguelaimeur@gmail.com">miguelaimeur<br>@gmail.com</a>
-        </div>
-      </div>
-      <div class="reveal">
-        <p class="contact-sub">
-          Si buscas un <strong>DJ, VJ o LJ</strong> que construya una experiencia completa — sonido, imagen y luz en perfecta sincronía — escríbeme.<br><br>
-          Disponible para <strong>festivales, salas, eventos corporativos</strong> y colaboraciones artísticas.
-        </p>
-        <a href="mailto:miguelaimeur@gmail.com" class="btn-contact"><span>Enviar mensaje →</span></a>
-      </div>
+  </div>
+
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+
+  <div class="proj-grid">
+
+    <a class="proj-card" href="#">A Puro Reel</a>
+    <a class="proj-card" href="#">Discografía</a>
+    <a class="proj-card" href="#">Work / Visuals</a>
+
+  </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section id="contact">
+
+  <div class="contact-inner">
+
+    <div>
+      <h2 class="section-title">Contacto</h2>
+      <a href="mailto:miguelaimeur@gmail.com" class="btn-contact">Escríbeme</a>
     </div>
-  </section>
 
-  <div class="gold-line"></div>
-  <footer>
-    <p>© 2025 Miguel Aimeur · Todos los derechos reservados</p>
-    <span class="footer-logo">AIM</span>
-    <p>DJ · VJ · LJ · Valencia · España</p>
-  </footer>
+    <div style="color:var(--muted);line-height:2;">
+      Disponible para festivales, clubs y proyectos audiovisuales.
+    </div>
 
-  <script>
-    // Cursor
-    const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){
-      cur.style.left=mx+'px';cur.style.top=my+'px';
-      rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
-      cur2.style.left=rx+'px';cur2.style.top=ry+'px';
-      requestAnimationFrame(loop);
-    })();
+  </div>
 
-    // Scroll reveal
-    const obs=new IntersectionObserver(els=>{
-      els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</section>
 
-    // Player tabs
-    function loadVideo(id,btn){
-      document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
-      btn.classList.add('active');
-      const src = id==='PLchannel'
-        ? 'https://www.youtube.com/@miguelaimeurdj'
-        : 'https://www.youtube.com/embed/'+id+'?rel=0&color=white';
-      if(id==='PLchannel') window.open(src,'_blank');
-      else document.getElementById('yt-player').src=src;
-    }
-  </script>
+<footer>
+  <p>© 2025 Miguel Aimeur</p>
+  <span>AIM</span>
+  <p>DJ · VJ · LJ</p>
+</footer>
+
+<script>
+  const cur=document.getElementById('cur');
+  const cur2=document.getElementById('cur2');
+  let mx=0,my=0,rx=0,ry=0;
+
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;
+    my=e.clientY;
+  });
+
+  function loop(){
+    cur.style.left=mx+'px';
+    cur.style.top=my+'px';
+
+    rx+=(mx-rx)*.13;
+    ry+=(my-ry)*.13;
+
+    cur2.style.left=rx+'px';
+    cur2.style.top=ry+'px';
+
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+</script>
+
 </body>
 </html>
