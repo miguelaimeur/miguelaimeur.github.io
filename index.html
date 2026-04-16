@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Miguel Aimeur – DJ · VJ · LJ</title>
+  <title>Miguel Aimeur - DJ · VJ · LJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -25,6 +27,9 @@
       font-family: 'Cormorant Garamond', Georgia, serif;
       overflow-x: hidden;
       cursor: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* CURSOR */
@@ -40,7 +45,7 @@
 
     .gold-line { width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       min-height:100vh;
       display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
@@ -85,6 +90,11 @@
       display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;
       opacity:0;animation:fadeDown .8s .75s forwards;
     }
+    .section-bar {
+      margin-top:1.25rem;
+      display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;
+      opacity:0;animation:fadeDown .8s .9s forwards;
+    }
     .soc-link {
       display:flex;align-items:center;gap:.5rem;
       padding:.55rem 1.1rem;
@@ -103,6 +113,19 @@
     .soc-link:hover { color:var(--white);border-color:var(--crimson); }
     .soc-link span,.soc-icon { position:relative;z-index:1; }
     .soc-icon { font-size:1rem; }
+    .section-link {
+      padding:.55rem 1.1rem;
+      border:1px solid rgba(232,0,61,.22);
+      color:var(--white);text-decoration:none;
+      font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.15em;
+      transition:border-color .3s,background .3s,color .3s;
+      cursor:none;background:rgba(232,0,61,.04);
+    }
+    .section-link:hover {
+      border-color:var(--gold);
+      background:rgba(201,168,76,.08);
+      color:var(--gold);
+    }
 
     .scroll-hint {
       position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
@@ -116,17 +139,6 @@
       animation:scrollPulse 2s 1.5s infinite;
     }
     @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)} }
-
-    /* TICKER */
-    .ticker-wrap {
-      border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);
-      padding:.9rem 0;overflow:hidden;background:var(--black2);
-    }
-    .ticker-track { display:flex;gap:3rem;animation:ticker 25s linear infinite;white-space:nowrap; }
-    .ticker-item { font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.2em;color:var(--muted); }
-    .ticker-item.g { color:var(--gold); }
-    .ticker-sep { color:var(--crimson);opacity:.6; }
-    @keyframes ticker { from{transform:translateX(0)}to{transform:translateX(-50%)} }
 
     /* SECTIONS */
     section { padding:7rem 2rem; }
@@ -151,7 +163,7 @@
       background:linear-gradient(135deg,var(--gold),var(--crimson),transparent);
       z-index:-1;filter:blur(8px);opacity:.4;
     }
-    .player-frame iframe { display:block;width:100%;aspect-ratio:16/9;border:none;background:#000; }
+    .player-frame iframe { display:block;width:100%;height:200px;border:none;background:#000; }
 
     .playlist-tabs { display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap; }
     .ptab {
@@ -264,19 +276,26 @@
     </h1>
 
     <div class="hero-roles">
-      <span>DJ</span><span class="dot">◆</span>
-      <span>VJ</span><span class="dot">◆</span>
-      <span>LJ</span><span class="dot">◆</span>
+      <span>DJ</span><span class="dot">•</span>
+      <span>VJ</span><span class="dot">•</span>
+      <span>LJ</span><span class="dot">•</span>
       <span>Valencia · España</span>
     </div>
 
     <nav class="social-bar" aria-label="Redes sociales">
-      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">📸</span><span>Instagram</span></a>
-      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">▶</span><span>YouTube</span></a>
+      <a href="https://instagram.com/miguelaimeur/" class="soc-link" target="_blank"><span class="soc-icon">IG</span><span>Instagram</span></a>
+      <a href="https://youtube.com/@miguelaimeurdj" class="soc-link" target="_blank"><span class="soc-icon">YT</span><span>YouTube</span></a>
       <a href="https://facebook.com/miguelaimeur" class="soc-link" target="_blank"><span class="soc-icon">f</span><span>Facebook</span></a>
-      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">𝕏</span><span>Twitter</span></a>
-      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">🎧</span><span>iVoox</span></a>
-      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">⚡</span><span>Kick</span></a>
+      <a href="https://x.com/MiguelAimeur" class="soc-link" target="_blank"><span class="soc-icon">X</span><span>Twitter</span></a>
+      <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="soc-link" target="_blank"><span class="soc-icon">IX</span><span>iVoox</span></a>
+      <a href="https://kick.com/homedjsklubb" class="soc-link" target="_blank"><span class="soc-icon">K</span><span>Kick</span></a>
+    </nav>
+    <nav class="section-bar" aria-label="Secciones de la web">
+      <a href="#media" class="section-link">Media</a>
+      <a href="#about" class="section-link">Sobre mí</a>
+      <a href="#escenarios" class="section-link">Escenarios</a>
+      <a href="#proyectos" class="section-link">Proyectos</a>
+      <a href="#contact" class="section-link">Contacto</a>
     </nav>
 
     <div class="scroll-hint">
@@ -284,36 +303,6 @@
       <span>Scroll</span>
     </div>
   </section>
-
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <span class="ticker-item g">Dmitri Vegas & Like Mike</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Headhunterz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Nervo</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Jeff Mills</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Manuel Carrasco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Antonio Orozco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Korsakoff</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Natos y Waor</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Edurne</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Medusa Festival</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">WiZink Center</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">OffSonar</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Dmitri Vegas & Like Mike</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Headhunterz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Nervo</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Jeff Mills</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Manuel Carrasco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Antonio Orozco</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Korsakoff</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Natos y Waor</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">Edurne</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Medusa Festival</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item g">WiZink Center</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">OffSonar</span><span class="ticker-sep">✦</span>
-    </div>
-  </div>
 
   <!-- PLAYER -->
   <section class="player-section" id="media">
@@ -323,17 +312,21 @@
         <h2 class="section-title">Sets &amp;<br><em>Entrevistas</em></h2>
         <p>Más de 25 años construyendo experiencias sonoras y visuales. Desde el vinilo hasta el festival.</p>
         <div class="playlist-tabs">
-          <button class="ptab active" onclick="loadVideo('xPRpMvTAago',this)">Entrevista Home DJs</button>
-          <button class="ptab" onclick="loadVideo('PLchannel',this)">Más vídeos</button>
+          <button class="ptab active" onclick="loadAudio('episode',this)">Podcast destacado</button>
+          <button class="ptab" onclick="loadAudio('channel',this)">Canal en iVoox</button>
         </div>
-        <a href="https://youtube.com/@miguelaimeurdj" class="btn-contact" target="_blank" style="margin-top:0"><span>Ver canal completo →</span></a>
+        <a href="https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html" class="btn-contact" target="_blank" style="margin-top:0"><span>Escuchar en iVoox →</span></a>
       </div>
       <div class="player-embed reveal">
         <div class="player-frame">
-          <iframe id="yt-player"
-            src="https://www.youtube.com/embed/xPRpMvTAago?rel=0&color=white"
-            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-            allowfullscreen></iframe>
+          <iframe id="ivoox-player"
+            src="https://www.ivoox.com/player_ej_159255588_6_1.html?c1=040c09"
+            width="100%"
+            height="200"
+            frameborder="0"
+            allowfullscreen=""
+            scrolling="no"
+            loading="lazy"></iframe>
         </div>
       </div>
     </div>
@@ -359,7 +352,7 @@
       </div>
       <div class="about-text reveal">
         <p><strong>DJ, VJ y LJ</strong> especializado en hard dance y hard house. No solo pongo música: construyo experiencias visuales completas que no se olvidan.</p>
-        <p>Diseño visuales, iluminación y efectos especiales en tiempo real — <strong>gráficos, luces y FX</strong> sincronizados con cada BPM para crear algo verdaderamente inmersivo.</p>
+        <p>Diseño visuales, iluminación y efectos especiales en tiempo real - <strong>gráficos, luces y FX</strong> sincronizados con cada BPM para crear algo verdaderamente inmersivo.</p>
         <p>He trabajado en escenarios como el <strong>WiZink Center, IFEMA, Medusa Festival y OffSonar</strong>, junto a nombres como Dmitri Vegas & Like Mike, Headhunterz y Manuel Carrasco.</p>
         <p>Fundé los sellos <strong>Basics Hard Music Company</strong> y Dancefloor Studios, y hoy soy locutor del podcast <strong>A Puro Reel</strong>.</p>
         <a href="biografia.html" class="btn-contact" style="margin-top:1.5rem"><span>Trayectoria completa →</span></a>
@@ -388,8 +381,8 @@
         <span class="fest-tag hi">La3 Valencia</span>
         <span class="fest-tag">MiniClub Valencia</span>
         <span class="fest-tag">LaMattina Valencia</span>
-        <span class="fest-tag">The Sun — Moonlight</span>
-        <span class="fest-tag">Bananas — Masters of Sound</span>
+        <span class="fest-tag">The Sun - Moonlight</span>
+        <span class="fest-tag">Bananas - Masters of Sound</span>
         <span class="fest-tag">Tropicana Dance Club</span>
         <span class="fest-tag">Icarus Madrid</span>
       </div>
@@ -454,7 +447,7 @@
       </div>
       <div class="reveal">
         <p class="contact-sub">
-          Si buscas un <strong>DJ, VJ o LJ</strong> que construya una experiencia completa — sonido, imagen y luz en perfecta sincronía — escríbeme.<br><br>
+          Si buscas un <strong>DJ, VJ o LJ</strong> que construya una experiencia completa - sonido, imagen y luz en perfecta sincronía - escríbeme.<br><br>
           Disponible para <strong>festivales, salas, eventos corporativos</strong> y colaboraciones artísticas.
         </p>
         <a href="mailto:miguelaimeur@gmail.com" class="btn-contact"><span>Enviar mensaje →</span></a>
@@ -488,15 +481,18 @@
     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
     // Player tabs
-    function loadVideo(id,btn){
+    function loadAudio(id,btn){
       document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
       btn.classList.add('active');
-      const src = id==='PLchannel'
-        ? 'https://www.youtube.com/@miguelaimeurdj'
-        : 'https://www.youtube.com/embed/'+id+'?rel=0&color=white';
-      if(id==='PLchannel') window.open(src,'_blank');
-      else document.getElementById('yt-player').src=src;
+      const src = id==='channel'
+        ? 'https://www.ivoox.com/podcast-dance-pec_sq_f12741467_1.html'
+        : 'https://www.ivoox.com/player_ej_159255588_6_1.html?c1=040c09';
+      if(id==='channel') window.open(src,'_blank');
+      else document.getElementById('ivoox-player').src=src;
     }
   </script>
 </body>
 </html>
+
+
+
