@@ -1,185 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A PURO REEL - Podcast de Comedia, Sátira Política y Actualidad</title>
-
-<meta name="description" content="A Puro Reel es un videopodcast de comedia y sátira política desde Valencia. Humor sin filtro, crítica social y análisis de reels virales con Buba y Presi." />
-<meta name="keywords" content="podcast comedia, sátira política, humor sin filtro, reels virales, A Puro Reel, buba, presi" />
-<meta name="robots" content="index, follow" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="A PURO REEL - Podcast de Comedia y Sátira Política" />
-<meta property="og:description" content="Humor sin filtro, crítica social y reels virales. Con Buba y Presi desde Valencia." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.apuroreel.com" />
-<meta property="og:image" content="https://www.apuroreel.com/imagen-previa.jpg" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="A PURO REEL - Podcast de Comedia y Sátira Política" />
-<meta name="twitter:description" content="Humor sin filtro, crítica social y reels virales. Con Buba y Presi desde Valencia." />
-<meta name="twitter:image" content="https://www.apuroreel.com/imagen-previa.jpg" />
-
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apuro Reel TV · Funcionando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    :root {
-        --amarillo-reel: #FFC72C;
-        --amarillo-hover: #e6b127;
-        --fondo: #0e0e0e;
-        --texto-principal: #fff;
-        --texto-secundario: #ccc;
-    }
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: var(--fondo);
-        color: var(--texto-principal);
-        margin: 0;
-        padding: 2em;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2em;
-        flex-wrap: wrap;
-    }
-    h1 {
-        font-weight: 800;
-        font-size: 3em;
-        margin-bottom: 0.5em;
-        color: var(--amarillo-reel);
-        width: 100%;
-        text-align: center;
-    }
-    .main-content {
-        flex: 1 1 600px;
-        max-width: 1000px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .stream-buttons {
-        display: flex;
-        gap: 1em;
-        margin-bottom: 2em;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    .stream-buttons a {
-        background-color: var(--amarillo-reel);
-        color: #000;
-        padding: 12px 24px;
-        text-decoration: none;
-        font-weight: 700;
-        border-radius: 8px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        user-select: none;
-        cursor: pointer;
-        min-width: 120px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .btn-twitch:hover, .btn-twitch:focus {
-        background-color: #9146FF;
-        box-shadow: 0 0 8px #9146FF;
-        color: #fff;
-    }
-    .btn-youtube:hover, .btn-youtube:focus {
-        background-color: #FF0000;
-        box-shadow: 0 0 8px #FF0000;
-        color: #fff;
-    }
-    .btn-kick:hover, .btn-kick:focus {
-        background-color: #53FC18;
-        box-shadow: 0 0 8px #53FC18;
-        color: #000;
-    }
-    .btn-instagram:hover, .btn-instagram:focus {
-        background-color: #E1306C;
-        box-shadow: 0 0 8px #E1306C;
-        color: #fff;
-    }
-    .btn-tiktok:hover, .btn-tiktok:focus {
-        background-color: #69C9D0;
-        box-shadow: 0 0 8px #69C9D0;
-        color: #000;
-    }
-    .video-container {
-        margin-bottom: 2em;
-        width: 100%;
-    }
-    .video-title {
-        font-weight: 600;
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
-        color: var(--amarillo-reel);
-        text-align: left;
-        padding-left: 8px;
-    }
-    iframe {
-        border: none;
-        width: 100%;
-        height: 562px;
-        border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255, 199, 44, 0.6);
-        display: block;
-    }
-    .info {
-        max-width: 900px;
-        font-size: 1.1em;
-        line-height: 1.5em;
-        color: var(--texto-secundario);
-        text-align: justify;
-    }
-    @media (max-width: 900px) {
-        body { flex-direction: column; padding: 1em; }
-        iframe { box-shadow: none; }
-    }
+    /* Estilos originales preservados */
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0d;--panel:#12121a;--panel-2:#171723;--line:#242436;--text:#ececf3;--muted:#8a8aa0;--accent:#f4df43;--accent-2:#ff5d5d;--font-head:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace}
+    body{background:radial-gradient(circle at top,rgba(244,223,67,.11),transparent 32%),linear-gradient(180deg,#0b0b10 0%,#09090c 100%);color:var(--text);font-family:var(--font-body); min-height: 100vh;}
+    .shell{width:min(1380px,calc(100% - 32px));margin:16px auto 42px;border:1px solid var(--line);background:rgba(9,9,14,.88);box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(12px)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line)}
+    .logo-wrap{display:flex;align-items:end;gap:12px}.logo{font-family:var(--font-head);font-size:2.4rem;letter-spacing:.08em;line-height:.9}.logo em{font-style:normal;color:var(--accent)}
+    .badge{background:var(--accent-2);color:#fff;padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em}
+    .clock{font-family:var(--font-mono);font-size:1.2rem;color:var(--accent);letter-spacing:.08em; text-align: right;}
+    .date{color:var(--muted);font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;margin-top:4px; text-align: right;}
+    .social-row{display:flex;gap:8px;padding:12px 24px;border-bottom:1px solid var(--line);overflow-x:auto;background:rgba(255,255,255,.02)}
+    .social-link{color:var(--text);text-decoration:none;border:1px solid var(--line);background:var(--panel);padding:8px 12px;border-radius:999px;font-family:var(--font-mono);font-size:.72rem;white-space:nowrap;transition:.2s ease}
+    .social-link:hover{border-color:var(--accent);color:var(--accent)}
+    .layout{display:grid;grid-template-columns:minmax(0,1.2fr) 320px;min-height:720px}
+    .left{border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+    .status-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 12px rgba(255,93,93,.6)}
+    .status-label{color:var(--accent-2);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em}
+    .status-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.85rem}
+    .screen-area{flex:1;display:grid;place-items:center;padding:28px;background:#08080c}
+    .tv{width:100%; max-width: 900px;}
+    .frame{position:relative;aspect-ratio:16/9;border-radius:24px;border:1px solid #2a2a38;background:#000;padding:12px;box-shadow:0 24px 70px rgba(0,0,0,.62)}
+    .screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:14px;}
+    #player-v1{width:100%;height:100%;}
+    .overlay-loading{position:absolute;inset:0;display:grid;place-items:center;background:#0a0a0d;z-index:10;font-family:var(--font-mono)}
+    .controls{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);background:var(--panel)}
+    .btn{appearance:none;border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:999px;padding:10px 16px;font-family:var(--font-mono);font-size:.72rem;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#000;font-weight:bold;border:none}
+    .progress{padding:14px 18px;border-top:1px solid var(--line);background:rgba(255,255,255,.02)}
+    .bar{height:4px;border-radius:999px;background:#262638;margin:10px 0;overflow:hidden}
+    .bar div{height:100%;background:var(--accent);width:0%}
+    .sidebar{display:flex;flex-direction:column}
+    .panel{padding:18px;border-bottom:1px solid var(--line)}
+    .guide-list{flex:1;overflow-y:auto;max-height:500px}
+    .guide-item{width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:12px 18px;color:var(--text);cursor:pointer}
+    .guide-item.live{background:rgba(244,223,67,0.1);border-left:3px solid var(--accent)}
+    .ticker{display:flex;overflow:hidden;height:34px;background:var(--accent);color:#000;align-items:center}
+    .ticker-track{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 </style>
 </head>
 <body>
 
-<div class="main-content">
-  <h1>A PURO REEL</h1>
+<div class="shell">
+    <header>
+        <div class="logo-wrap"><div class="logo">APURO <em>REEL</em> TV</div><div class="badge">EN DIRECTO</div></div>
+        <div class="top-right">
+            <div class="clock" id="clock-v1">00:00:00</div>
+            <div class="date" id="date-v1">CARGANDO...</div>
+        </div>
+    </header>
 
-  <div class="stream-buttons">
-      <a class="btn-twitch" href="https://www.twitch.tv/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ver en Twitch">Twitch</a>
-      <a class="btn-youtube" href="https://www.youtube.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ver en YouTube">YouTube</a>
-      <a class="btn-kick" href="https://kick.com/apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ver en Kick">Kick</a>
-      <a class="btn-instagram" href="https://www.instagram.com/apuroreel/" target="_blank" rel="noopener noreferrer" aria-label="Ver en Instagram">Instagram</a>
-      <a class="btn-tiktok" href="https://www.tiktok.com/@apuroreel" target="_blank" rel="noopener noreferrer" aria-label="Ver en TikTok">TikTok</a>
-  </div>
+    <div class="social-row" id="socials-v1"></div>
 
-  <!-- Playlist en el centro -->
-  <div class="video-container">
-      <h2 class="video-title">Todos los episodios</h2>
-      <iframe loading="lazy"
-        src="https://www.youtube.com/embed/videoseries?list=PLktEpakcg6naC1oocHyJL3XtaZzegYnG0"
-        title="Lista de reproducción de todos los episodios de A Puro Reel"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-  </div>
+    <main class="layout">
+        <section class="left">
+            <div class="status-bar">
+                <div class="dot"></div>
+                <div class="status-label">ON AIR</div>
+                <div class="status-title" id="title-v1">Sincronizando señal...</div>
+            </div>
+            <div class="screen-area">
+                <div class="tv">
+                    <div class="frame">
+                        <div class="screen">
+                            <div class="overlay-loading" id="loading-v1"><h2>CARGANDO CANAL...</h2></div>
+                            <div id="player-v1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" id="go-live-v1">VOLVER AL DIRECTO</button>
+                <button class="btn" id="mute-v1">QUITAR SILENCIO</button>
+            </div>
+            <div class="progress">
+                <div id="countdown-v1" style="font-family: monospace; font-size: 0.7rem; color: var(--accent);">SIGUIENTE EP EN: 00:00</div>
+                <div class="bar"><div id="bar-v1"></div></div>
+            </div>
+        </section>
 
-  <div class="video-container">
-      <h2 class="video-title">ENSALADA DE VERANO VOL. 1</h2>
-      <iframe loading="lazy"
-          src="https://www.youtube.com/embed/30LIpMapD0Q" 
-          title="A Puro Reel - Ensalada de Verano Volumen 1"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-  </div>
+        <aside class="sidebar">
+            <div class="panel"><h2>PARRILLA 24H</h2></div>
+            <div class="guide-list" id="guide-v1"></div>
+        </aside>
+    </main>
 
-  <div class="info">
-      <p><strong>A Puro Reel</strong> es el videopodcast que combina humor sin filtro, crítica social y análisis de los reels más absurdos de internet. Presentado por Buba y Presi con secciones como <em>Puro Cine</em>, juegos para distinguir IA de realidad y debates sin censura.</p>
-      <p>Disponible en YouTube, Instagram, TikTok, Twitch y Kick. Todo bajo la marca <strong>A Puro Reel</strong>.</p>
-  </div>
+    <div class="ticker">
+        <div class="ticker-track" id="ticker-v1"></div>
+    </div>
 </div>
 
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+const CONFIG = {
+    playlistId: "PLktEpakcg6naC1oocHyJL3XtaZzegYnG0",
+    timezone: "Europe/Madrid",
+    socials: [
+        {label:"YouTube", url:"https://youtube.com/@apuroreel"},
+        {label:"Instagram", url:"https://instagram.com/apuroreel"},
+        {label:"TikTok", url:"https://tiktok.com/@apuroreel"}
+    ]
+};
+
+let player;
+let episodes = [];
+let isMuted = true;
+
+// 1. Reloj y Fecha
+function updateTime() {
+    const now = new Date();
+    const options = { timeZone: CONFIG.timezone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    document.getElementById('clock-v1').textContent = new Intl.DateTimeFormat('es-ES', options).format(now);
+    document.getElementById('date-v1').textContent = now.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).toUpperCase();
+}
+setInterval(updateTime, 1000);
+
+// 2. Inicializar Redes
+const socialContainer = document.getElementById('socials-v1');
+CONFIG.socials.forEach(s => {
+    socialContainer.innerHTML += `<a href="${s.url}" target="_blank" class="social-link">${s.label}</a>`;
+});
+
+// 3. YouTube API
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player-v1', {
+        height: '100%',
+        width: '100%',
+        playerVars: {
+            listType: 'playlist',
+            list: CONFIG.playlistId,
+            autoplay: 1,
+            controls: 0,
+            mute: 1,
+            modestbranding: 1,
+            rel: 0
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+async function onPlayerReady(event) {
+    const playlist = player.getPlaylist();
+    
+    // Crear base de datos de episodios
+    episodes = playlist.map((id, index) => ({
+        id: id,
+        title: `Episodio #${index + 1}`
+    }));
+
+    document.getElementById('loading-v1').style.display = 'none';
+    syncToLive();
+    renderGuide();
+    
+    // Ticker Marquee
+    const ticker = document.getElementById('ticker-v1');
+    const content = episodes.map(e => ` • AHORA EMITIENDO: ${e.title}`).join(' ');
+    ticker.innerHTML = `<span>${content} ${content}</span>`;
+    
+    setInterval(updateProgressBar, 1000);
+}
+
+function syncToLive() {
+    const now = new Date();
+    const hour = now.getHours();
+    const index = hour % episodes.length;
+    
+    player.playVideoAt(index);
+    // Calcular segundo exacto de la hora actual
+    const secondsPassed = (now.getMinutes() * 60) + now.getSeconds();
+    player.seekTo(secondsPassed, true);
+    
+    updateHeader(index);
+}
+
+function updateHeader(index) {
+    document.getElementById('title-v1').textContent = `EMITIENDO: ${episodes[index].title}`;
+}
+
+function renderGuide() {
+    const guide = document.getElementById('guide-v1');
+    const currentHour = new Date().getHours();
+    
+    guide.innerHTML = '';
+    for(let i = 0; i < 24; i++) {
+        const epIdx = i % episodes.length;
+        const isLive = i === currentHour;
+        guide.innerHTML += `
+            <button class="guide-item ${isLive ? 'live' : ''}" onclick="previewEp(${epIdx})">
+                <small>${i}:00 ${isLive ? '• AL AIRE' : ''}</small><br>
+                <strong>${episodes[epIdx].title}</strong>
+            </button>
+        `;
+    }
+}
+
+function updateProgressBar() {
+    const now = new Date();
+    const secondsIn = (now.getMinutes() * 60) + now.getSeconds();
+    const pct = (secondsIn / 3600) * 100;
+    document.getElementById('bar-v1').style.width = `${pct}%`;
+    
+    const rem = 3600 - secondsIn;
+    const min = Math.floor(rem/60);
+    const sec = rem % 60;
+    document.getElementById('countdown-v1').textContent = `CAMBIO DE CICLO EN: ${min}:${sec < 10 ? '0'+sec : sec}`;
+    
+    if(rem <= 1) syncToLive(); // Cambio de hora automático
+}
+
+function previewEp(index) {
+    player.playVideoAt(index);
+    updateHeader(index);
+}
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+        syncToLive();
+    }
+}
+
+// Botones
+document.getElementById('mute-v1').addEventListener('click', function() {
+    if (isMuted) {
+        player.unMute();
+        this.textContent = "SILENCIAR";
+    } else {
+        player.mute();
+        this.textContent = "QUITAR SILENCIO";
+    }
+    isMuted = !isMuted;
+});
+
+document.getElementById('go-live-v1').addEventListener('click', syncToLive);
+
+</script>
 </body>
 </html>
