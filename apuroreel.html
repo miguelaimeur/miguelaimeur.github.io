@@ -10,7 +10,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-DB2RZPLJER');
 </script>
 
@@ -42,7 +41,7 @@
     .status-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
     .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 12px rgba(255,93,93,.6)}
     .status-label{color:var(--accent-2);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em}
-    .status-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.85rem;}
+    .status-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.85rem; font-weight: bold; color: var(--accent);}
 
     .screen-area{padding:28px;background:#08080c; display: flex; justify-content: center;}
     .tv{width:100%; max-width: 900px;}
@@ -61,11 +60,7 @@
     .bar{height:4px;border-radius:999px;background:#262638;margin:10px 0;overflow:hidden}
     .bar div{height:100%;background:var(--accent);width:0%; transition: width 1s linear;}
 
-    .info-content {
-        padding: 32px 24px;
-        border-top: 1px solid var(--line);
-        background: rgba(255,255,255,0.01);
-    }
+    .info-content { padding: 32px 24px; border-top: 1px solid var(--line); background: rgba(255,255,255,0.01); }
     .info-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
     .info-header h3 { font-family: var(--font-head); font-size: 1.8rem; color: var(--accent); margin-bottom: 4px; }
     .info-header span { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; }
@@ -76,14 +71,17 @@
     .sidebar{display:flex;flex-direction:column; background: #0c0c12; border-left: 1px solid var(--line);}
     .panel{padding:18px;border-bottom:1px solid var(--line)}
     .panel h2{font-family: var(--font-head); font-size: 1.4rem;}
-    .guide-list{flex:1;overflow-y:auto;max-height:800px;}
-    .guide-item{width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:14px 18px;color:var(--text);cursor:pointer;}
-    .guide-item.live{background: rgba(244,223,67,0.08); border-left: 4px solid var(--accent);}
-    .guide-item strong{display: block; font-size: 0.85rem; margin-top:4px;}
+    .guide-list{flex:1;overflow-y:auto;max-height:800px; scrollbar-width: thin;}
+    .guide-item{width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:14px 18px;color:var(--muted);cursor:pointer; transition: 0.2s;}
+    .guide-item:hover{background: rgba(255,255,255,0.05); color: var(--text);}
+    .guide-item.live{background: rgba(244,223,67,0.08); border-left: 4px solid var(--accent); color: var(--text);}
+    .guide-item small{font-family: var(--font-mono); font-size: 0.65rem; display: block; margin-bottom: 4px;}
+    .guide-item strong{display: block; font-size: 0.8rem; line-height: 1.3; font-weight: 500;}
 
     @media (max-width: 1000px) {
         .layout{grid-template-columns: 1fr;}
         .info-grid{grid-template-columns: 1fr;}
+        .sidebar{max-height: 400px;}
         body{padding: 10px 0;}
     }
 </style>
@@ -106,14 +104,14 @@
             <div class="status-bar">
                 <div class="dot"></div>
                 <div class="status-label">ON AIR</div>
-                <div class="status-title" id="title-v1">Sincronizando...</div>
+                <div class="status-title" id="title-v1">CARGANDO TÍTULO...</div>
             </div>
             
             <div class="screen-area">
                 <div class="tv">
                     <div class="frame">
                         <div class="screen">
-                            <div class="overlay-loading" id="loading-v1"><h2>CARGANDO SISTEMA...</h2></div>
+                            <div class="overlay-loading" id="loading-v1"><h2>ESTABLECIENDO CONEXIÓN...</h2></div>
                             <div id="player-v1"></div>
                         </div>
                     </div>
@@ -126,7 +124,7 @@
             </div>
 
             <div class="progress">
-                <div id="countdown-v1" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);">SIGUIENTE EP EN: 00:00</div>
+                <div id="countdown-v1" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);">SIGUIENTE BLOQUE EN: 00:00</div>
                 <div class="bar"><div id="bar-v1"></div></div>
             </div>
 
@@ -138,8 +136,7 @@
                     </div>
                     <div class="info-text">
                         <p><strong>“A Puro Reel”</strong> es un programa de humor y sátira política centrado en el análisis de la actualidad a través de vídeos virales, reels y contenido de redes sociales. Este formato combina crítica social, comentario político y entretenimiento, convirtiéndose en una alternativa fresca a los medios tradicionales.</p>
-                        <p>Cada episodio aborda temas de actualidad en España y a nivel internacional, incluyendo noticias, polémicas políticas, tendencias virales y debates sociales, todo desde un enfoque irónico y directo. El programa transforma el contenido viral en análisis accesible, cercano y con personalidad.</p>
-                        <p>Destaca por su lenguaje natural, su tono crítico y su capacidad para conectar con la audiencia que busca informarse mientras se entretiene. Un espacio donde la política, la actualidad y el humor conviven sin filtros.</p>
+                        <p>Cada episodio aborda temas de actualidad en España y a nivel internacional, incluyendo noticias, polémicas políticas, tendencias virales y debates sociales, todo desde un enfoque irónico y directo.</p>
                         <p>Si buscas un programa de análisis político con humor y actualidad comentada desde un punto de vista diferente, <strong>“A Puro Reel” es tu sitio.</strong></p>
                     </div>
                 </div>
@@ -168,7 +165,7 @@ const CONFIG = {
 };
 
 let player;
-let episodes = [];
+let episodes = []; 
 let isMuted = true;
 
 function updateTime() {
@@ -192,13 +189,25 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
+// Función para obtener títulos mediante oEmbed (bypass de API de datos)
+async function fetchVideoTitles(playlistIds) {
+    const data = await Promise.all(playlistIds.map(async (id) => {
+        try {
+            const response = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`);
+            const json = await response.json();
+            return { id: id, title: json.title.replace(" | A Puro Reel", "").replace("A Puro Reel - ", "") };
+        } catch (e) {
+            return { id: id, title: "Programa A Puro Reel" };
+        }
+    }));
+    return data;
+}
+
 async function onPlayerReady(event) {
-    const playlist = player.getPlaylist();
-    const loadingElement = document.getElementById('loading-v1');
-
-    episodes = playlist.map((id, index) => ({ id, title: `Episodio #${index + 1}` }));
-
-    loadingElement.style.display = 'none';
+    const playlistIds = player.getPlaylist();
+    episodes = await fetchVideoTitles(playlistIds);
+    
+    document.getElementById('loading-v1').style.display = 'none';
     syncToLive();
     setInterval(updateProgressBar, 1000);
 }
@@ -212,23 +221,36 @@ function syncToLive() {
     const secondsPassed = (now.getMinutes() * 60) + now.getSeconds();
     player.seekTo(secondsPassed, true);
     
-    document.getElementById('title-v1').textContent = `ESTÁS VIENDO: EPISODIO ${index + 1}`;
-    renderGuide();
+    updateDisplay(index);
 }
 
-function renderGuide() {
+function updateDisplay(index) {
+    const currentEp = episodes[index];
+    document.getElementById('title-v1').textContent = `ESTÁS VIENDO: ${currentEp.title.toUpperCase()}`;
+    renderGuide(index);
+}
+
+function renderGuide(currentIndex) {
     const guide = document.getElementById('guide-v1');
     const currentHour = new Date().getHours();
     guide.innerHTML = '';
+    
     for(let i = 0; i < 24; i++) {
         const epIdx = i % episodes.length;
         const isLive = i === currentHour;
+        const title = episodes[epIdx].title;
+        
         guide.innerHTML += `
-            <button class="guide-item ${isLive ? 'live' : ''}" onclick="player.playVideoAt(${epIdx})">
+            <button class="guide-item ${isLive ? 'live' : ''}" onclick="jumpTo(${epIdx})">
                 <small>${i < 10 ? '0'+i : i}:00 HS ${isLive ? '• AL AIRE' : ''}</small>
-                <strong>EPISODIO ${epIdx + 1}</strong>
+                <strong>${title}</strong>
             </button>`;
     }
+}
+
+function jumpTo(index) {
+    player.playVideoAt(index);
+    document.getElementById('title-v1').textContent = `ESTÁS VIENDO: ${episodes[index].title.toUpperCase()}`;
 }
 
 function updateProgressBar() {
@@ -242,6 +264,10 @@ function updateProgressBar() {
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) syncToLive();
+    if (event.data == YT.PlayerState.PLAYING) {
+        const idx = player.getPlaylistIndex();
+        updateDisplay(idx);
+    }
 }
 
 document.getElementById('mute-v1').addEventListener('click', function() {
