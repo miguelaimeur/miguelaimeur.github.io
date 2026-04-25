@@ -12,10 +12,10 @@
     *{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0a0a0d;--panel:#12121a;--panel-2:#171723;--line:#242436;--text:#ececf3;--muted:#8a8aa0;--accent:#f4df43;--accent-2:#ff5d5d;--font-head:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace}
     
-    body{background:radial-gradient(circle at top,rgba(244,223,67,.11),transparent 32%),linear-gradient(180deg,#0b0b10 0%,#09090c 100%);color:var(--text);font-family:var(--font-body); min-height: 100vh; overflow-x: hidden; display: flex; align-items: center; justify-content: center;}
+    body{background:radial-gradient(circle at top,rgba(244,223,67,.11),transparent 32%),linear-gradient(180deg,#0b0b10 0%,#09090c 100%);color:var(--text);font-family:var(--font-body); min-height: 100vh; overflow-x: hidden; display: flex; align-items: center; justify-content: center; padding: 20px 0;}
     
     /* CONTENEDOR PRINCIPAL */
-    .shell{width:min(1380px,calc(100% - 32px)); margin: 20px auto; border:1px solid var(--line);background:rgba(9,9,14,.88);box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(12px);position: relative; z-index: 1;}
+    .shell{width:min(1380px,calc(100% - 32px)); margin: auto; border:1px solid var(--line);background:rgba(9,9,14,.88);box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(12px);position: relative; z-index: 1;}
     
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line)}
     .logo-wrap{display:flex;align-items:end;gap:12px}.logo{font-family:var(--font-head);font-size:2.4rem;letter-spacing:.08em;line-height:.9}.logo em{font-style:normal;color:var(--accent)}
@@ -55,6 +55,15 @@
     .bar{height:4px;border-radius:999px;background:#262638;margin:10px 0;overflow:hidden}
     .bar div{height:100%;background:var(--accent);width:0%; transition: width 1s linear;}
 
+    /* NUEVA SECCIÓN DE INFORMACIÓN */
+    .info-section{padding:32px 24px; border-top: 1px solid var(--line); background: linear-gradient(to bottom, transparent, rgba(244,223,67,0.02));}
+    .info-grid{display: grid; grid-template-columns: 1fr 2fr; gap: 40px;}
+    .info-header h3{font-family: var(--font-head); font-size: 2rem; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px;}
+    .info-header p{font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px;}
+    .info-body{font-size: 0.95rem; line-height: 1.7; color: var(--text); opacity: 0.9;}
+    .info-body p{margin-bottom: 16px;}
+    .info-body strong{color: var(--accent);}
+
     /* SIDEBAR / PARRILLA */
     .sidebar{display:flex;flex-direction:column; background: #0c0c12;}
     .panel{padding:18px;border-bottom:1px solid var(--line)}
@@ -69,7 +78,8 @@
 
     @media (max-width: 900px) {
         .layout{grid-template-columns: 1fr;}
-        .sidebar{border-top: 1px solid var(--line);}
+        .sidebar{border-top: 1px solid var(--line); max-height: 400px;}
+        .info-grid{grid-template-columns: 1fr;}
     }
 </style>
 </head>
@@ -112,6 +122,24 @@
             <div class="progress">
                 <div id="countdown-v1" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 1px;">SIGUIENTE EP EN: 00:00</div>
                 <div class="bar"><div id="bar-v1"></div></div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-grid">
+                    <div class="info-header">
+                        <h3>SOBRE EL PROGRAMA</h3>
+                        <p>ID: APR-REEL-SYSTEM-V1</p>
+                    </div>
+                    <div class="info-body">
+                        <p><strong>“A Puro Reel”</strong> es un programa de humor y sátira política centrado en el análisis de la actualidad a través de vídeos virales, reels y contenido de redes sociales. Este formato combina crítica social, comentario político y entretenimiento, convirtiéndose en una alternativa fresca a los medios tradicionales.</p>
+                        
+                        <p>Cada episodio aborda temas de actualidad en España y a nivel internacional, incluyendo noticias, polémicas políticas, tendencias virales y debates sociales, todo desde un enfoque irónico y directo. A través de secciones propias y un estilo desenfadado, el programa transforma el contenido viral en análisis accesible, cercano y con personalidad.</p>
+                        
+                        <p>Destaca por su lenguaje natural, su tono crítico y su capacidad para conectar con la audiencia que busca informarse mientras se entretiene. Es un espacio donde la política, la actualidad y el humor conviven sin filtros, generando contenido pensado tanto para web como para plataformas como YouTube y redes sociales.</p>
+                        
+                        <p>Si buscas un programa de análisis político con humor, actualidad comentada desde un punto de vista diferente y contenido basado en reels virales, <strong>“A Puro Reel” es tu sitio.</strong></p>
+                    </div>
+                </div>
             </div>
         </section>
 
