@@ -11,15 +11,13 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper: rgba(250, 251, 253, 0.95);
+    --paper: #fafbfd;
     --ink: #12161c;
     --muted: #5f6874;
     --line: rgba(18, 22, 28, 0.12);
     --blue: #0e4aa8;
     --blue-deep: #0a2e68;
     --red: #d44333;
-    --panel: rgba(255, 255, 255, 0.8);
-    --shadow: 0 10px 30px rgba(0,0,0,0.05);
     --font-head: "Oswald", sans-serif;
     --font-body: "Public Sans", sans-serif;
     --font-mono: "IBM Plex Mono", monospace;
@@ -40,104 +38,93 @@
     border-right: 1px solid var(--line);
   }
 
-  /* HEADER & NAV */
+  /* HEADER */
   .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     border-bottom: 1px solid var(--line);
+    background: #fff;
   }
 
-  .brand-mark { font-family: var(--font-head); font-size: 2.5rem; letter-spacing: 0.05em; }
+  .brand-mark { font-family: var(--font-head); font-size: 2.5rem; letter-spacing: 0.05em; font-weight: 700; }
   .brand-mark span { color: var(--blue); }
 
-  .nav {
-    display: flex;
-    gap: 8px;
-    padding: 10px 2rem;
-    background: #fff;
-    overflow-x: auto;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nav a {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 6px 12px;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--muted);
-  }
-
-  /* TV SECTION - NOW AT TOP */
-  .tv-hero {
+  /* TV SECTION - TOP */
+  .tv-container {
     display: grid;
-    grid-template-columns: 1fr 350px;
+    grid-template-columns: 1fr 380px;
     background: #000;
-    color: #fff;
+    border-bottom: 4px solid var(--blue);
   }
 
-  .player-main { position: relative; aspect-ratio: 16/9; background: #111; }
-  #player-v1 { width: 100%; height: 100%; }
+  .player-box { position: relative; aspect-ratio: 16/9; background: #000; }
+  #main-player { width: 100%; height: 100%; position: absolute; top:0; left:0; }
 
   .tv-sidebar {
     background: #12161c;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    max-height: 56.25vw; /* Matches 16:9 ratio of player */
+    height: 100%;
+    max-height: 56.25vw;
   }
 
-  .tv-info { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .tv-info h2 { font-family: var(--font-head); font-size: 1.5rem; color: var(--blue); }
-  
-  .guide-list { overflow-y: auto; flex-grow: 1; }
+  .tv-header {
+    padding: 20px;
+    background: #1a1f26;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .tv-header h2 { font-family: var(--font-head); font-size: 1.2rem; text-transform: uppercase; color: var(--blue); }
+
+  .guide-scroll {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
   .guide-item {
     width: 100%;
     padding: 15px 20px;
     background: transparent;
     border: 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: #ccc;
+    color: #999;
     text-align: left;
     cursor: pointer;
-    transition: 0.2s;
-  }
-  .guide-item:hover { background: rgba(255,255,255,0.05); }
-  .guide-item.live { background: var(--blue-deep); color: #fff; border-left: 4px solid var(--blue); }
-  .guide-item small { display: block; font-family: var(--font-mono); font-size: 0.65rem; opacity: 0.7; }
-
-  /* CONTENT GRID */
-  .main-content {
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    gap: 2rem;
-    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .article-lead {
-    background: #fff;
-    padding: 2rem;
-    border: 1px solid var(--line);
+  .guide-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  
+  .guide-item.active {
+    background: var(--blue-deep);
+    color: #fff;
+    border-left: 4px solid var(--blue);
   }
 
-  .article-lead h1 { font-family: var(--font-head); font-size: 3rem; line-height: 1; margin-bottom: 1rem; }
+  .guide-item span { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; }
+  .guide-item strong { font-size: 0.9rem; font-weight: 500; }
 
-  .mini-tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+  /* CONTENT */
+  .content-body { padding: 2rem; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; }
+  
+  .main-article { background: #fff; padding: 2.5rem; border: 1px solid var(--line); }
+  .main-article h1 { font-family: var(--font-head); font-size: 3.5rem; line-height: 0.9; margin-bottom: 1.5rem; }
 
   /* RESPONSIVE */
-  @media (max-width: 1024px) {
-    .tv-hero, .main-content { grid-template-columns: 1fr; }
-    .tv-sidebar { max-height: 400px; }
+  @media (max-width: 1100px) {
+    .tv-container, .content-body { grid-template-columns: 1fr; }
+    .tv-sidebar { max-height: 450px; }
   }
 
   @media (max-width: 600px) {
-    .topbar { flex-direction: column; text-align: center; gap: 1rem; }
-    .article-lead h1 { font-size: 2rem; }
-    .shell { border: 0; }
+    .topbar { flex-direction: column; padding: 1rem; }
+    .main-article h1 { font-size: 2.5rem; }
   }
 </style>
 </head>
@@ -145,63 +132,40 @@
 
 <div class="shell">
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark">CARZ<span>24</span></div>
-    </div>
-    <div class="status-pill" style="font-family: var(--font-mono); font-size: 0.8rem;">
-      <span id="clock-v1">00:00:00</span> | <span style="color: var(--red)">● EN DIRECTO</span>
+    <div class="brand-mark">CARZ<span>24</span></div>
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">
+      <span id="live-clock">00:00:00</span> <span style="color: var(--red); margin-left: 10px;">● TV LIVE</span>
     </div>
   </header>
 
-  <nav class="nav">
-    <a href="#">Actualidad</a>
-    <a href="#">Pruebas</a>
-    <a href="#">Electromovilidad</a>
-    <a href="#">Híbridos</a>
-    <a href="#">Comparativas</a>
-    <a href="#">Guía de Compra</a>
-  </nav>
-
-  <section class="tv-hero">
-    <div class="player-main">
-      <div id="player-v1"></div>
+  <section class="tv-container">
+    <div class="player-box">
+      <div id="main-player"></div>
     </div>
+    
     <aside class="tv-sidebar">
-      <div class="tv-info">
-        <div class="mini-tag">Ahora en emisión</div>
-        <h2 id="current-title">Cargando CARZ24 TV...</h2>
+      <div class="tv-header">
+        <h2>Programación CARZ24</h2>
+        <p style="font-size: 0.7rem; color: #666;">Selecciona un capítulo para reproducir</p>
       </div>
-      <div class="guide-list" id="guide-v1">
+      <div class="guide-scroll" id="tv-guide">
         </div>
     </aside>
   </section>
 
-  <main class="main-content">
+  <main class="content-body">
     <section>
-      <article class="article-lead">
-        <div class="mini-tag">Análisis Semanal</div>
-        <h1>La realidad del mercado automotriz en 2024</h1>
-        <p>Exploramos a fondo las nuevas tendencias en movilidad, desde la eficiencia de los nuevos motores híbridos hasta el impacto de las normativas europeas en el usuario de a pie.</p>
-        <br>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-            <div style="padding: 1rem; border: 1px solid var(--line)">
-                <strong>+24%</strong>
-                <p style="font-size: 0.8rem">Incremento en ventas de híbridos</p>
-            </div>
-            <div style="padding: 1rem; border: 1px solid var(--line)">
-                <strong>4.2L</strong>
-                <p style="font-size: 0.8rem">Consumo medio en test real</p>
-            </div>
-        </div>
+      <article class="main-article">
+        <span style="color: var(--blue); font-weight: bold; font-family: var(--font-mono);">EDITORIAL</span>
+        <h1>Motor explicado con datos, no con promesas.</h1>
+        <p>Bienvenidos a la nueva era de CARZ24. Aquí arriba tienes nuestra señal de TV 24/7 con las mejores pruebas de la red, y aquí abajo, el análisis reposado que necesitas antes de decidir tu próxima compra.</p>
       </article>
     </section>
 
     <aside>
-      <div style="padding: 1.5rem; background: var(--blue-deep); color: #fff;">
-        <h3>Newsletter Editorial</h3>
-        <p style="font-size: 0.9rem; margin: 1rem 0;">Recibe nuestro análisis técnico sin sesgos cada domingo.</p>
-        <input type="email" placeholder="Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 0;">
-        <button style="width: 100%; padding: 10px; background: var(--blue); color: white; border: 0; font-weight: bold;">SUSCRIBIRME</button>
+      <div style="background: #fff; padding: 1.5rem; border: 1px solid var(--line);">
+        <h3 style="font-family: var(--font-head); margin-bottom: 1rem;">Sobre esta demo</h3>
+        <p style="font-size: 0.85rem; color: var(--muted);">Hemos integrado más de 20 fuentes de video de alta calidad para validar el formato de revista audiovisual.</p>
       </div>
     </aside>
   </main>
@@ -209,27 +173,45 @@
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  // Lista de Video IDs extraídos de tus enlaces
-  const videoList = [
-    "gjZHyAZYASA", "KfPt8yIssGo", "Y_sBrC5enZA", "TBro-1yUOAo", 
-    "6vd5Tl5Um2Y", "5lkgXgJ_-cg", "Vum5xPuAZ7A", "k5deE6-j4oU",
-    "SBALYBlAszY", "bDjr5abCclo", "Md2E4t0bvHo", "AXxXRNzP_40",
-    "U1ivmi3_IeI", "gMpHpbTtDYI", "pkN9u2_4_3o", "vg9oPvd8gyA",
-    "bq37MW3qElA", "8reJMip7G_I", "yneuurgsD8M", "R2fvqYGuCvU",
-    "TVGt8LZQtqo", "LpcOzaEkIMI"
+  // Array de vídeos con títulos limpios para la guía
+  const playlist = [
+    { id: "gjZHyAZYASA", title: "Prueba a fondo: Compactos" },
+    { id: "KfPt8yIssGo", title: "Híbridos vs Eléctricos" },
+    { id: "Y_sBrC5enZA", title: "Análisis: Mercado Usados" },
+    { id: "TBro-1yUOAo", title: "Novedades de la Semana" },
+    { id: "6vd5Tl5Um2Y", title: "Mantenimiento Preventivo" },
+    { id: "5lkgXgJ_-cg", title: "Coche de la Semana" },
+    { id: "Vum5xPuAZ7A", title: "Tecnología de Baterías" },
+    { id: "k5deE6-j4oU", title: "Comparativa SUV Media" },
+    { id: "SBALYBlAszY", title: "Especial carwow: Drag Race" },
+    { id: "bDjr5abCclo", title: "Los más fiables de 2024" },
+    { id: "Md2E4t0bvHo", title: "Prueba Larga Distancia" },
+    { id: "AXxXRNzP_40", title: "Interior y Calidades" },
+    { id: "U1ivmi3_IeI", title: "Futuro del Hidrógeno" },
+    { id: "gMpHpbTtDYI", title: "Etiquetas DGT Explicadas" },
+    { id: "pkN9u2_4_3o", title: "Berlinas de Lujo" },
+    { id: "vg9oPvd8gyA", title: "Clásicos Modernos" },
+    { id: "bq37MW3qElA", title: "Consumo Real en Ciudad" },
+    { id: "8reJMip7G_I", title: "Sistemas de Seguridad" },
+    { id: "yneuurgsD8M", title: "Análisis de Chasis" },
+    { id: "R2fvqYGuCvU", title: "Mejores Utilitarios" },
+    { id: "TVGt8LZQtqo", title: "Off-road Extremo" },
+    { id: "LpcOzaEkIMI", title: "Fin de Trayecto: Resumen" }
   ];
 
   let player;
+  let currentVideoIndex = 0;
 
+  // 1. Inicializar la API
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player-v1', {
-      height: '100%',
-      width: '100%',
+    player = new YT.Player('main-player', {
+      videoId: playlist[0].id,
       playerVars: {
         'autoplay': 1,
         'controls': 1,
-        'mute': 1,
-        'playlist': videoList.join(',')
+        'rel': 0,
+        'modestbranding': 1,
+        'mute': 1 // Autoplay requiere silencio inicial en muchos navegadores
       },
       events: {
         'onReady': onPlayerReady,
@@ -240,42 +222,58 @@
 
   function onPlayerReady(event) {
     renderGuide();
-    updateCurrentTitle();
+    // Reloj en vivo
+    setInterval(() => {
+      document.getElementById('live-clock').textContent = new Date().toLocaleTimeString('es-ES');
+    }, 1000);
   }
 
+  // 2. Gestionar el cambio de videos y fin de reproducción
   function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-      updateCurrentTitle();
-      renderGuide();
+    if (event.data === YT.PlayerState.ENDED) {
+      nextVideo();
     }
   }
 
-  function updateCurrentTitle() {
-    const index = player.getPlaylistIndex();
-    document.getElementById('current-title').textContent = `Bloque ${index + 1}: Análisis CARZ24`;
+  function nextVideo() {
+    currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
+    playVideo(currentVideoIndex);
   }
 
-  function renderGuide() {
-    const guide = document.getElementById('guide-v1');
-    const currentIndex = player ? player.getPlaylistIndex() : 0;
+  // 3. Función clave para elegir capítulos
+  function playVideo(index) {
+    currentVideoIndex = index;
+    const video = playlist[index];
     
-    guide.innerHTML = videoList.map((id, index) => `
-      <button class="guide-item ${index === currentIndex ? 'live' : ''}" onclick="jumpTo(${index})">
-        <small>SEGMENTO ${index + 1}</small>
-        <strong>Especial Motor ${id}</strong>
-      </button>
-    `).join('');
+    // Carga el video directamente por ID (esto es más estable que las listas)
+    player.loadVideoById(video.id);
+    
+    renderGuide(); // Actualizar UI
   }
 
-  function jumpTo(index) {
-    player.playVideoAt(index);
-  }
+  // 4. Renderizar la guía lateral
+  function renderGuide() {
+    const container = document.getElementById('tv-guide');
+    container.innerHTML = '';
 
-  // Reloj
-  setInterval(() => {
-    const now = new Date();
-    document.getElementById('clock-v1').textContent = now.toLocaleTimeString('es-ES');
-  }, 1000);
+    playlist.forEach((item, index) => {
+      const btn = document.createElement('button');
+      btn.className = `guide-item ${index === currentVideoIndex ? 'active' : ''}`;
+      btn.onclick = () => playVideo(index);
+      
+      btn.innerHTML = `
+        <span>BLOQUE ${String(index + 1).padStart(2, '0')}</span>
+        <strong>${item.title}</strong>
+      `;
+      container.appendChild(btn);
+    });
+
+    // Auto-scroll para mantener el video activo visible en la lista
+    const activeBtn = container.querySelector('.active');
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
 </script>
 
 </body>
