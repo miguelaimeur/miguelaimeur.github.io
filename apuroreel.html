@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Apuro Reel TV · Humor, Sátira Política y Reels Virales 24/7</title>
-    <meta name="description" content="A PURO REEL es el programa que convierte reels virales en comedia y crítica social. Análisis sin filtros de la actualidad con El Presi, Buba, Rosty y Chihako.">
+    <meta name="description" content="A PURO REEL: El programa que convierte reels virales en comedia y crítica social. Con El Presi, Buba, Rosty y Chihako. Análisis sin filtros desde Valencia.">
     <meta name="keywords" content="A Puro Reel, humor político, sátira, reels virales, reacción comedia, El Presi, Buba, Rosty, crítica social España">
-    <link rel="canonical" href="https://tuweb.com" />
-
-    <meta property="og:title" content="Apuro Reel TV · Estación Oficial">
-    <meta property="og:description" content="No es solo reacción, es evolución viral. Humor, política y caos organizado con el equipo de A Puro Reel.">
-    <meta property="og:image" content="https://tuweb.com/thumbnail-programa.jpg">
-    <meta property="og:type" content="video.tv_show">
-
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB2RZPLJER"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -25,82 +19,266 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWorkSeries",
-      "name": "A Puro Reel",
-      "description": "Programa de humor y sátira política centrado en el análisis de vídeos virales y actualidad.",
-      "genre": ["Humor", "Sátira Política", "Entretenimiento"],
-      "originEditor": "A Puro Reel Team",
-      "actor": [
-        {"@type": "Person", "name": "El Presi"},
-        {"@type": "Person", "name": "Buba"},
-        {"@type": "Person", "name": "Rosty"},
-        {"@type": "Person", "name": "Chihako"}
-      ],
-      "url": "https://tuweb.com"
-    }
-    </script>
-
+    
     <style>
-        /* (Mantenemos tu CSS original aquí, solo añadiré una clase para el texto SEO) */
-        .seo-text-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
+        /* VARIABLES Y RESET */
+        *{box-sizing:border-box;margin:0;padding:0}
+        :root{--bg:#0a0a0d;--panel:#12121a;--panel-2:#171723;--line:#242436;--text:#ececf3;--muted:#8a8aa0;--accent:#f4df43;--accent-2:#ff5d5d;--font-head:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace}
+        
+        body{background:radial-gradient(circle at top,rgba(244,223,67,.11),transparent 32%),linear-gradient(180deg,#0b0b10 0%,#09090c 100%);color:var(--text);font-family:var(--font-body); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 0;}
+        
+        .shell{width:min(1380px,calc(100% - 32px)); margin: auto; border:1px solid var(--line);background:rgba(9,9,14,.88);box-shadow:0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(12px);position: relative;}
+        
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line)}
+        .logo-wrap{display:flex;align-items:end;gap:12px}
+        .logo{font-family:var(--font-head);font-size:2.4rem;letter-spacing:.08em;line-height:.9; margin:0; font-weight: normal;}
+        .logo em{font-style:normal;color:var(--accent)}
+        .badge{background:var(--accent-2);color:#fff;padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em}
+        .clock{font-family:var(--font-mono);font-size:1.2rem;color:var(--accent);letter-spacing:.08em; text-align: right;}
+        .date{color:var(--muted);font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;margin-top:4px; text-align: right;}
+
+        .social-row{display:flex;gap:8px;padding:12px 24px;border-bottom:1px solid var(--line);overflow-x:auto;background:rgba(255,255,255,.02);scrollbar-width: none;}
+        .social-link{color:var(--text);text-decoration:none;border:1px solid var(--line);background:var(--panel);padding:8px 16px;border-radius:999px;font-family:var(--font-mono);font-size:.72rem;white-space:nowrap;transition:.2s ease; display: flex; align-items: center; gap: 6px;}
+        .social-link:hover{border-color:var(--accent);color:var(--accent);background: rgba(244,223,67,0.05);}
+
+        .layout{display:grid;grid-template-columns:minmax(0,1.2fr) 320px; min-height: 800px;}
+        .left{border-right:1px solid var(--line);display:flex;flex-direction:column;}
+        
+        .status-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+        .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 12px rgba(255,93,93,.6)}
+        .status-label{color:var(--accent-2);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em}
+        .status-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.85rem; font-weight: bold; color: var(--accent);}
+
+        .screen-area{padding:28px;background:#08080c; display: flex; justify-content: center;}
+        .tv{width:100%; max-width: 900px;}
+        .frame{position:relative;aspect-ratio:16/9;border-radius:24px;border:1px solid #2a2a38;background:#000;padding:12px;box-shadow:0 24px 70px rgba(0,0,0,.62)}
+        .screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:14px;}
+        #player-v1{width:100%;height:100%; position: absolute; top:0; left:0;}
+        
+        .overlay-loading{position:absolute;inset:0;display:grid;place-items:center;background:#0a0a0d;z-index:10;font-family:var(--font-mono);}
+        
+        .controls{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line);background:var(--panel)}
+        .btn{appearance:none;border:1px solid var(--line);background:var(--panel-2);color:var(--text);border-radius:999px;padding:10px 16px;font-family:var(--font-mono);font-size:.72rem;cursor:pointer; transition: 0.2s;}
+        .btn:hover{border-color: var(--accent); color: var(--accent);}
+        .btn-primary{background:var(--accent);color:#000;font-weight:bold;border:none}
+
+        .progress{padding:14px 18px;border-top:1px solid var(--line);background:rgba(255,255,255,.02)}
+        .bar{height:4px;border-radius:999px;background:#262638;margin:10px 0;overflow:hidden}
+        .bar div{height:100%;background:var(--accent);width:0%; transition: width 1s linear;}
+
+        .info-content { padding: 32px 24px; border-top: 1px solid var(--line); background: rgba(255,255,255,0.01); }
+        .info-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+        .info-header h2 { font-family: var(--font-head); font-size: 1.8rem; color: var(--accent); margin-bottom: 4px; }
+        .info-header span { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 2px; }
+        .info-text { font-size: 0.92rem; line-height: 1.6; color: var(--muted); }
+        .info-text p { margin-bottom: 16px; }
+        .info-text strong { color: var(--text); }
+
+        .sidebar{display:flex;flex-direction:column; background: #0c0c12; border-left: 1px solid var(--line);}
+        .panel{padding:18px;border-bottom:1px solid var(--line)}
+        .panel h2{font-family: var(--font-head); font-size: 1.4rem;}
+        .guide-list{flex:1;overflow-y:auto;max-height:800px; scrollbar-width: thin;}
+        .guide-item{width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:14px 18px;color:var(--muted);cursor:pointer; transition: 0.2s;}
+        .guide-item:hover{background: rgba(255,255,255,0.05); color: var(--text);}
+        .guide-item.live{background: rgba(244,223,67,0.08); border-left: 4px solid var(--accent); color: var(--text);}
+        .guide-item small{font-family: var(--font-mono); font-size: 0.65rem; display: block; margin-bottom: 4px;}
+        .guide-item strong{display: block; font-size: 0.8rem; line-height: 1.3; font-weight: 500;}
+
+        /* SEO Hidden Block */
+        .seo-meta-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        @media (max-width: 1000px) {
+            .layout{grid-template-columns: 1fr;}
+            .info-grid{grid-template-columns: 1fr;}
+            .sidebar{max-height: 400px;}
+            body{padding: 10px 0;}
         }
-        /* ... Resto de tu CSS ... */
     </style>
 </head>
 <body>
 
-    <section class="seo-text-hidden">
-        <h1>A PURO REEL: Comedia, Crítica y Realidad Viral</h1>
-        <p>A PURO REEL no es otro programa más comentando vídeos de internet. Es la evolución natural del contenido viral llevada al terreno de la comedia, la crítica social y el análisis sin filtros.</p>
-        <h2>Personajes y Lore del Programa</h2>
-        <ul>
-            <li><strong>El Presi:</strong> El alma del caos, conocido por su cámara congelada y sus anécdotas deportivas.</li>
-            <li><strong>Buba:</strong> El desastre controlado, experto en líos y caídas.</li>
-            <li><strong>Rosty:</strong> El especialista en humor ácido y meter el dedo en la llaga.</li>
-            <li><strong>Chihako:</strong> El toque caótico de las entradas tarde y problemas técnicos.</li>
-            <li><strong>Amanda:</strong> El fenómeno viral nacido de un reel absurdo.</li>
-        </ul>
-        <p>Formato nacido tras la DANA de Valencia, adaptado a reels, shorts y contenido rápido con fondo político y social.</p>
-    </section>
+<section class="seo-meta-hidden">
+    <h1>A PURO REEL: Comedia, Crítica y Realidad Viral</h1>
+    <p>Humor sin filtros, crítica social y política analizando reels virales con El Presi, Buba, Rosty y Chihako.</p>
+</section>
 
-    <div class="shell">
-        <header>
-            <div class="logo-wrap">
-                <h1 class="logo" style="font-size: 2.4rem;">APURO <em>REEL</em> TV</h1>
-                <div class="badge">EN DIRECTO</div>
-            </div>
-            <div class="top-right">
-                <div class="clock" id="clock-v1">00:00:00</div>
-                <div class="date" id="date-v1">CARGANDO...</div>
-            </div>
-        </header>
-
-        <div class="info-content">
-            <div class="info-grid">
-                <div class="info-header">
-                    <h2>EL PROGRAMA</h2> <span>DATA_FILE: CORE_INFO.SYS</span>
-                </div>
-                <div class="info-text">
-                    <p><strong>A PURO REEL</strong> es la evolución del contenido viral. Nacido tras la resiliencia en Valencia tras la DANA, este formato destripa la actualidad de redes sociales con <strong>humor, calle y un punto de mala leche</strong>.</p>
-                    <p>Desde el análisis de <em>reels</em> absurdos hasta la sátira política más directa, nuestro equipo formado por <strong>El Presi, Buba, Rosty y Chihako</strong> ofrece una narrativa propia que conecta con la realidad de internet.</p>
-                    <p>Si buscas análisis político con sarcasmo y momentos virales como el de <strong>Amanda</strong>, este es tu sitio oficial.</p>
-                </div>
-            </div>
+<div class="shell">
+    <header>
+        <div class="logo-wrap">
+            <h1 class="logo">APURO <em>REEL</em> TV</h1>
+            <div class="badge">EN DIRECTO</div>
         </div>
-        
+        <div class="top-right">
+            <div class="clock" id="clock-v1">00:00:00</div>
+            <div class="date" id="date-v1">CARGANDO...</div>
         </div>
+    </header>
 
+    <div class="social-row" id="socials-v1"></div>
+
+    <main class="layout">
+        <section class="left">
+            <div class="status-bar">
+                <div class="dot"></div>
+                <div class="status-label">ON AIR</div>
+                <div class="status-title" id="title-v1">ESTABLECIENDO SEÑAL...</div>
+            </div>
+            
+            <div class="screen-area">
+                <div class="tv">
+                    <div class="frame">
+                        <div class="screen">
+                            <div class="overlay-loading" id="loading-v1"><h2>CONECTANDO AL FEED...</h2></div>
+                            <div id="player-v1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" id="go-live-v1">VOLVER AL DIRECTO</button>
+                <button class="btn" id="mute-v1">QUITAR SILENCIO</button>
+            </div>
+
+            <div class="progress">
+                <div id="countdown-v1" style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);">SIGUIENTE BLOQUE EN: 00:00</div>
+                <div class="bar"><div id="bar-v1"></div></div>
+            </div>
+
+            <div class="info-content">
+                <div class="info-grid">
+                    <div class="info-header">
+                        <h2>EL PROGRAMA</h2>
+                        <span>DATA_FILE: ABOUT_SYS.V2</span>
+                    </div>
+                    <div class="info-text">
+                        <p><strong>A PURO REEL</strong> es la evolución del contenido viral tras la DANA de Valencia. Humor sin guiones encorsetados, crítica social y política con un estilo único.</p>
+                        <p>Conoce a nuestro equipo: <strong>El Presi</strong> (el alma del caos), <strong>Buba</strong> (torpeza nivel experto), <strong>Rosty</strong> (humor al límite) y <strong>Chihako</strong> (el eterno tardón).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="panel"><h2>PROGRAMACIÓN</h2></div>
+            <div class="guide-list" id="guide-v1"></div>
+        </aside>
+    </main>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+const CONFIG = {
+    playlistId: "PLktEpakcg6naC1oocHyJL3XtaZzegYnG0",
+    timezone: "Europe/Madrid",
+    socials: [
+        {label:"YouTube", url:"https://youtube.com/@apuroreel"},
+        {label:"Kick", url:"https://kick.com/apuroreel"},
+        {label:"Twitch", url:"https://www.twitch.tv/apuroreel"},
+        {label:"Instagram", url:"https://instagram.com/apuroreel"},
+        {label:"TikTok", url:"https://tiktok.com/@apuroreel"}
+    ]
+};
+
+let player;
+let episodes = []; 
+let isMuted = true;
+
+function updateTime() {
+    const now = new Date();
+    const options = { timeZone: CONFIG.timezone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    document.getElementById('clock-v1').textContent = new Intl.DateTimeFormat('es-ES', options).format(now);
+    document.getElementById('date-v1').textContent = now.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).toUpperCase();
+}
+setInterval(updateTime, 1000);
+
+const socialContainer = document.getElementById('socials-v1');
+CONFIG.socials.forEach(s => {
+    socialContainer.innerHTML += `<a href="${s.url}" target="_blank" class="social-link"><span>#</span>${s.label}</a>`;
+});
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player-v1', {
+        playerVars: { listType: 'playlist', list: CONFIG.playlistId, autoplay: 1, controls: 0, mute: 1, modestbranding: 1, rel: 0, playsinline: 1 },
+        events: { 'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange }
+    });
+}
+
+async function fetchVideoTitles(playlistIds) {
+    const data = await Promise.all(playlistIds.map(async (id) => {
+        try {
+            const response = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`);
+            const json = await response.json();
+            return { id: id, title: json.title.replace(" | A Puro Reel", "").replace("A Puro Reel - ", "") };
+        } catch (e) {
+            return { id: id, title: "Programa A Puro Reel" };
+        }
+    }));
+    return data;
+}
+
+async function onPlayerReady(event) {
+    const playlistIds = player.getPlaylist();
+    episodes = await fetchVideoTitles(playlistIds);
+    document.getElementById('loading-v1').style.display = 'none';
+    syncToLive();
+    setInterval(updateProgressBar, 1000);
+}
+
+function syncToLive() {
+    if(!episodes || episodes.length === 0) return;
+    const now = new Date();
+    const index = now.getHours() % episodes.length;
+    player.playVideoAt(index);
+    const secondsPassed = (now.getMinutes() * 60) + now.getSeconds();
+    player.seekTo(secondsPassed, true);
+}
+
+function updateDisplay(index) {
+    if(episodes[index]) {
+        document.getElementById('title-v1').textContent = `ESTÁS VIENDO: ${episodes[index].title.toUpperCase()}`;
+        renderGuide(index);
+    }
+}
+
+function renderGuide(currentIndex) {
+    const guide = document.getElementById('guide-v1');
+    const currentHour = new Date().getHours();
+    guide.innerHTML = '';
+    for(let i = 0; i < 24; i++) {
+        const epIdx = i % episodes.length;
+        const isLive = i === currentHour;
+        guide.innerHTML += `
+            <button class="guide-item ${isLive ? 'live' : ''}" onclick="player.playVideoAt(${epIdx})">
+                <small>${i < 10 ? '0'+i : i}:00 HS ${isLive ? '• AL AIRE' : ''}</small>
+                <strong>${episodes[epIdx].title}</strong>
+            </button>`;
+    }
+}
+
+function updateProgressBar() {
+    const now = new Date();
+    const secondsIn = (now.getMinutes() * 60) + now.getSeconds();
+    document.getElementById('bar-v1').style.width = `${(secondsIn / 3600) * 100}%`;
+    const rem = 3600 - secondsIn;
+    document.getElementById('countdown-v1').textContent = `PRÓXIMO BLOQUE EN: ${Math.floor(rem/60)}:${(rem%60).toString().padStart(2,'0')}`;
+    if(rem <= 1) syncToLive();
+}
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) syncToLive();
+    if (event.data == YT.PlayerState.PLAYING) {
+        updateDisplay(player.getPlaylistIndex());
+    }
+}
+
+document.getElementById('mute-v1').addEventListener('click', function() {
+    if (isMuted) { player.unMute(); this.textContent = "SILENCIAR"; }
+    else { player.mute(); this.textContent = "QUITAR SILENCIO"; }
+    isMuted = !isMuted;
+});
+
+document.getElementById('go-live-v1').addEventListener('click', syncToLive);
+</script>
 </body>
 </html>
