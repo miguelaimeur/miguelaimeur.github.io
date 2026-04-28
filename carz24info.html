@@ -1,280 +1,263 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CARZ24 · Revista de motor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --paper: #fafbfd;
-    --ink: #12161c;
-    --muted: #5f6874;
-    --line: rgba(18, 22, 28, 0.12);
-    --blue: #0e4aa8;
-    --blue-deep: #0a2e68;
-    --red: #d44333;
-    --font-head: "Oswald", sans-serif;
-    --font-body: "Public Sans", sans-serif;
-    --font-mono: "IBM Plex Mono", monospace;
-  }
-
-  body {
-    font-family: var(--font-body);
-    color: var(--ink);
-    background: #eef2f7;
-    line-height: 1.6;
-  }
-
-  .shell {
-    width: min(1440px, 100%);
-    margin: 0 auto;
-    background: var(--paper);
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-  }
-
-  /* HEADER */
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--line);
-    background: #fff;
-  }
-
-  .brand-mark { font-family: var(--font-head); font-size: 2.5rem; letter-spacing: 0.05em; font-weight: 700; }
-  .brand-mark span { color: var(--blue); }
-
-  /* TV SECTION - TOP */
-  .tv-container {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    background: #000;
-    border-bottom: 4px solid var(--blue);
-  }
-
-  .player-box { position: relative; aspect-ratio: 16/9; background: #000; }
-  #main-player { width: 100%; height: 100%; position: absolute; top:0; left:0; }
-
-  .tv-sidebar {
-    background: #12161c;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-height: 56.25vw;
-  }
-
-  .tv-header {
-    padding: 20px;
-    background: #1a1f26;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .tv-header h2 { font-family: var(--font-head); font-size: 1.2rem; text-transform: uppercase; color: var(--blue); }
-
-  .guide-scroll {
-    overflow-y: auto;
-    flex-grow: 1;
-  }
-
-  .guide-item {
-    width: 100%;
-    padding: 15px 20px;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: #999;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .guide-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
-  
-  .guide-item.active {
-    background: var(--blue-deep);
-    color: #fff;
-    border-left: 4px solid var(--blue);
-  }
-
-  .guide-item span { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; }
-  .guide-item strong { font-size: 0.9rem; font-weight: 500; }
-
-  /* CONTENT */
-  .content-body { padding: 2rem; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; }
-  
-  .main-article { background: #fff; padding: 2.5rem; border: 1px solid var(--line); }
-  .main-article h1 { font-family: var(--font-head); font-size: 3.5rem; line-height: 0.9; margin-bottom: 1.5rem; }
-
-  /* RESPONSIVE */
-  @media (max-width: 1100px) {
-    .tv-container, .content-body { grid-template-columns: 1fr; }
-    .tv-sidebar { max-height: 450px; }
-  }
-
-  @media (max-width: 600px) {
-    .topbar { flex-direction: column; padding: 1rem; }
-    .main-article h1 { font-size: 2.5rem; }
-  }
-</style>
-</head>
-<body>
-
-<div class="shell">
-  <header class="topbar">
-    <div class="brand-mark">CARZ<span>24</span></div>
-    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">
-      <span id="live-clock">00:00:00</span> <span style="color: var(--red); margin-left: 10px;">● TV LIVE</span>
-    </div>
-  </header>
-
-  <section class="tv-container">
-    <div class="player-box">
-      <div id="main-player"></div>
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARZ24 · Revista de Motor</title>
     
-    <aside class="tv-sidebar">
-      <div class="tv-header">
-        <h2>Programación CARZ24</h2>
-        <p style="font-size: 0.7rem; color: #666;">Selecciona un capítulo para reproducir</p>
-      </div>
-      <div class="guide-scroll" id="tv-guide">
-        </div>
-    </aside>
-  </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&amp;family=Public+Sans:wght@400;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #0a0c10;       
+            --bg-card: #1a1d23;       
+            --bg-nav: #121418;       
+            --ink: #ffffff;           
+            --muted: #a0a5ad;         
+            --blue: #3b82f6;          
+            --line: rgba(255, 255, 255, 0.08);
+        }
 
-  <main class="content-body">
-    <section>
-      <article class="main-article">
-        <span style="color: var(--blue); font-weight: bold; font-family: var(--font-mono);">EDITORIAL</span>
-        <h1>Motor explicado con datos, no con promesas.</h1>
-        <p>Bienvenidos a la nueva era de CARZ24. Aquí arriba tienes nuestra señal de TV 24/7 con las mejores pruebas de la red, y aquí abajo, el análisis reposado que necesitas antes de decidir tu próxima compra.</p>
-      </article>
-    </section>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Public Sans', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--ink); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    <aside>
-      <div style="background: #fff; padding: 1.5rem; border: 1px solid var(--line);">
-        <h3 style="font-family: var(--font-head); margin-bottom: 1rem;">Sobre esta demo</h3>
-        <p style="font-size: 0.85rem; color: var(--muted);">Hemos integrado más de 20 fuentes de video de alta calidad para validar el formato de revista audiovisual.</p>
-      </div>
-    </aside>
-  </main>
-</div>
+        header { 
+            background: var(--bg-nav); 
+            padding: 20px 5%; 
+            border-bottom: 1px solid var(--line); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
 
-<script src="https://www.youtube.com/iframe_api"></script>
+        .brand { font-family: 'Oswald', sans-serif; font-size: 2rem; letter-spacing: 1px; }
+        .brand span { color: var(--blue); }
+        
+        nav, .footer-nav { 
+            background: var(--bg-nav); 
+            padding: 10px 5%; 
+            display: flex; 
+            gap: 15px; 
+            overflow-x: auto; 
+            border-bottom: 2px solid var(--blue);
+            white-space: nowrap;
+        }
+
+        nav { position: sticky; top: 0; z-index: 1000; }
+
+        .nav-link { 
+            font-family: 'IBM Plex Mono', monospace; 
+            font-size: 0.7rem; 
+            color: var(--muted); 
+            text-decoration: none; 
+            text-transform: uppercase;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--blue); }
+
+        /* REPRODUCTOR SUPERIOR */
+        .hero-player-container {
+            width: 100%;
+            background: #000;
+            line-height: 0;
+        }
+
+        .video-responsive {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        #player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* GRID DE 9 RECUADROS */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--blue); }
+        
+        .card-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--blue);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .card h3 { font-family: 'Oswald', sans-serif; margin-bottom: 12px; font-size: 1.3rem; }
+        .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
+        
+        .card-author {
+            font-size: 0.7rem;
+            border-top: 1px solid var(--line);
+            padding-top: 10px;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        footer { margin-top: 40px; }
+        .footer-bottom { padding: 20px; text-align: center; font-size: 0.7rem; color: var(--muted); opacity: 0.5; }
+
+        ::-webkit-scrollbar { height: 4px; width: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--blue); }
+    </style>
+
+
+
+<header>
+    <div class="brand">CARZ<span>24</span></div>
+    <div style="font-family: 'IBM Plex Mono'; font-size: 0.6rem; color: var(--blue);">GRID 3x3 COMPLETO</div>
+</header>
+
+<nav>
+    <a href="/category/novedades" class="nav-link">Novedades</a>
+    <a href="/category/electricos" class="nav-link">Eléctricos</a>
+    <a href="/category/hyper-cars" class="nav-link">Hyper Cars</a>
+    <a href="/category/coches-clasicos" class="nav-link">Coches Clásicos</a>
+    <a href="/category/caravanas" class="nav-link">Caravanas</a>
+    <a href="/category/concept-cars" class="nav-link">Concept Cars</a>
+    <a href="/category/mecanica" class="nav-link">Mecánica</a>
+    <a href="/contacto" class="nav-link">Contacto</a>
+    <a href="/redes" class="nav-link">Redes</a>
+</nav>
+
+<section class="hero-player-container">
+    <div class="video-responsive">
+        <div id="player"></div>
+    </div>
+</section>
+
+<main class="content-grid">
+    <a href="/category/novedades" class="card">
+        <div class="card-tag">Actualidad</div>
+        <h3>Últimas Novedades</h3>
+        <p>Análisis de lanzamientos con enfoque en el mercado español.</p>
+        <div class="card-author">Por Jose Luis Urios</div>
+    </a>
+
+    <a href="/category/electricos" class="card">
+        <div class="card-tag">Movilidad</div>
+        <h3>Vehículos Eléctricos</h3>
+        <p>Modelos de producción y movilidad eléctrica europea.</p>
+        <div class="card-author">Por Ángela Sánchez</div>
+    </a>
+
+    <a href="/category/hyper-cars" class="card">
+        <div class="card-tag">Exclusivo</div>
+        <h3>Hyper Cars</h3>
+        <p>Superdeportivos y modelos que desafían la ingeniería.</p>
+        <div class="card-author">Por Jose Luis Urios</div>
+    </a>
+
+    <a href="/category/coches-clasicos" class="card">
+        <div class="card-tag">Histórico</div>
+        <h3>Coches Clásicos</h3>
+        <p>Vehículos históricos y clásicos populares contrastados.</p>
+        <div class="card-author">Por Salvador Tores (Boro)</div>
+    </a>
+
+    <a href="/category/caravanas" class="card">
+        <div class="card-tag">Caravaning</div>
+        <h3>Caravanas y Campers</h3>
+        <p>Furgonetas y campers bajo una perspectiva pragmática.</p>
+        <div class="card-author">Por Ana María Polit</div>
+    </a>
+
+    <a href="/category/concept-cars" class="card">
+        <div class="card-tag">Prototipos</div>
+        <h3>Concept Cars</h3>
+        <p>Ejercicios de diseño y tecnología de futuro.</p>
+        <div class="card-author">Por Ángela Sánchez</div>
+    </a>
+
+    <a href="/category/mecanica" class="card">
+        <div class="card-tag">Taller</div>
+        <h3>Mecánica y DIY</h3>
+        <p>Averías, llamadas a revisión y guías técnicas.</p>
+        <div class="card-author">Por Alejo Carreño</div>
+    </a>
+
+    <a href="/contacto" class="card">
+        <div class="card-tag">Corporativo</div>
+        <h3>Contacto Editorial</h3>
+        <p>Canal directo para filtraciones, consultas y soporte técnico.</p>
+        <div class="card-author">Equipo Carz24</div>
+    </a>
+
+    <a href="/redes" class="card">
+        <div class="card-tag">Social</div>
+        <h3>Nuestros Canales</h3>
+        <p>Comunidad, contenido exclusivo y seguimiento en redes.</p>
+        <div class="card-author">Social Media Team</div>
+    </a>
+</main>
+
+<footer>
+    <div class="footer-nav">
+        <a href="/category/novedades" class="nav-link">Novedades</a>
+        <a href="/category/electricos" class="nav-link">Eléctricos</a>
+        <a href="/category/hyper-cars" class="nav-link">Hyper Cars</a>
+        <a href="/category/coches-clasicos" class="nav-link">Coches Clásicos</a>
+        <a href="/category/caravanas" class="nav-link">Caravanas</a>
+        <a href="/category/concept-cars" class="nav-link">Concept Cars</a>
+        <a href="/category/mecanica" class="nav-link">Mecánica</a>
+        <a href="/contacto" class="nav-link">Contacto</a>
+        <a href="/redes" class="nav-link">Redes</a>
+    </div>
+    <div class="footer-bottom">
+        CARZ24 · Rigurosidad Técnica y Activos Digitales
+    </div>
+</footer>
+
 <script>
-  // Array de vídeos con títulos limpios para la guía
-  const playlist = [
-    { id: "gjZHyAZYASA", title: "Prueba a fondo: Compactos" },
-    { id: "KfPt8yIssGo", title: "Híbridos vs Eléctricos" },
-    { id: "Y_sBrC5enZA", title: "Análisis: Mercado Usados" },
-    { id: "TBro-1yUOAo", title: "Novedades de la Semana" },
-    { id: "6vd5Tl5Um2Y", title: "Mantenimiento Preventivo" },
-    { id: "5lkgXgJ_-cg", title: "Coche de la Semana" },
-    { id: "Vum5xPuAZ7A", title: "Tecnología de Baterías" },
-    { id: "k5deE6-j4oU", title: "Comparativa SUV Media" },
-    { id: "SBALYBlAszY", title: "Especial carwow: Drag Race" },
-    { id: "bDjr5abCclo", title: "Los más fiables de 2024" },
-    { id: "Md2E4t0bvHo", title: "Prueba Larga Distancia" },
-    { id: "AXxXRNzP_40", title: "Interior y Calidades" },
-    { id: "U1ivmi3_IeI", title: "Futuro del Hidrógeno" },
-    { id: "gMpHpbTtDYI", title: "Etiquetas DGT Explicadas" },
-    { id: "pkN9u2_4_3o", title: "Berlinas de Lujo" },
-    { id: "vg9oPvd8gyA", title: "Clásicos Modernos" },
-    { id: "bq37MW3qElA", title: "Consumo Real en Ciudad" },
-    { id: "8reJMip7G_I", title: "Sistemas de Seguridad" },
-    { id: "yneuurgsD8M", title: "Análisis de Chasis" },
-    { id: "R2fvqYGuCvU", title: "Mejores Utilitarios" },
-    { id: "TVGt8LZQtqo", title: "Off-road Extremo" },
-    { id: "LpcOzaEkIMI", title: "Fin de Trayecto: Resumen" }
-  ];
-
-  let player;
-  let currentVideoIndex = 0;
-
-  // 1. Inicializar la API
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('main-player', {
-      videoId: playlist[0].id,
-      playerVars: {
-        'autoplay': 1,
-        'controls': 1,
-        'rel': 0,
-        'modestbranding': 1,
-        'mute': 1 // Autoplay requiere silencio inicial en muchos navegadores
-      },
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
-
-  function onPlayerReady(event) {
-    renderGuide();
-    // Reloj en vivo
-    setInterval(() => {
-      document.getElementById('live-clock').textContent = new Date().toLocaleTimeString('es-ES');
-    }, 1000);
-  }
-
-  // 2. Gestionar el cambio de videos y fin de reproducción
-  function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.ENDED) {
-      nextVideo();
+    /* Lógica de reproducción dinámica */
+    const allPlaylists = ["PL4lulvjuVTQH83IaeZGtWgVA4zfxYMHJK", "PL4lulvjuVTQGuMfddTEt9D3m_RN9de0so", "PL4lulvjuVTQEkRNYoVCNGjP9GSJaPy0LH", "PL4lulvjuVTQGY5qig7NvcHKxpp8TbfGZQ"];
+    function getUniquePlaylist() {
+        let viewed = JSON.parse(localStorage.getItem('carz24_history') || "[]");
+        let available = allPlaylists.filter(id => !viewed.includes(id));
+        if (available.length === 0) { viewed = []; available = allPlaylists; }
+        const selected = available[Math.floor(Math.random() * available.length)];
+        viewed.push(selected);
+        localStorage.setItem('carz24_history', JSON.stringify(viewed));
+        return selected;
     }
-  }
-
-  function nextVideo() {
-    currentVideoIndex = (currentVideoIndex + 1) % playlist.length;
-    playVideo(currentVideoIndex);
-  }
-
-  // 3. Función clave para elegir capítulos
-  function playVideo(index) {
-    currentVideoIndex = index;
-    const video = playlist[index];
-    
-    // Carga el video directamente por ID (esto es más estable que las listas)
-    player.loadVideoById(video.id);
-    
-    renderGuide(); // Actualizar UI
-  }
-
-  // 4. Renderizar la guía lateral
-  function renderGuide() {
-    const container = document.getElementById('tv-guide');
-    container.innerHTML = '';
-
-    playlist.forEach((item, index) => {
-      const btn = document.createElement('button');
-      btn.className = `guide-item ${index === currentVideoIndex ? 'active' : ''}`;
-      btn.onclick = () => playVideo(index);
-      
-      btn.innerHTML = `
-        <span>BLOQUE ${String(index + 1).padStart(2, '0')}</span>
-        <strong>${item.title}</strong>
-      `;
-      container.appendChild(btn);
-    });
-
-    // Auto-scroll para mantener el video activo visible en la lista
-    const activeBtn = container.querySelector('.active');
-    if (activeBtn) {
-      activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            playerVars: { 'listType': 'playlist', 'list': getUniquePlaylist(), 'autoplay': 1, 'mute': 1, 'loop': 1, 'playsinline': 1 },
+            events: { 'onReady': (e) => { e.target.setShuffle(true); } }
+        });
     }
-  }
 </script>
 
-</body>
-</html>
