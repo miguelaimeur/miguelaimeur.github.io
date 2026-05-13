@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KRAKEN // Industrial Techno Artist</title>
+    
+    <!-- Tipografías: Archivo Black para fuerza y Space Mono para el toque técnico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* PALETA DE COLORES TRANSFORMABLE */
+            --primary: #00ff41; /* Verde Matrix / Techno */
+            --bg: #0a0a0a;
+            --surface: #151515;
+            --text: #ffffff;
+            --accent: #333333;
+            --glitch-speed: 0.2s;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- UTILIDADES --- */
+        .glitch-text:hover {
+            text-shadow: 2px 0 var(--primary), -2px 0 #ff00c1;
+            animation: glitch var(--glitch-speed) infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .hero-title-box {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid var(--primary);
+        }
+
+        .hero-title-box h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 10vw, 12rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            word-break: break-all;
+        }
+
+        .hero-nav {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .nav-link {
+            font-size: 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding: 1rem 0;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            padding-left: 20px;
+            border-color: var(--primary);
+        }
+
+        /* --- BENTO GRID (Proyectos/Stats) --- */
+        .bento-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(300px, auto);
+            gap: 0;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .bento-item {
+            border: 1px solid var(--accent);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: background 0.4s;
+        }
+
+        .bento-item:hover {
+            background: var(--surface);
+        }
+
+        .bento-item.wide { grid-column: span 2; }
+        .bento-item.tall { grid-row: span 2; }
+        .bento-item.highlight { background: var(--primary); color: var(--bg); }
+
+        .bento-item h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* --- PLAYER SECTION --- */
+        .stream-section {
+            padding: 6rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            background: var(--surface);
+        }
+
+        .player-container {
+            background: #000;
+            border: 1px solid var(--primary);
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .contact-trigger {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 6rem);
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* --- MOBILE RE-LAYOUT --- */
+        @media (max-width: 768px) {
+            .hero, .stream-section { grid-template-columns: 1fr; }
+            .hero-title-box { border-right: none; border-bottom: 2px solid var(--primary); padding: 2rem; }
+            .bento-section { grid-template-columns: 1fr; }
+            .bento-item.wide, .bento-item.tall { grid-column: span 1; grid-row: span 1; }
+            footer { flex-direction: column; align-items: flex-start; gap: 2rem; }
+        }
+
+        /* Animaciones de entrada */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-title-box">
+            <p>// ARTIST_FILE: 001</p>
+            <h1 class="glitch-text">KRA<br>KEN</h1>
+            <p style="margin-top: 2rem; color: var(--primary);">[ INDUSTRIAL TECHNO / BERLIN SOUND ]</p>
+        </div>
+        <nav class="hero-nav">
+            <div class="nav-links">
+                <a href="#about" class="nav-link">01_HISTORY</a>
+                <a href="#audio" class="nav-link">02_TRANSMISSION</a>
+                <a href="#live" class="nav-link">03_LIVE_ARCHIVE</a>
+                <a href="#contact" class="nav-link">04_COMMUNICATION</a>
+            </div>
+            <div class="socials">
+                <p>BASE: VALENCIA / BERLIN</p>
+                <div style="display:flex; gap:15px; margin-top:10px;">
+                    <small>SC / IG / YT / TW</small>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- BENTO GRID INFO -->
+    <section class="bento-section" id="about">
+        <div class="bento-item wide reveal">
+            <h3>THE SOUND</h3>
+            <p>Frecuencias brutales, ritmos mecánicos y atmósferas opresivas. KRAKEN no solo pincha, deconstruye la pista de baile mediante síntesis modular en directo.</p>
+        </div>
+        <div class="bento-item highlight reveal">
+            <h3>145</h3>
+            <p>BPM PROMEDIO</p>
+        </div>
+        <div class="bento-item reveal">
+            <h3>LOCATIONS</h3>
+            <p>Tresor, Berghain (Hain), Fabrik, Industrial Copera.</p>
+        </div>
+        <div class="bento-item tall reveal" style="background: url('https://images.unsplash.com/photo-1574433232193-12bc24926118?auto=format&fit=crop&q=80&w=800') center/cover;">
+            <!-- Imagen decorativa con filtro oscuro -->
+            <div style="background: rgba(0,0,0,0.6); height:100%; width:100%; position:absolute; top:0; left:0;"></div>
+        </div>
+        <div class="bento-item wide reveal">
+            <h3>MODULAR LIVE</h3>
+            <p>Uso exclusivo de hardware analógico para asegurar que cada set sea irrepetible. Sin ordenadores, solo electricidad.</p>
+        </div>
+    </section>
+
+    <!-- STREAMING AREA -->
+    <section class="stream-section" id="audio">
+        <div class="reveal">
+            <p class="section-eyebrow">// TRANSMISSION_099</p>
+            <h2 style="font-family:'Archivo Black'; font-size: 3rem; text-transform: uppercase;">LATEST<br>SESSION</h2>
+            <p style="margin-top:1rem;">Grabado en directo desde el búnker. 90 minutos de puro asfalto sonoro.</p>
+        </div>
+        <div class="player-container reveal">
+            <!-- Simulación de Player (puedes meter iframe de SoundCloud/Mixcloud) -->
+            <div style="display:flex; align-items:center; justify-content:center; height:100%; color: var(--primary);">
+                [ CARGANDO_WAVEFORM_AUDIO... ]
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact">
+        <div>
+            <p>// DISPONIBLE PARA BOOKINGS 2026</p>
+            <a href="mailto:booking@kraken-techno.com" class="contact-trigger glitch-text">HIRE_ME</a>
+        </div>
+        <div style="text-align: right;">
+            <p>SYSTEM_v3.0</p>
+            <p>© 2026 KRAKEN_STUDIOS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Observer para animaciones de revelado
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Efecto simple de scroll para el Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-title-box');
+            hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+    </script>
+</body>
+</html>
