@@ -3,268 +3,287 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>KRAKEN // Industrial Techno Artist</title>
+    <title>SANTORINI — Organic & Deep House Artist</title>
     
-    <!-- Tipografías: Archivo Black para fuerza y Space Mono para el toque técnico -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tipografías: Playfair para elegancia y Montserrat para lectura limpia -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* PALETA DE COLORES TRANSFORMABLE */
-            --primary: #00ff41; /* Verde Matrix / Techno */
-            --bg: #0a0a0a;
-            --surface: #151515;
-            --text: #ffffff;
-            --accent: #333333;
-            --glitch-speed: 0.2s;
+            --bg-color: #f9f7f2; /* Crema suave */
+            --text-color: #2d2d2d;
+            --accent-gold: #c5a47e;
+            --soft-white: #ffffff;
+            --transition: 1.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Space Mono', monospace;
-            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- UTILIDADES --- */
-        .glitch-text:hover {
-            text-shadow: 2px 0 var(--primary), -2px 0 #ff00c1;
-            animation: glitch var(--glitch-speed) infinite;
+        /* --- NAVEGACIÓN --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+            color: white;
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.3em;
+            font-weight: 600;
         }
 
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .hero-title-box {
-            padding: 4rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-right: 2px solid var(--primary);
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            position: relative;
         }
 
-        .hero-title-box h1 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(4rem, 10vw, 12rem);
-            line-height: 0.85;
+        .hero-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
-            word-break: break-all;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn var(--transition) forwards;
         }
 
-        .hero-nav {
-            padding: 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 10rem);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn var(--transition) 0.3s forwards;
         }
 
-        .nav-link {
-            font-size: 1.5rem;
-            color: var(--text);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent);
-            padding: 1rem 0;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            padding-left: 20px;
-            border-color: var(--primary);
-        }
-
-        /* --- BENTO GRID (Proyectos/Stats) --- */
-        .bento-section {
+        /* --- SECCIÓN SOBRE MÍ (LAYOUT ASIMÉTRICO) --- */
+        .section {
+            padding: 10rem 10%;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(300px, auto);
-            gap: 0;
-            border-bottom: 2px solid var(--primary);
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
         }
 
-        .bento-item {
-            border: 1px solid var(--accent);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            transition: background 0.4s;
+        .image-wrapper {
+            position: relative;
+            padding: 2rem;
         }
 
-        .bento-item:hover {
-            background: var(--surface);
-        }
-
-        .bento-item.wide { grid-column: span 2; }
-        .bento-item.tall { grid-row: span 2; }
-        .bento-item.highlight { background: var(--primary); color: var(--bg); }
-
-        .bento-item h3 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        /* --- PLAYER SECTION --- */
-        .stream-section {
-            padding: 6rem 4rem;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            background: var(--surface);
-        }
-
-        .player-container {
-            background: #000;
-            border: 1px solid var(--primary);
-            aspect-ratio: 16/9;
+        .image-placeholder {
             width: 100%;
+            aspect-ratio: 4/5;
+            background: #e5e0d8;
+            border-radius: 200px 200px 0 0; /* Arco elegante */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content-box h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .content-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* --- PLAYER / MIXES --- */
+        .audio-curation {
+            background: var(--soft-white);
+            padding: 8rem 10%;
+            text-align: center;
+        }
+
+        .mix-card {
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eee;
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .mix-card:hover {
+            color: var(--accent-gold);
+        }
+
+        .mix-card span { font-size: 0.9rem; letter-spacing: 0.2em; }
+        .mix-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; }
+
+        /* --- BOTÓN ELEGANTE --- */
+        .btn-luxury {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            border-radius: 50px;
+        }
+
+        .btn-luxury:hover {
+            background: var(--accent-gold);
+            color: white;
+            box-shadow: 0 10px 30px rgba(197, 164, 126, 0.2);
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 4rem;
+            padding: 6rem 10%;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-socials {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-trigger {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 6rem);
-            color: var(--primary);
+        .footer-socials a {
             text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
-        /* --- MOBILE RE-LAYOUT --- */
-        @media (max-width: 768px) {
-            .hero, .stream-section { grid-template-columns: 1fr; }
-            .hero-title-box { border-right: none; border-bottom: 2px solid var(--primary); padding: 2rem; }
-            .bento-section { grid-template-columns: 1fr; }
-            .bento-item.wide, .bento-item.tall { grid-column: span 1; grid-row: span 1; }
-            footer { flex-direction: column; align-items: flex-start; gap: 2rem; }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Animaciones de entrada */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
+        /* Responsive */
+        @media (max-width: 900px) {
+            .section { grid-template-columns: 1fr; text-align: center; }
+            nav { padding: 2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- HERO -->
+    <nav>
+        <div class="logo">SANTORINI</div>
+        <div style="font-size: 0.7rem; letter-spacing: 0.2em;">MENU</div>
+    </nav>
+
     <header class="hero">
-        <div class="hero-title-box">
-            <p>// ARTIST_FILE: 001</p>
-            <h1 class="glitch-text">KRA<br>KEN</h1>
-            <p style="margin-top: 2rem; color: var(--primary);">[ INDUSTRIAL TECHNO / BERLIN SOUND ]</p>
-        </div>
-        <nav class="hero-nav">
-            <div class="nav-links">
-                <a href="#about" class="nav-link">01_HISTORY</a>
-                <a href="#audio" class="nav-link">02_TRANSMISSION</a>
-                <a href="#live" class="nav-link">03_LIVE_ARCHIVE</a>
-                <a href="#contact" class="nav-link">04_COMMUNICATION</a>
-            </div>
-            <div class="socials">
-                <p>BASE: VALENCIA / BERLIN</p>
-                <div style="display:flex; gap:15px; margin-top:10px;">
-                    <small>SC / IG / YT / TW</small>
-                </div>
-            </div>
-        </nav>
+        <span class="hero-label">The Art of Sunset Sound</span>
+        <h1 class="hero-title">Elevate your<br><em>Senses</em></h1>
+        <a href="#listen" class="btn-luxury" style="margin-top: 2rem;">Explore the Sound</a>
     </header>
 
-    <!-- BENTO GRID INFO -->
-    <section class="bento-section" id="about">
-        <div class="bento-item wide reveal">
-            <h3>THE SOUND</h3>
-            <p>Frecuencias brutales, ritmos mecánicos y atmósferas opresivas. KRAKEN no solo pincha, deconstruye la pista de baile mediante síntesis modular en directo.</p>
-        </div>
-        <div class="bento-item highlight reveal">
-            <h3>145</h3>
-            <p>BPM PROMEDIO</p>
-        </div>
-        <div class="bento-item reveal">
-            <h3>LOCATIONS</h3>
-            <p>Tresor, Berghain (Hain), Fabrik, Industrial Copera.</p>
-        </div>
-        <div class="bento-item tall reveal" style="background: url('https://images.unsplash.com/photo-1574433232193-12bc24926118?auto=format&fit=crop&q=80&w=800') center/cover;">
-            <!-- Imagen decorativa con filtro oscuro -->
-            <div style="background: rgba(0,0,0,0.6); height:100%; width:100%; position:absolute; top:0; left:0;"></div>
-        </div>
-        <div class="bento-item wide reveal">
-            <h3>MODULAR LIVE</h3>
-            <p>Uso exclusivo de hardware analógico para asegurar que cada set sea irrepetible. Sin ordenadores, solo electricidad.</p>
-        </div>
-    </section>
-
-    <!-- STREAMING AREA -->
-    <section class="stream-section" id="audio">
-        <div class="reveal">
-            <p class="section-eyebrow">// TRANSMISSION_099</p>
-            <h2 style="font-family:'Archivo Black'; font-size: 3rem; text-transform: uppercase;">LATEST<br>SESSION</h2>
-            <p style="margin-top:1rem;">Grabado en directo desde el búnker. 90 minutos de puro asfalto sonoro.</p>
-        </div>
-        <div class="player-container reveal">
-            <!-- Simulación de Player (puedes meter iframe de SoundCloud/Mixcloud) -->
-            <div style="display:flex; align-items:center; justify-content:center; height:100%; color: var(--primary);">
-                [ CARGANDO_WAVEFORM_AUDIO... ]
+    <section class="section" id="about">
+        <div class="image-wrapper">
+            <div class="image-placeholder">
+                <!-- Aquí iría una foto artística en blanco y negro o tonos sepia -->
+                <div style="height:100%; width:100%; display:flex; align-items:center; justify-content:center; color:#999; font-style:italic;">
+                    Organic Portrait
+                </div>
             </div>
         </div>
+        <div class="content-box">
+            <h2>Melodías que respiran.</h2>
+            <p>SANTORINI fusiona instrumentos orgánicos de todo el mundo con el pulso suave del Deep House. Cada set es una curación meticulosa diseñada para espacios exclusivos y momentos de conexión.</p>
+            <a href="mailto:hello@santorini-music.com" class="btn-luxury">Inquiry for Events</a>
+        </div>
     </section>
 
-    <!-- CONTACT / FOOTER -->
-    <footer id="contact">
-        <div>
-            <p>// DISPONIBLE PARA BOOKINGS 2026</p>
-            <a href="mailto:booking@kraken-techno.com" class="contact-trigger glitch-text">HIRE_ME</a>
+    <section class="audio-curation" id="listen">
+        <h3 style="font-family: 'Cormorant Garamond'; font-size: 1rem; letter-spacing: 0.4em; margin-bottom: 4rem; color: var(--accent-gold);">SOUND ARCHIVE</h3>
+        
+        <div class="mix-card">
+            <span>01</span>
+            <h4>Balearic Dreams Vol. IV</h4>
+            <span>62:14</span>
         </div>
-        <div style="text-align: right;">
-            <p>SYSTEM_v3.0</p>
-            <p>© 2026 KRAKEN_STUDIOS</p>
+        <div class="mix-card">
+            <span>02</span>
+            <h4>Desert Rose (Live Modular)</h4>
+            <span>45:00</span>
         </div>
+        <div class="mix-card">
+            <span>03</span>
+            <h4>Midnight at Blue Bay</h4>
+            <span>78:30</span>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <a href="#" class="btn-luxury">Listen on SoundCloud</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Spotify</a>
+            <a href="#">Vogue Music</a>
+        </div>
+        <p style="font-size: 0.7rem; color: #999; letter-spacing: 0.1em;">© 2026 SANTORINI MUSIC GROUP. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <script>
-        // Observer para animaciones de revelado
-        const observerOptions = { threshold: 0.2 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Efecto de scroll suave para revelar elementos
+        const revealElements = document.querySelectorAll('.content-box, .image-placeholder, .mix-card');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
                 }
             });
-        }, observerOptions);
+        };
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Efecto simple de scroll para el Hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-title-box');
-            hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        // Inicializar estilos para el scroll
+        revealElements.forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 1.2s ease-out";
         });
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
     </script>
 </body>
 </html>
